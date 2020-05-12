@@ -1,4 +1,4 @@
-### SpaceShooters-GasynaGawron
+# SpaceShooters-GasynaGawron
 
 
 
@@ -22,7 +22,7 @@ Rywalizacja polega na zdobyciu większej ilości punktów w wyznaczonym czasie l
 
  
 
-Asteroidy: 
+## Asteroidy: 
 
 Pojawiają się w środku planszy i w sposób losowy zmierzają we wszystkich możliwych kierunkach w strony krawędzi - zaznaczonych na rysunku liniami.
 
@@ -46,11 +46,11 @@ ich rozmiar w miarę przebytej drogi zwiększa się, przy końcowym momencie lot
 
  
 
-# Bonus:
+## Bonus:
 
 złapanie “bonusu” graficznie reprezentowanego jako prezent skutkuje dodaniem lepszej broni (laser który może strzelać szybciej lub kilkoma strumieniami jednocześnie) lub dodatkowego życia
 
-# Statek:
+## Statek:
 
 * model graficzny - nie będzie zwykłym prostokątem
 
@@ -62,7 +62,7 @@ złapanie “bonusu” graficznie reprezentowanego jako prezent skutkuje dodanie
 
 
 
-Multiplayer:
+## Multiplayer:
 
 W trybie rzeczywistym gracze widzą wzajemnie swoje statki oraz ich położenie na planszy, na obu ekranach wyświetla się jednocześnie to samo. każdy gracz ma 3 życia, odejmowanie przy zderzeniu z asteroidą. Każdy bonus może być zebrany tylko przez jednego gracza - kto pierwszy ten lepszy.
 
