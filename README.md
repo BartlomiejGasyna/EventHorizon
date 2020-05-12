@@ -46,17 +46,17 @@ ich rozmiar w miarę przebytej drogi zwiększa się, przy końcowym momencie lot
 
  
 
-Bonus:
+# Bonus:
 
 złapanie “bonusu” graficznie reprezentowanego jako prezent skutkuje dodaniem lepszej broni (laser który może strzelać szybciej lub kilkoma strumieniami jednocześnie) lub dodatkowego życia
 
-Statek:
+# Statek:
 
-model graficzny - nie będzie zwykłym prostokątem
+* model graficzny - nie będzie zwykłym prostokątem
 
-poruszanie się po rzędach okręgów strzałki góra/dół
+* poruszanie się po rzędach okręgów strzałki góra/dół
 
-ruchy prawo/lewo na każdym z okręgów ( pełne 360 stopni, całkowita swoboda)
+* ruchy prawo/lewo na każdym z okręgów ( pełne 360 stopni, całkowita swoboda)
 
 
 
@@ -68,4 +68,4 @@ W trybie rzeczywistym gracze widzą wzajemnie swoje statki oraz ich położenie 
 
  
 
-Podczas gry widoczne statki obydwu graczy między którymi istnieje możliwość kolizji jak i zestrzelenie siebie nawzajem w przypadku gdy jeden z graczy znajduje się na okręgu bliższym centrum. 
+> Podczas gry widoczne statki obydwu graczy między którymi istnieje możliwość kolizji jak i zestrzelenie siebie nawzajem w przypadku gdy jeden z graczy znajduje się na okręgu bliższym centrum. 
