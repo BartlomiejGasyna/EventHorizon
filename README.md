@@ -1,6 +1,6 @@
->  SpaceShooters-GasynaGawron
+### SpaceShooters-GasynaGawron
 
-# SPACE CRUISERS
+
 
 Projekt dwuosobowy (Paweł Gawron A5/L9)z obsługą sieci 
 
