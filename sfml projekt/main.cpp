@@ -1,10 +1,7 @@
 
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <iostream>
-#include <cmath>
 
+
+#include "EventHorizon.h"
  
 sf::Time elapsed;
 float velocity_x0 = 0;
@@ -250,3 +247,8 @@ spaceship_sprite.setPosition((window.getSize().x-spaceship.getSize().x)/2,500);
     
     return 0;
 }
+
+
+
+
+
