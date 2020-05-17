@@ -30,7 +30,7 @@ private:
     float angular_velocity;
     int health;
     const sf::Vector2f Origin; //zmieniamy punkt origin na środek sceny, wtedy metoda .rotate(); będzie imitować ruch po okręgu;
-    
+    void spaceship_collision(); //sprawdza, czy nie nastąpiło zderzenie z asteroidą, lub laserem przeciwnkia
     
     
     sf::Texture SpaceshipTexture;
