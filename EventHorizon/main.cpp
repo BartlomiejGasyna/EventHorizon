@@ -71,7 +71,7 @@ int main() {
     float rectangle_velocity_y = 150;
     
     sf::Texture texture_spaceship;
-    if(!texture_spaceship.loadFromFile("Spaceship2.png")) { std::cerr<<"error"; }
+    if(!texture_spaceship.loadFromFile("Resources/Spaceship2.png")) { std::cerr<<"error"; }
     
     
     sf::RectangleShape spaceship(sf::Vector2f(20,20));
@@ -96,7 +96,7 @@ spaceship_sprite.setPosition((window.getSize().x-spaceship.getSize().x)/2,500);
     
     
     sf::Texture texture_background;
-    if(!texture_background.loadFromFile("background base.png")) { std::cerr<<"error";
+    if(!texture_background.loadFromFile("Resources/background base.png")) { std::cerr<<"error";
     }
     
     sf::Sprite background1;
@@ -104,7 +104,7 @@ spaceship_sprite.setPosition((window.getSize().x-spaceship.getSize().x)/2,500);
     background1.setPosition(200,200);
     //background1.setOrigin(500,500);
     sf::Texture texture_background2;
-    if(!texture_background2.loadFromFile("background base2.png")) { std::cerr<<"error";
+    if(!texture_background2.loadFromFile("Resources/background base2.png")) { std::cerr<<"error";
     }
     
     sf::Sprite background2;
@@ -124,7 +124,7 @@ spaceship_sprite.setPosition((window.getSize().x-spaceship.getSize().x)/2,500);
     
     
     sf::SoundBuffer buffer;
-    if(!buffer.loadFromFile("brokenglass.wav"))
+    if(!buffer.loadFromFile("Resources/brokenglass.wav"))
         std::cout << "ERROR" << std::endl;
     sf::Sound sound;
     sound.setBuffer(buffer);
