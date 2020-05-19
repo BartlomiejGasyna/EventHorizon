@@ -55,6 +55,12 @@ złapanie “bonusu” graficznie reprezentowanego jako prezent skutkuje dodanie
 
 * model graficzny - nie będzie zwykłym prostokątem
 
+>Spaceship 1
+![](https://github.com/BartlomiejGasyna/EventHorizon/blob/master/sfml%20projekt/Spaceship1.png)
+
+>Spaceship 2
+
+![](https://github.com/BartlomiejGasyna/EventHorizon/blob/master/sfml%20projekt/Spaceship2.png)
 * poruszanie się po rzędach okręgów strzałki góra/dół
 
 * ruchy prawo/lewo na każdym z okręgów ( pełne 360 stopni, całkowita swoboda)
