@@ -7,7 +7,7 @@ Projekt dwuosobowy (Paweł Gawron A5/L9, Bartłomiej Gasyna A5/L9)z obsługą si
 W tej grze sterujemy statkiem kosmicznym który posiada 3 życia. Plansza gry jest złożona z kilku okręgów po którym poruszają się statki, z których środka wylatują złe asteroidy oraz dobre bonusy. Naszym zadaniem jest uniknięcie zderzenia poprzez zejście z toru asteroidy lub zniszczenie jej za pomocą lasera.
 
  
-![](/Users/bartlomiejgasyna/Documents/GitHub/SpaceShooters-GasynaGawron/grass.png)
+![](grass.png)
 
 Runda kończy się w momencie utracenia ostatniego życia uderzenia w asteroidę , przyznając punkty:
 
