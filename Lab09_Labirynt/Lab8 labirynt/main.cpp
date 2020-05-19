@@ -1,3 +1,10 @@
+//
+//  main.cpp
+//  Lab9 labirynt
+//
+//  Created by Bartłomiej Gasyna on 15/05/2020.
+//  Copyright © 2020 Bartłomiej Gasyna. All rights reserved.
+//
 
 #include "guy.h"
 
@@ -20,9 +27,9 @@ int main() {
     vector<sf::Texture> textures;
     textures.emplace_back(loadTexture("wall.png"));
 
-   // auto shapes = create_shapes(textures);
    
-    
+    //TWORZENIE SCIAN
+    // WALL(TEXTURA, POLOZENIE X, POLOZENIE Y, WYMIARY)
     std::vector<object> walls;
     object wall1(textures[0], 50, 50, sf::IntRect(0,0,30,200));
     object wall2(textures[0], 250, 300, sf::IntRect(0,0,30,200));
@@ -37,10 +44,10 @@ int main() {
     walls.emplace_back(wall5);
     
     
-    // create the window
+    // okno
     sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
 
-    // create some shapes
+    // obiekty
     sf::Texture texture_grass;
     if(!texture_grass.loadFromFile("grass.png")) { return 1; }
     texture_grass.setRepeated(true);
@@ -58,9 +65,9 @@ int main() {
     
     sf::Clock clock;
 
-    // run the program as long as the window is open
+    // główna pętla
     while (window.isOpen()) {
-        // check all the window's events that were triggered since the last iteration of the loop
+        // SPRAWDZANIE EVENTOW
         sf::Event event;
         while (window.pollEvent(event)) {
             // "close requested" event: we close the window
@@ -71,16 +78,21 @@ int main() {
 
         guy.animate(elapsed);
         
+        
+        //KOLIZJE
         for (auto &w : walls)
         {
-        if(guy.getGlobalBounds().intersects(w.getGlobalBounds()))
+       //if(guy.getGlobalBounds().intersects(w.getGlobalBounds())) /
+            if(guy.collision( w)) // SPR. CZY KOLIZJA
         {
-            std::cout<< "kolizja" <<std::endl;
-            guy.bounce(w.getGlobalBounds());
+            //std::cout<< "kolizja" <<std::endl;
+            //kontrola kolizji
+            guy.bounce(w.getGlobalBounds()); //METODA WYKONYWANA W TRAKCIE  KOLIZJI
         }
         else
             ;
             //std::cout<< std::endl;
+            //kontrola kolizji
         }
         
         
@@ -92,15 +104,13 @@ int main() {
         window.draw(guy);
         window.draw(wall1);
         
-//        for(const auto &s : shapes) {
-//            window.draw(*s);
-//        }
-        
         for (auto &w : walls) {
             window.draw(w);
         }
         
-        // end the current frame
+        
+        
+        
 
         window.display();
         //guy.bounce(wall2.getGlobalBounds());

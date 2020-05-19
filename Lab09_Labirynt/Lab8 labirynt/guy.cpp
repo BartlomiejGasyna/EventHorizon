@@ -1,3 +1,10 @@
+//
+//  guy.cpp
+//  Lab9 labirynt
+//
+//  Created by Bartłomiej Gasyna on 15/05/2020.
+//  Copyright © 2020 Bartłomiej Gasyna. All rights reserved.
+//
 #include "guy.h"
 
 void guy::setBounds(int l_bound, int r_bound, int t_bound, int b_bound)
@@ -42,7 +49,7 @@ void guy::bounce(sf::FloatRect borders)
 //        std::cout<<" prawa; " << guy_bounds.left << std::endl;
 //        std::cout<<" <= " << borders.left+borders.width << std:: endl;
          // to służyło do "debugowania" w konsoli
-        velocity_x_ = -velocity_x_;
+        
         setPosition(getPosition().x+1, getPosition().y);
         
     }
@@ -87,3 +94,11 @@ void guy::animate(const sf::Time &elapsed)
         }
     }
 }
+
+
+
+bool guy::collision(const object body ) {
+    return getGlobalBounds().intersects(body.getGlobalBounds());
+    
+}
+

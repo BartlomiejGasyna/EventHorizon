@@ -1,3 +1,10 @@
+//
+//  guy.h
+//  Lab9 labirynt
+//
+//  Created by Bartłomiej Gasyna on 15/05/2020.
+//  Copyright © 2020 Bartłomiej Gasyna. All rights reserved.
+//
 #ifndef GUY_H
 #define GUY_H
 #include <SFML/Window.hpp>
@@ -12,26 +19,9 @@ struct Bounds
     int right = 0;
 };
 
-class guy : public sf::Sprite
-{
-private:
-    float velocity_x_ = 0;
-    float velocity_y_ = 0;
-    float velocity_o_ = 0;
-    
-    
-public:
-    void bounce(sf::FloatRect borders);
-    Bounds bounds;
-    guy(sf::Texture &textures);
-    void animate(const sf::Time &elapsed);
-    void setBounds(int l_bound, int r_bound, int t_bound, int b_bound);
-};
-
 class object : public sf::Sprite
 {
 private:
-    
 public:
     object(sf::Texture &textures, float x, float y, const sf::IntRect &Bounds)
     {
@@ -39,7 +29,21 @@ public:
         setPosition(x,y);
         setTextureRect(Bounds);
     }
-    std::vector<std::unique_ptr<sf::Drawable>> create_shapes(
-                                                             const std::vector<sf::Texture> &textures);
+    
 };
+
+class guy : public sf::Sprite
+{
+private:
+    Bounds bounds;
+public:
+    void bounce(sf::FloatRect borders);
+    
+    guy(sf::Texture &textures);
+    void animate(const sf::Time &elapsed);
+    void setBounds(int l_bound, int r_bound, int t_bound, int b_bound);
+    bool collision(const object body);
+};
+
+
 #endif // GUY_H
