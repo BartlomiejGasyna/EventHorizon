@@ -104,10 +104,8 @@ int main() {
     background1.setTexture(texture_background);
     background1.setTextureRect(sf::IntRect(0,0, window.getSize().x, window.getSize().y));
     background1.setScale(window.getSize().x/texture_background.getSize().x, window.getSize().y/texture_background.getSize().y);
-    background1.setOrigin(500,500);
     background1.setOrigin(background1.getLocalBounds().width/2,background1.getLocalBounds().height/2);
     background1.setPosition(window.getSize().x/2, window.getSize().y/2);
-
 
 
     sf::Texture texture_background2;
@@ -122,13 +120,6 @@ int main() {
     background2.setOrigin(background2.getLocalBounds().width/2,background2.getLocalBounds().height/2);
     background2.setPosition(window.getSize().x/2, window.getSize().y/2);
 
-
-    //background2.setOrigin(500,500);
-    
-    
-
-    
-    
 
     sf::CircleShape obstacle;
     obstacle.setRadius(30);
@@ -160,8 +151,8 @@ int main() {
         elapsed = clock.restart();
         full_time+=elapsed.asSeconds();
         //std::cout << "Elapsed time: " << elapsed.asMicroseconds()<< std::endl;
-        background1.rotate(-0.1);
-        background2.rotate(0.1);
+        background1.rotate(-0.05);
+        background2.rotate(0.05);
         
         
         sf::FloatRect rectangle_bounds = rectangle.getGlobalBounds();
