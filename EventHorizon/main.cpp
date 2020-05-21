@@ -1,6 +1,3 @@
-
-
-
 #include "EventHorizon.h"
 
 sf::Time elapsed;
@@ -234,16 +231,14 @@ int main() {
         // clear the window with black color
         window.clear(sf::Color::Black);
         
-        
 
+        window.draw(background1);
+        window.draw(background2);
         window.draw(rectangle);
-
+        window.draw(obstacle);
         
         //window.draw(spaceship);
         
-        window.draw(obstacle);
-        window.draw(background1);
-        window.draw(background2);
         window.draw(spaceship_sprite);
         
         
