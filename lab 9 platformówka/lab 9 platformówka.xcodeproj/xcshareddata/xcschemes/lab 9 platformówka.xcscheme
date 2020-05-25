@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4C039A24247407AC00AACD3F"
-               BuildableName = "EventHorizon.app"
-               BlueprintName = "EventHorizon"
-               ReferencedContainer = "container:EventHorizon.xcodeproj">
+               BlueprintIdentifier = "4C7B7CAD247BDF1400BA86C2"
+               BuildableName = "lab 9 platformo&#x301;wka.app"
+               BlueprintName = "lab 9 platformo&#x301;wka"
+               ReferencedContainer = "container:lab 9 platformo&#x301;wka.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,7 +36,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "YES"
-      customWorkingDirectory = "/Users/bartlomiejgasyna/Documents/GitHub/SpaceShooters-GasynaGawron/EventHorizon/Resources"
+      customWorkingDirectory = "/Users/bartlomiejgasyna/Documents/GitHub/SpaceShooters-GasynaGawron/lab 9 platformo&#x301;wka/lab 9 platformo&#x301;wka"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
@@ -45,10 +45,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4C039A24247407AC00AACD3F"
-            BuildableName = "EventHorizon.app"
-            BlueprintName = "EventHorizon"
-            ReferencedContainer = "container:EventHorizon.xcodeproj">
+            BlueprintIdentifier = "4C7B7CAD247BDF1400BA86C2"
+            BuildableName = "lab 9 platformo&#x301;wka.app"
+            BlueprintName = "lab 9 platformo&#x301;wka"
+            ReferencedContainer = "container:lab 9 platformo&#x301;wka.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,10 +62,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4C039A24247407AC00AACD3F"
-            BuildableName = "EventHorizon.app"
-            BlueprintName = "EventHorizon"
-            ReferencedContainer = "container:EventHorizon.xcodeproj">
+            BlueprintIdentifier = "4C7B7CAD247BDF1400BA86C2"
+            BuildableName = "lab 9 platformo&#x301;wka.app"
+            BlueprintName = "lab 9 platformo&#x301;wka"
+            ReferencedContainer = "container:lab 9 platformo&#x301;wka.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

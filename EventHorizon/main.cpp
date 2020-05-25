@@ -225,7 +225,7 @@ int main() {
         if (spaceship.getGlobalBounds().intersects(obstacle.getGlobalBounds()))
         {
             std::cout<<"Kolizja"<<std::endl;
-            sound.play();
+            //sound.play();
         }
         
         
