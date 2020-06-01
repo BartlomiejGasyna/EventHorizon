@@ -22,6 +22,8 @@ hero::hero(sf::Texture &textures)
 void hero::animate(const sf::Time &elapsed)
 {
     
+    
+    //lewo
     sf::FloatRect hero_bounds = getGlobalBounds();
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
@@ -30,6 +32,9 @@ void hero::animate(const sf::Time &elapsed)
             move(-400*elapsed.asSeconds(), 0);
         }
     }
+    
+    
+    //prawo
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
         if(hero_bounds.left+hero_bounds.width < edge.right)
@@ -37,6 +42,11 @@ void hero::animate(const sf::Time &elapsed)
             move(400*elapsed.asSeconds(), 0);
         }
     }
+    
+    
+    
+    
+    //skok
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) &&
        onGround)
     {
@@ -56,6 +66,9 @@ void hero::animate(const sf::Time &elapsed)
 //    }
    
 }
+
+
+
 
 void hero::setBounds(int l_bound, int r_bound, int t_bound, int b_bound)
 {
