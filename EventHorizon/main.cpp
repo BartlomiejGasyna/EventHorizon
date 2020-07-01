@@ -1,6 +1,7 @@
 #include "EventHorizon.h"
 #include "abstract.h"
 #include "spaceship.h"
+#include "asteroid1.h"
 
 float velocity_x0 = 0;
 float velocity_x1 = 70;
@@ -70,6 +71,17 @@ int main() {
     
     sf::Texture texture_spaceship;
     if(!texture_spaceship.loadFromFile("Spaceship2.png")) { std::cout<<"error"; }
+
+    sf::Texture texture_asteroid;
+    if(!texture_asteroid.loadFromFile("owoc.png")) { std::cout<<"error"; }
+
+    std::vector<Abstract*> ASTEROIDY;
+
+    for (int i = 0; i < 5; i++)
+    {
+        ASTEROIDY.push_back(new Asteroid1(0, 0,&texture_asteroid, rand() % 100-200, rand() % 100-200));
+        ASTEROIDY[i]->setPosition(window.getSize().x/2, window.getSize().y/2);
+    }
     
     Spaceship space(10, -350, &texture_spaceship, 0, 0, window);
 
@@ -232,6 +244,8 @@ int main() {
         //DRAW
         // clear the window with black color
         window.clear(sf::Color::Black);
+
+
         
 
         window.draw(background1);
@@ -240,6 +254,12 @@ int main() {
         window.draw(obstacle);
         space.render(window);
         space.animuj(elapsed);
+
+        for (unsigned int i = 0; i < ASTEROIDY.size(); i++)
+        {
+            ASTEROIDY[i]->render(window);
+            ASTEROIDY[i]->animuj(elapsed);
+        }
         
         //window.draw(spaceship);
         
