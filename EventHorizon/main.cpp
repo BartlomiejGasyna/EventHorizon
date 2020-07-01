@@ -1,6 +1,7 @@
 #include "EventHorizon.h"
+#include "abstract.h"
+#include "spaceship.h"
 
-sf::Time elapsed;
 float velocity_x0 = 0;
 float velocity_x1 = 70;
 float velocity_x2 = 90;
@@ -8,7 +9,7 @@ float velocity_x2 = 90;
 float velocity_y1 = 70;
 float velocity_y2 = 90;
 float velocity_y0 = 0;
-sf::RenderWindow window(sf::VideoMode(1000, 1000), "My window");
+
 
 //void flight (sf::CircleShape obs)
 //{
@@ -58,7 +59,7 @@ sf::RenderWindow window(sf::VideoMode(1000, 1000), "My window");
 
 int main() {
     // create the window
-
+    sf::RenderWindow window(sf::VideoMode(1000, 1000), "My window");
     
     // create some shape
 
@@ -70,22 +71,23 @@ int main() {
     sf::Texture texture_spaceship;
     if(!texture_spaceship.loadFromFile("Spaceship2.png")) { std::cout<<"error"; }
     
-    
-    sf::RectangleShape spaceship(sf::Vector2f(20,20));
-    spaceship.setPosition((window.getSize().x-spaceship.getSize().x)/2,500);
-    spaceship.setFillColor(sf::Color::White);
-    spaceship.setOrigin(10, -350);
+    Spaceship space(10, -350, &texture_spaceship, 0, 0, window);
+
+    //    sf::RectangleShape spaceship(sf::Vector2f(20,20));
+    //    spaceship.setPosition((window.getSize().x-spaceship.getSize().x)/2,500);
+    //    spaceship.setFillColor(sf::Color::White);
+    //    spaceship.setOrigin(10, -350);
     float spaceship_angular_velocity = 50;
 
-    sf::Sprite spaceship_sprite;
-    //AnimatedSprite spaceship_sprite;
+//    sf::Sprite spaceship_sprite;
+//    AnimatedSprite spaceship_sprite;
 
-    spaceship_sprite.setTexture(texture_spaceship);
-    spaceship_sprite.setTextureRect(sf::IntRect(0,0,70,72));
+//    spaceship_sprite.setTexture(texture_spaceship);
+//    spaceship_sprite.setTextureRect(sf::IntRect(0,0,70,72));
     
-    spaceship_sprite.setPosition((window.getSize().x-spaceship.getSize().x)/2,500);
-    spaceship_sprite.setOrigin(10, -350);
-    spaceship_sprite.setScale(1.2,1.2);
+    //    spaceship_sprite.setPosition((window.getSize().x-spaceship.getSize().x)/2,500);
+    //    spaceship_sprite.setOrigin(10, -350);
+    //    spaceship_sprite.setScale(1.2,1.2);
     
     //ANIMACJA RUCHU
     //    spaceship_sprite.add_animation_frame(sf::IntRect(0, 0, 70, 72));
@@ -145,7 +147,7 @@ int main() {
                 window.close();
         }
         //LOGIC
-        elapsed = clock.restart();
+        sf::Time elapsed = clock.restart();
         full_time+=elapsed.asSeconds();
         //std::cout << "Elapsed time: " << elapsed.asMicroseconds()<< std::endl;
         background1.rotate(-0.05);
@@ -153,45 +155,45 @@ int main() {
         
         
         sf::FloatRect rectangle_bounds = rectangle.getGlobalBounds();
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-            spaceship_sprite.rotate(5);
-            spaceship.rotate(5);
+        //        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+        //            spaceship_sprite.rotate(5);
+        //            spaceship.rotate(5);
 
-        }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-            spaceship_sprite.rotate(-5);
-            spaceship.rotate(-5);
+        //        }
+        //        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+        //            spaceship_sprite.rotate(-5);
+        //            spaceship.rotate(-5);
 
-        }
+        //        }
         
-        float radians = 3.1415926536 / 180 *spaceship_sprite.getRotation();
+//        float radians = 3.1415926536 / 180 *spaceship_sprite.getRotation();
         
-        std::cout<<"radians: " << radians << std::endl;
-        std::cout<<"rotation: " << spaceship_sprite.getRotation()<<std::endl;
+//        std::cout<<"radians: " << radians << std::endl;
+//        std::cout<<"rotation: " << spaceship_sprite.getRotation()<<std::endl;
         //         std::cout<<"sin: " << sin(radians)<<std::endl;
         //        std::cout<<"cos: " << cos(radians)<<std::endl;
         //
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-            //convert the angle of the object to radians
+//        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+//            //convert the angle of the object to radians
             
-            //x and y
-            float x = 1*sin(radians);
-            float y = -1*cos(radians);
+//            //x and y
+//            float x = 1*sin(radians);
+//            float y = -1*cos(radians);
             
-            //rotate accordingly
-            spaceship_sprite.move(x, y);
-            //            if (90<=spaceship_sprite.getRotation() || spaceship_sprite.getRotation()<=270) {
-            //                spaceship_sprite.setOrigin(spaceship_sprite.getOrigin().x-x, spaceship_sprite.getOrigin().y+y);
-            //            }
-            //            else
-            //            {
-            spaceship_sprite.setOrigin(spaceship_sprite.getOrigin().x+x, spaceship_sprite.getOrigin().y-y);
-            //            }
+//            //rotate accordingly
+//            spaceship_sprite.move(x, y);
+//            //            if (90<=spaceship_sprite.getRotation() || spaceship_sprite.getRotation()<=270) {
+//            //                spaceship_sprite.setOrigin(spaceship_sprite.getOrigin().x-x, spaceship_sprite.getOrigin().y+y);
+//            //            }
+//            //            else
+//            //            {
+//            spaceship_sprite.setOrigin(spaceship_sprite.getOrigin().x+x, spaceship_sprite.getOrigin().y-y);
+//            //            }
             
             
-        }
-        std::cout<<"origin x:" << spaceship_sprite.getOrigin().x<<std::endl;
-        std::cout<<"origin y:" << spaceship_sprite.getOrigin().y<<std::endl;
+//        }
+//        std::cout<<"origin x:" << spaceship_sprite.getOrigin().x<<std::endl;
+//        std::cout<<"origin y:" << spaceship_sprite.getOrigin().y<<std::endl;
         //std::cout << rectangle_bounds.top << " " << rectangle_bounds.left << " " ;
         //std::cout << rectangle_bounds.width << " " << rectangle_bounds.height << std::endl;
         
@@ -210,11 +212,11 @@ int main() {
         
         obstacle.move(velocity_x0*elapsed.asSeconds(), velocity_y2*elapsed.asSeconds());
         
-        if (spaceship.getGlobalBounds().intersects(obstacle.getGlobalBounds()))
-        {
-            std::cout<<"Kolizja"<<std::endl;
-            //sound.play();
-        }
+        //        if (spaceship.getGlobalBounds().intersects(obstacle.getGlobalBounds()))
+        //        {
+        //            std::cout<<"Kolizja"<<std::endl;
+        //            //sound.play();
+        //        }
         
         
         std::vector<sf::CircleShape> asteroids;
@@ -236,10 +238,12 @@ int main() {
         window.draw(background2);
         window.draw(rectangle);
         window.draw(obstacle);
+        space.render(window);
+        space.animuj(elapsed);
         
         //window.draw(spaceship);
         
-        window.draw(spaceship_sprite);
+        //window.draw(spaceship_sprite);
         
         
         window.display();

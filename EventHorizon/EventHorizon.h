@@ -22,26 +22,26 @@ struct Bounds
     int right = 0;
 };
 
-class Spaceship
-{
-private:
-    float velocity_x;
-    float velocity_y;
-    float angular_velocity;
-    int health;
-    const sf::Vector2f Origin; //zmieniamy punkt origin na środek sceny, wtedy metoda .rotate(); będzie imitować ruch po okręgu;
-    void spaceship_collision(); //sprawdza, czy nie nastąpiło zderzenie z asteroidą, lub laserem przeciwnkia
+//class Spaceship
+//{
+//private:
+//    float velocity_x;
+//    float velocity_y;
+//    float angular_velocity;
+//    int health;
+//    const sf::Vector2f Origin; //zmieniamy punkt origin na środek sceny, wtedy metoda .rotate(); będzie imitować ruch po okręgu;
+//    void spaceship_collision(); //sprawdza, czy nie nastąpiło zderzenie z asteroidą, lub laserem przeciwnkia
     
     
-    sf::Texture SpaceshipTexture;
-public:
+//    sf::Texture SpaceshipTexture;
+//public:
     
-    Spaceship();
-    ~Spaceship();
-    void turn(); // umożliwia ruch statku wokół centrum sceny
-    void flight(); //umożliwia ruch statku w kierunku od i do centrum (zmiana odległości do centrum)
+//    Spaceship();
+//    ~Spaceship();
+//    void turn(); // umożliwia ruch statku wokół centrum sceny
+//    void flight(); //umożliwia ruch statku w kierunku od i do centrum (zmiana odległości do centrum)
     
-};
+//};
 
 class Laser
 {
