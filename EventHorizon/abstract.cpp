@@ -28,7 +28,11 @@ void Abstract::out_of_screen(sf::Vector2u size)
 {
 
 }
-bool Abstract::collision(sf::FloatRect const object)
+bool Abstract::collision(sf::FloatRect object)
+{
+    
+}
+void Abstract::to_center(sf::Vector2u size)
 {
     
 }

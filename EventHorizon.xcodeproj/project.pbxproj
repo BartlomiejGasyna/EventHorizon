@@ -66,9 +66,9 @@
 			isa = PBXGroup;
 			children = (
 				4C039A3E247408BC00AACD3F /* main.cpp */,
+				4CAFA3BE24AE3B26005ADD33 /* spaceship.cpp */,
 				4C039A3D247408BC00AACD3F /* EventHorizon.cpp */,
 				4C039A3F247408BC00AACD3F /* EventHorizon.h */,
-				4CAFA3BE24AE3B26005ADD33 /* spaceship.cpp */,
 				4CAFA3C124AE3B26005ADD33 /* spaceship.h */,
 				4CAFA3C224AE3B26005ADD33 /* abstract.cpp */,
 				4CAFA3C324AE3B26005ADD33 /* abstract.h */,

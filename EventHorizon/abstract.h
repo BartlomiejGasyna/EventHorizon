@@ -19,8 +19,9 @@ public:
     virtual void move(const float x, const float y);
     virtual void out_of_screen(sf::Vector2u size);
     // Wykrywa wyjście asteroidy poza ekran
-    virtual bool collision(sf::FloatRect const object);
+    virtual bool collision(sf::FloatRect object);
     // kolizje z graczami
+    virtual void to_center(sf::Vector2u size);
 };
 
 #endif // ABSTRACT_H

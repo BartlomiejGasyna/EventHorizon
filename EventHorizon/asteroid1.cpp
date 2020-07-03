@@ -1,12 +1,12 @@
 #include "asteroid1.h"
 #include <iostream>
 
-Asteroid1::Asteroid1(float x, float y, sf::Texture *texture, int velocity_x, int velocity_y)
+Asteroid1::Asteroid1(float x, float y, sf::Texture *texture)
 {
     this->setTexture(*texture);
-    this->setPosition(x, y);
-    this->velocity_y_ = velocity_y;
-    this->velocity_x_ = velocity_x;
+//    this->setPosition(x, y);
+//    this->velocity_y_ = velocity_y;
+//    this->velocity_x_ = velocity_x;
 }
 
 void Asteroid1::render(sf::RenderTarget &target)
@@ -32,10 +32,26 @@ void Asteroid1::out_of_screen(sf::Vector2u size)
     }
 }
 
-bool Asteroid1::collision(sf::FloatRect const object) {
-    if (Sprite.getGlobalBounds().intersects(object)) {
+bool Asteroid1::collision(sf::FloatRect object) {
+    
+    std::cout<<object.width<<std::endl;
+//    object.left+=500;
+//    object.top+=500;
+    sf::FloatRect temp(object.left, object.top, 72,70);
+    
+    
+    std::cout<<"statek - x: "<<object.left<<"  y: "<<object.left+object.width<<std::endl;
+    huj wie czy to dobrze bo wykurwia true caly czas, nie wiem czy to przez sprite przypadkiem, w razie
+    if (Sprite.getGlobalBounds().intersects(object))
+    //if (Sprite.getGlobalBounds().intersects(object))
+    {
         return true;
     };
 }
-
+void Asteroid1::to_center(sf::Vector2u size)
+{
+    this->setPosition(size.x/2, size.y/2);
+    this->velocity_x_ = (rand() % 20-10)*10;
+    this->velocity_y_ = (rand() % 20-10)*10;
+}
 

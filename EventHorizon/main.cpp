@@ -38,8 +38,8 @@ int main() {
 
     for (int i = 0; i < 25; i++)
     {
-        ASTEROIDY.push_back(new Asteroid1(0, 0, &texture_asteroid, rand() % 200-100, rand() % 200-100));
-        ASTEROIDY[i]->setPosition(window.getSize().x/2, window.getSize().y/2);
+        ASTEROIDY.push_back(new Asteroid1(0, 0, &texture_asteroid));
+        ASTEROIDY[i]->to_center(window.getSize());
     }
     
     float spaceship_angular_velocity = 50;
@@ -103,10 +103,15 @@ int main() {
         //TA PĘTLA OBSŁUGUJE KOLIZJE
         for (int i = 0; i != ASTEROIDY.size(); i++)
         {
+            std::cout<<"no collision"<<std::endl;
             if(ASTEROIDY[i]->collision(space.getGlobalBounds()))
             {
-                
-                te dwie linijki powinny działać a jest error pamieci
+                std::cout<<"collision"<<std::endl;
+                tutaj wlasnie nie mam mozliwosci sprawdzenia czy kod ponizej dziala dobrze bo ciągle wypierdala true w tym warunku
+//                ASTEROIDY[i]->setPosition(0, 0);
+                //jak zadizala to to trzeba wlaczyc
+//                ASTEROIDY[i]->to_center(window.getSize());
+                //te dwie linijki powinny działać a jest error pamieci
                 
 //                delete *(ASTEROIDY.begin()+i);
 //                ASTEROIDY.erase(ASTEROIDY.begin()+1);
