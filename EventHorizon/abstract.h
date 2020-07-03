@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/System.hpp>
-
+#include <iostream>
 class Abstract : public sf::Sprite
 {
 public:
@@ -17,6 +17,7 @@ public:
     virtual void render(sf::RenderTarget& target) = 0;
     virtual void animuj(const sf::Time &elapsed) = 0;
     virtual void move(const float x, const float y);
+    void out_of_screen();
 };
 
 #endif // ABSTRACT_H

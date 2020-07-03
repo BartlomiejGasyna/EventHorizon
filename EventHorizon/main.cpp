@@ -33,13 +33,6 @@ int main() {
     std::cout<<space.getOrigin().x<<"  "<<space.getOrigin().y<<std::endl;
     std::cout<<space.getPosition().x<<"  "<<space.getPosition().y<<std::endl;
     
-    //tu stworzyłem tymczasowy statek zeby pokombinować ze zmiana origin
-    sf::Sprite statek_temp;
-    statek_temp.setTextureRect(sf::IntRect(0,0,70,72));
-    
-//    statek_temp.setOrigin(100, 100);
-    statek_temp.setPosition(200, 200);
-    statek_temp.setTexture(texture_spaceship);
     
     
     sf::Texture texture_asteroid;
@@ -47,9 +40,9 @@ int main() {
 
     std::vector<Abstract*> ASTEROIDY;
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 20; i++)
     {
-        ASTEROIDY.push_back(new Asteroid1(0, 0, &texture_asteroid, rand() % 100-200, rand() % 100-200));
+        ASTEROIDY.push_back(new Asteroid1(0, 0, &texture_asteroid, rand() % 200-100, rand() % 200-100));
         ASTEROIDY[i]->setPosition(window.getSize().x/2, window.getSize().y/2);
     }
     
@@ -104,14 +97,18 @@ int main() {
         // clear the window with black color
         window.clear(sf::Color::Black);
 
-
+        for(auto &it : ASTEROIDY)
+        {
+            std::cout<<it->getPosition().x<<std::endl;
+            it->out_of_screen();
+        }
+            
         
 
         window.draw(background1);
         window.draw(background2);
-        window.draw(statek_temp);
         
-        
+        window.draw(space);
         for(auto &it : asteroids)
         {
             window.draw(it);
@@ -123,7 +120,7 @@ int main() {
             ASTEROIDY[i]->animuj(elapsed);
         }
         
-        window.draw(space);
+        
         space.animuj(elapsed);
         
         //window.draw(spaceship_sprite);

@@ -1,4 +1,5 @@
 #include "asteroid1.h"
+#include <iostream>
 
 Asteroid1::Asteroid1(float x, float y, sf::Texture *texture, int velocity_x, int velocity_y)
 {
@@ -15,5 +16,6 @@ void Asteroid1::render(sf::RenderTarget &target)
 
 void Asteroid1::animuj(const sf::Time &elapsed)
 {
-    this->move(velocity_x_*elapsed.asSeconds(), velocity_y_*elapsed.asSeconds());
+    this->move(velocity_x_*elapsed.asSeconds()*3, velocity_y_*elapsed.asSeconds()*3);
 }
+

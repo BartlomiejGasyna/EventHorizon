@@ -24,3 +24,9 @@ void Abstract::move(const float x, const float y)
 {
     this->Sprite.move({ x, y });
 }
+void Abstract::out_of_screen()
+{
+    if (getGlobalBounds().left<0) {
+        std::cout<<"wykurwiło się"<<std::endl;
+    }
+}
