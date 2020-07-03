@@ -109,11 +109,17 @@ public:
  Poprzez nałożenie kilku warstw na siebie oraz odpowiednie ich rozmieszczenie i obrót na planszy gry
  chcemy uzyskać efekt mieniącego się nieba, poruszających się w różnych kierunkach gwiazd i planet
  */
-class Background
+//class Background
+//{
+//public:
+//    Background(); // domyślnie wyświetli czarne tło
+//    Background(sf::Texture texture, sf::Vector2f background_position, float bg_angular_speed);
+//};
+class Background :public sf::Sprite
 {
+private:
 public:
-    Background(); // domyślnie wyświetli czarne tło
-    Background(sf::Texture texture, sf::Vector2f background_position, float bg_angular_speed);
+    Background(sf::Texture &texture, float x, float y, sf::RenderWindow &window);
 };
 class Game_Representation
 {
