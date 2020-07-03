@@ -97,6 +97,7 @@ int main() {
         for(auto &it : ASTEROIDY)
         {
             it->out_of_screen(window.getSize());
+            // tutaj próbowałem to samo co niżej ale na iteratorze i tez pamieć wyjebało
         }
         
         //TA PĘTLA OBSŁUGUJE KOLIZJE
