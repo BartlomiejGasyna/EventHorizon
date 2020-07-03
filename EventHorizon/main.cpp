@@ -36,7 +36,7 @@ int main() {
 
     std::vector<Abstract*> ASTEROIDY;
 
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < 25; i++)
     {
         ASTEROIDY.push_back(new Asteroid1(0, 0, &texture_asteroid, rand() % 200-100, rand() % 200-100));
         ASTEROIDY[i]->setPosition(window.getSize().x/2, window.getSize().y/2);
@@ -95,8 +95,7 @@ int main() {
 
         for(auto &it : ASTEROIDY)
         {
-            std::cout<<it->getPosition().x<<std::endl;
-            it->out_of_screen();
+            it->out_of_screen(window.getSize());
         }
             
         
@@ -115,7 +114,7 @@ int main() {
             ASTEROIDY[i]->render(window);
             ASTEROIDY[i]->animuj(elapsed);
         }
-        
+
         
         space.animuj(elapsed);
         

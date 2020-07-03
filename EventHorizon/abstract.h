@@ -17,7 +17,7 @@ public:
     virtual void render(sf::RenderTarget& target) = 0;
     virtual void animuj(const sf::Time &elapsed) = 0;
     virtual void move(const float x, const float y);
-    void out_of_screen();
+    bool out_of_screen(sf::Vector2u size);
 };
 
 #endif // ABSTRACT_H

@@ -24,9 +24,12 @@ void Abstract::move(const float x, const float y)
 {
     this->Sprite.move({ x, y });
 }
-void Abstract::out_of_screen()
+bool Abstract::out_of_screen(sf::Vector2u size)
 {
-    if (getGlobalBounds().left<0) {
-        std::cout<<"wykurwiło się"<<std::endl;
+    if (Sprite.getPosition().x < 0 || Sprite.getPosition().x > size.x ||
+        Sprite.getPosition().y < 0 || Sprite.getPosition().y > size.y)
+    {
+        Sprite.setPosition(size.x/2,size.y/2);
+        return true;
     }
 }
