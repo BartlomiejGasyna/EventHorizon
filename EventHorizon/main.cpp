@@ -25,10 +25,13 @@ int main() {
     if(!texture_spaceship.loadFromFile("Spaceship2.png")) { std::cout<<"error"; }
     
     //tutaj jest nowej klasy spaceship_new
-     Spaceship_new space( (window.getSize().x-72)/2,window.getSize().y-100, texture_spaceship, 0,0);
+     Spaceship_new space(0, 0, texture_spaceship, 0,0);
     //origin zmienia pozycje obiektu o minusowe wartosci
-    space.setOrigin(-100, -100);
+    //space.setOrigin(-texture_spaceship.getSize().x/12, -500+texture_spaceship.getSize().y);
+    //space.setPosition(500, -500);
+
     std::cout<<space.getOrigin().x<<"  "<<space.getOrigin().y<<std::endl;
+    std::cout<<space.getPosition().x<<"  "<<space.getPosition().y<<std::endl;
     
     //tu stworzyłem tymczasowy statek zeby pokombinować ze zmiana origin
     sf::Sprite statek_temp;
@@ -121,6 +124,7 @@ int main() {
         }
         
         window.draw(space);
+        space.animuj(elapsed);
         
         //window.draw(spaceship_sprite);
         
@@ -130,8 +134,3 @@ int main() {
     
     return 0;
 }
-
-
-
-
-
