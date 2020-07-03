@@ -92,13 +92,25 @@ int main() {
         //DRAW
         // clear the window with black color
         window.clear(sf::Color::Black);
-
+        
+        //TA PĘTLA OBSŁUGUJE ASTEROIDY KTÓRE WYPADŁY ZE SCENY
         for(auto &it : ASTEROIDY)
         {
             it->out_of_screen(window.getSize());
         }
-            
         
+        //TA PĘTLA OBSŁUGUJE KOLIZJE
+        for (int i = 0; i != ASTEROIDY.size(); i++)
+        {
+            if(ASTEROIDY[i]->collision(space.getGlobalBounds()))
+            {
+                
+                te dwie linijki powinny działać a jest error pamieci
+                
+//                delete *(ASTEROIDY.begin()+i);
+//                ASTEROIDY.erase(ASTEROIDY.begin()+1);
+            }
+        }
 
         window.draw(background1);
         window.draw(background2);

@@ -72,11 +72,11 @@
 				4CAFA3C124AE3B26005ADD33 /* spaceship.h */,
 				4CAFA3C224AE3B26005ADD33 /* abstract.cpp */,
 				4CAFA3C324AE3B26005ADD33 /* abstract.h */,
-				4CAFA3CA24AF386F005ADD33 /* spaceship_new.cpp */,
-				4CAFA3CB24AF386F005ADD33 /* spaceship_new.hpp */,
 				4CAFA3C024AE3B26005ADD33 /* asteroid1.cpp */,
 				4CAFA3BF24AE3B26005ADD33 /* asteroid1.h */,
+				4CAFA3CA24AF386F005ADD33 /* spaceship_new.cpp */,
 				4C039A4624740A8700AACD3F /* README.md */,
+				4CAFA3CB24AF386F005ADD33 /* spaceship_new.hpp */,
 				4C039A44247409FD00AACD3F /* Resources */,
 				4C039A28247407AC00AACD3F /* Supporting Files */,
 			);

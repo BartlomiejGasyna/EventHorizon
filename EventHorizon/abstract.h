@@ -17,7 +17,10 @@ public:
     virtual void render(sf::RenderTarget& target) = 0;
     virtual void animuj(const sf::Time &elapsed) = 0;
     virtual void move(const float x, const float y);
-    bool out_of_screen(sf::Vector2u size);
+    virtual void out_of_screen(sf::Vector2u size);
+    // Wykrywa wyjście asteroidy poza ekran
+    virtual bool collision(sf::FloatRect const object);
+    // kolizje z graczami
 };
 
 #endif // ABSTRACT_H
