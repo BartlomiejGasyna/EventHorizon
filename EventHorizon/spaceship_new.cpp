@@ -7,19 +7,17 @@
 //
 
 #include "spaceship_new.hpp"
-Spaceship_new::Spaceship_new(float x, float y,  sf::Texture &texture, int velocity_x, int velocity_y)
+Spaceship_new::Spaceship_new(float x, float y,  sf::Texture &texture, int velocity_x, int velocity_y, sf::RenderTarget &target)
 {
     //    alpha = 10;
     //    r = 10;
-    
-    //setPosition(x, y);
-    setTexture(texture);
 
-int size = texture.getSize().y;
-    //setScale(1.2, 1.2);
-    setOrigin((texture.getSize().x)/12, size-500);
-    setPosition(500, 500);
-    //    setOrigin(31,-435);
+    setTexture(texture);
+    int size = texture.getSize().y;
+    int window_size = target.getSize().y/2;
+
+    setOrigin((texture.getSize().x)/12, size-window_size);
+    setPosition(target.getSize().x/2, target.getSize().y/2);
     setTextureRect(sf::IntRect(0,0,70,72));
     
     

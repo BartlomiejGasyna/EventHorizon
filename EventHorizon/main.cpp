@@ -25,15 +25,11 @@ int main() {
     if(!texture_spaceship.loadFromFile("Spaceship2.png")) { std::cout<<"error"; }
     
     //tutaj jest nowej klasy spaceship_new
-     Spaceship_new space(0, 0, texture_spaceship, 0,0);
-    //origin zmienia pozycje obiektu o minusowe wartosci
-    //space.setOrigin(-texture_spaceship.getSize().x/12, -500+texture_spaceship.getSize().y);
-    //space.setPosition(500, -500);
+     Spaceship_new space(0, 0, texture_spaceship, 0,0, window);
 
     std::cout<<space.getOrigin().x<<"  "<<space.getOrigin().y<<std::endl;
     std::cout<<space.getPosition().x<<"  "<<space.getPosition().y<<std::endl;
-    
-    
+
     
     sf::Texture texture_asteroid;
     if(!texture_asteroid.loadFromFile("owoc.png")) { std::cout<<"error"; }
