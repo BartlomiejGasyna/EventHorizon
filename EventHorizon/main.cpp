@@ -74,10 +74,16 @@ int main() {
         sf::Time elapsed = clock.restart();
         full_time+=elapsed.asSeconds();
         //std::cout << "Elapsed time: " << elapsed.asMicroseconds()<< std::endl;
+
+        window.clear(sf::Color::Black);
+
         background1.rotate(-0.05);
         background2.rotate(0.05);
+        window.draw(background1);
+        window.draw(background2);
     
-        
+        window.draw(space);
+        space.animuj(elapsed, full_time);
         
         std::vector<sf::CircleShape> asteroids;
         for(int i=0; i<5; i++)
@@ -91,7 +97,7 @@ int main() {
         
         //DRAW
         // clear the window with black color
-        window.clear(sf::Color::Black);
+
         
         //TA PĘTLA OBSŁUGUJE ASTEROIDY KTÓRE WYPADŁY ZE SCENY
         for(auto &it : ASTEROIDY)
@@ -101,43 +107,38 @@ int main() {
         }
         
         //TA PĘTLA OBSŁUGUJE KOLIZJE
-        for (int i = 0; i != ASTEROIDY.size(); i++)
-        {
-            std::cout<<"no collision"<<std::endl;
-            if(ASTEROIDY[i]->collision(space.getGlobalBounds()))
-            {
-                std::cout<<"collision"<<std::endl;
-               // tutaj wlasnie nie mam mozliwosci sprawdzenia czy kod ponizej dziala dobrze bo ciągle wypierdala true w tym warunku
-//                ASTEROIDY[i]->setPosition(0, 0);
-                //jak zadizala to to trzeba wlaczyc
-//                ASTEROIDY[i]->to_center(window.getSize());
-                //te dwie linijki powinny działać a jest error pamieci
-                
-//                delete *(ASTEROIDY.begin()+i);
-//                ASTEROIDY.erase(ASTEROIDY.begin()+1);
-            }
-        }
-
-        window.draw(background1);
-        window.draw(background2);
-        
-        window.draw(space);
-        for(auto &it : asteroids)
-        {
-            window.draw(it);
-        }
-        
         for (unsigned int i = 0; i < ASTEROIDY.size(); i++)
         {
             ASTEROIDY[i]->render(window);
             ASTEROIDY[i]->animuj(elapsed);
+            //std::cout<<"no collision"<<std::endl;
+//            if(ASTEROIDY[i]->collision(space.getGlobalBounds()))
+//            {
+//                std::cout<<"collision"<<std::endl;
+//               // tutaj wlasnie nie mam mozliwosci sprawdzenia czy kod ponizej dziala dobrze bo ciągle wypierdala true w tym warunku
+////                ASTEROIDY[i]->setPosition(0, 0);
+//                //jak zadizala to to trzeba wlaczyc
+////                ASTEROIDY[i]->to_center(window.getSize());
+//                //te dwie linijki powinny działać a jest error pamieci
+                
+////                delete *(ASTEROIDY.begin()+i);
+////                ASTEROIDY.erase(ASTEROIDY.begin()+1);
+//            }
+            if(space.getGlobalBounds().intersects(ASTEROIDY[i]->Sprite.getGlobalBounds()))
+            {
+                ASTEROIDY[i]->setPosition(0, 0);
+                ASTEROIDY[i]->to_center(window.getSize());
+                std::cout<<"collision" << std::endl;
+            }
         }
 
+
         
-        space.animuj(elapsed, full_time);
-        
-        //window.draw(spaceship_sprite);
-        
+
+//        for(auto &it : asteroids)
+//        {
+//            window.draw(it);
+//        }
         
         window.display();
     }

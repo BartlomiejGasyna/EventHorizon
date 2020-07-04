@@ -20,7 +20,6 @@ class Spaceship_new :public sf::Sprite
 {
 public:
     Spaceship_new(float x, float y,  sf::Texture &texture, int velocity_x, int velocity_y, sf::RenderTarget &target);
-    void animuj(const sf::Time &elapsed, float full_time);
-
+    void animuj(const sf::Time &elapsed, float full_time);   
 };
 #endif /* spaceship_new_hpp */
