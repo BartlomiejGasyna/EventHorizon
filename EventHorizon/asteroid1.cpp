@@ -41,7 +41,7 @@ bool Asteroid1::collision(sf::FloatRect object) {
     
     
     std::cout<<"statek - x: "<<object.left<<"  y: "<<object.left+object.width<<std::endl;
-    huj wie czy to dobrze bo wykurwia true caly czas, nie wiem czy to przez sprite przypadkiem, w razie
+    //huj wie czy to dobrze bo wykurwia true caly czas, nie wiem czy to przez sprite przypadkiem, w razie
     if (Sprite.getGlobalBounds().intersects(object))
     //if (Sprite.getGlobalBounds().intersects(object))
     {

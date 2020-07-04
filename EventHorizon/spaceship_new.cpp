@@ -7,6 +7,7 @@
 //
 
 #include "spaceship_new.hpp"
+#include <iostream>
 
 Spaceship_new::Spaceship_new(float x, float y,  sf::Texture &texture, int velocity_x, int velocity_y, sf::RenderTarget &target)
 {
@@ -27,15 +28,44 @@ Spaceship_new::Spaceship_new(float x, float y,  sf::Texture &texture, int veloci
 
 }
 
-void Spaceship_new::animuj(const sf::Time &elapsed)
+void Spaceship_new::animuj(const sf::Time &elapsed, float full_time)
 {
+    //std::cout<<time.asSeconds()<<std::endl;
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
         rotate(50*elapsed.asSeconds());
+         if (fmod(full_time, 1.0)<0.5)
+         {
         setTextureRect(sf::IntRect(280,0,70,72));
+         }
+        else
+        {
+            setTextureRect(sf::IntRect(350,0,70,72));
+        }
     }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
         rotate(-50*elapsed.asSeconds());
-        setTextureRect(sf::IntRect(210,0,70,72));
+        if (fmod(full_time, 1.0)<0.5)
+         {
+             setTextureRect(sf::IntRect(140,0,70,72));
+         }
+        else
+        {
+            setTextureRect(sf::IntRect(210,0,70,72));
+        }
+        
+        
+    }
+    else
+    {
+       // if ((int)full_time%2 <1)
+        if (fmod(full_time, 1.0)<0.5)
+        {
+            setTextureRect(sf::IntRect(0,0,70,72));
+        }
+        else
+        {
+            setTextureRect(sf::IntRect(70,0,70,72));
+        }
         
     }
 }

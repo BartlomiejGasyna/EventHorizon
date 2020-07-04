@@ -107,7 +107,7 @@ int main() {
             if(ASTEROIDY[i]->collision(space.getGlobalBounds()))
             {
                 std::cout<<"collision"<<std::endl;
-                tutaj wlasnie nie mam mozliwosci sprawdzenia czy kod ponizej dziala dobrze bo ciągle wypierdala true w tym warunku
+               // tutaj wlasnie nie mam mozliwosci sprawdzenia czy kod ponizej dziala dobrze bo ciągle wypierdala true w tym warunku
 //                ASTEROIDY[i]->setPosition(0, 0);
                 //jak zadizala to to trzeba wlaczyc
 //                ASTEROIDY[i]->to_center(window.getSize());
@@ -134,7 +134,7 @@ int main() {
         }
 
         
-        space.animuj(elapsed);
+        space.animuj(elapsed, full_time);
         
         //window.draw(spaceship_sprite);
         

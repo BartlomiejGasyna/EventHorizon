@@ -10,6 +10,7 @@
 #define spaceship_new_hpp
 
 #include <stdio.h>
+#include <math.h>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -19,7 +20,7 @@ class Spaceship_new :public sf::Sprite
 {
 public:
     Spaceship_new(float x, float y,  sf::Texture &texture, int velocity_x, int velocity_y, sf::RenderTarget &target);
-    void animuj(const sf::Time &elapsed);
+    void animuj(const sf::Time &elapsed, float full_time);
 
 };
 #endif /* spaceship_new_hpp */
