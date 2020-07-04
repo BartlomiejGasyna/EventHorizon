@@ -78,7 +78,7 @@ int main() {
         
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
         {
-            space.LASERS.push_back(Laser(&texture_doge, space.getPosition()));
+            space.LASERS.push_back(Laser(&texture_doge, space.getGlobalBounds().left, space.getGlobalBounds().top));
         }
         
         for (unsigned int i = 0; i < space.LASERS.size(); i++)

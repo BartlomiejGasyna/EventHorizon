@@ -6,7 +6,7 @@
 class Laser : public Abstract
 {
 public:
-    Laser(sf::Texture *texture, sf::Vector2f pos);
+    Laser(sf::Texture *texture, int pos_x_, int pos_y_);
     ~Laser();
     void render(sf::RenderTarget& target);
     void animuj(const sf::Time &elapsed);
