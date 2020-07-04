@@ -88,7 +88,8 @@ int main() {
             space.LASERS[i].move(20.f, 0.f);
 
             //Out of window bounds
-            if (space.LASERS[i].Sprite.getPosition().x > window.getSize().x)
+            if (space.LASERS[i].Sprite.getPosition().x > window.getSize().x ||
+                    space.LASERS[i].Sprite.getPosition().y > window.getSize().y)
             {
                 space.LASERS.erase(space.LASERS.begin() + i);
                 break;
@@ -97,11 +98,11 @@ int main() {
             //Enemy collision
             for (unsigned int k = 0; k < ASTEROIDY.size(); k++)
             {
-                if (space.LASERS[i].getGlobalBounds().intersects(ASTEROIDY[k]->Sprite.getGlobalBounds()))
+                if (space.LASERS[i].Sprite.getGlobalBounds().intersects(ASTEROIDY[k]->Sprite.getGlobalBounds()))
                 {
-                    if (ASTEROIDY[k]->HP <= 2)
+                    if (ASTEROIDY[k]->HP <= 0)
                     {
-                        ASTEROIDY.erase(ASTEROIDY.begin() + k);
+                        ASTEROIDY[i]->to_center(window.getSize());
                     }
                     else ASTEROIDY[k]->HP--;
 
@@ -121,7 +122,6 @@ int main() {
 
             if(space.getGlobalBounds().intersects(ASTEROIDY[i]->Sprite.getGlobalBounds()))
             {
-                ASTEROIDY[i]->setPosition(0, 0);
                 ASTEROIDY[i]->to_center(window.getSize());
                 std::cout<<"collision" << std::endl;
             }
