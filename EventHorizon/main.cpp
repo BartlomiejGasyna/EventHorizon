@@ -1,19 +1,8 @@
 #include "EventHorizon.h"
 #include "abstract.h"
-#include "spaceship.h"
 #include "asteroid1.h"
 #include "spaceship_new.hpp"
-
-
-float velocity_x0 = 0;
-float velocity_x1 = 70;
-float velocity_x2 = 90;
-
-float velocity_y1 = 70;
-float velocity_y2 = 90;
-float velocity_y0 = 0;
-
-
+#include "laser.h"
 
 int main() {
     // create the window
@@ -25,11 +14,13 @@ int main() {
     if(!texture_spaceship.loadFromFile("Spaceship2.png")) { std::cout<<"error"; }
     
     //tutaj jest nowej klasy spaceship_new
-     Spaceship_new space(0, 0, texture_spaceship, 0,0, window);
+    Spaceship_new space(0, 0, texture_spaceship, 0,0, window);
 
     std::cout<<space.getOrigin().x<<"  "<<space.getOrigin().y<<std::endl;
     std::cout<<space.getPosition().x<<"  "<<space.getPosition().y<<std::endl;
 
+    sf::Texture texture_doge;
+    if(!texture_doge.loadFromFile("doge.png")) { std::cout<<"error"; }
     
     sf::Texture texture_asteroid;
     if(!texture_asteroid.loadFromFile("owoc.png")) { std::cout<<"error"; }
@@ -81,49 +72,53 @@ int main() {
         background2.rotate(0.05);
         window.draw(background1);
         window.draw(background2);
-    
+
         window.draw(space);
         space.animuj(elapsed, full_time);
         
-        std::vector<sf::CircleShape> asteroids;
-        for(int i=0; i<5; i++)
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
         {
-
-            asteroids.push_back(sf::CircleShape(10));
-            asteroids.back().setFillColor(sf::Color::White);
-            asteroids.back().setPosition((window.getSize().x)/2, (window.getSize().y)/2);
-            window.draw(asteroids.back());
+            space.LASERS.push_back(Laser(&texture_doge, space.getPosition()));
         }
         
-        //DRAW
-        // clear the window with black color
-
-        
-        //TA PĘTLA OBSŁUGUJE ASTEROIDY KTÓRE WYPADŁY ZE SCENY
-        for(auto &it : ASTEROIDY)
+        for (unsigned int i = 0; i < space.LASERS.size(); i++)
         {
-            it->out_of_screen(window.getSize());
-            // tutaj próbowałem to samo co niżej ale na iteratorze i tez pamieć wyjebało
+            space.LASERS[i].render(window);
+            //Move
+            space.LASERS[i].move(20.f, 0.f);
+
+            //Out of window bounds
+            if (space.LASERS[i].Sprite.getPosition().x > window.getSize().x)
+            {
+                space.LASERS.erase(space.LASERS.begin() + i);
+                break;
+            }
+
+            //Enemy collision
+            for (unsigned int k = 0; k < ASTEROIDY.size(); k++)
+            {
+                if (space.LASERS[i].getGlobalBounds().intersects(ASTEROIDY[k]->Sprite.getGlobalBounds()))
+                {
+                    if (ASTEROIDY[k]->HP <= 2)
+                    {
+                        ASTEROIDY.erase(ASTEROIDY.begin() + k);
+                    }
+                    else ASTEROIDY[k]->HP--;
+
+                    space.LASERS.erase(space.LASERS.begin() + i);
+                    break;
+                }
+            }
         }
-        
+
         //TA PĘTLA OBSŁUGUJE KOLIZJE
         for (unsigned int i = 0; i < ASTEROIDY.size(); i++)
         {
             ASTEROIDY[i]->render(window);
             ASTEROIDY[i]->animuj(elapsed);
+            ASTEROIDY[i]->out_of_screen(window.getSize());
             //std::cout<<"no collision"<<std::endl;
-//            if(ASTEROIDY[i]->collision(space.getGlobalBounds()))
-//            {
-//                std::cout<<"collision"<<std::endl;
-//               // tutaj wlasnie nie mam mozliwosci sprawdzenia czy kod ponizej dziala dobrze bo ciągle wypierdala true w tym warunku
-////                ASTEROIDY[i]->setPosition(0, 0);
-//                //jak zadizala to to trzeba wlaczyc
-////                ASTEROIDY[i]->to_center(window.getSize());
-//                //te dwie linijki powinny działać a jest error pamieci
-                
-////                delete *(ASTEROIDY.begin()+i);
-////                ASTEROIDY.erase(ASTEROIDY.begin()+1);
-//            }
+
             if(space.getGlobalBounds().intersects(ASTEROIDY[i]->Sprite.getGlobalBounds()))
             {
                 ASTEROIDY[i]->setPosition(0, 0);
@@ -132,14 +127,6 @@ int main() {
             }
         }
 
-
-        
-
-//        for(auto &it : asteroids)
-//        {
-//            window.draw(it);
-//        }
-        
         window.display();
     }
     

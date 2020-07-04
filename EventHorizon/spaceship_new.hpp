@@ -8,7 +8,7 @@
 
 #ifndef spaceship_new_hpp
 #define spaceship_new_hpp
-
+#include "laser.h"
 #include <stdio.h>
 #include <math.h>
 #include <SFML/Window.hpp>
@@ -19,6 +19,7 @@
 class Spaceship_new :public sf::Sprite
 {
 public:
+    std::vector<Laser> LASERS;
     Spaceship_new(float x, float y,  sf::Texture &texture, int velocity_x, int velocity_y, sf::RenderTarget &target);
     void animuj(const sf::Time &elapsed, float full_time);   
 };

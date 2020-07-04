@@ -43,18 +43,18 @@ struct Bounds
     
 //};
 
-class Laser
-{
-private:
-    int position_x_;
-    int position_y_;
-    float velocity_x_;
-    float velocity_y_;
-    
-public:
-    Laser(sf::Vector2f size, int position_x_, int position_y_);
-    void collision();//sprawdza czy obiekt został trafiony
-};
+//class Laser
+//{
+//private:
+//    int position_x_;
+//    int position_y_;
+//    float velocity_x_;
+//    float velocity_y_;
+
+//public:
+//    Laser(sf::Vector2f size, int position_x_, int position_y_);
+//    void collision();//sprawdza czy obiekt został trafiony
+//};
 
 class Asteroids
 {

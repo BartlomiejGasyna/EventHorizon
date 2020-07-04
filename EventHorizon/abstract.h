@@ -9,6 +9,7 @@
 class Abstract : public sf::Sprite
 {
 public:
+    int HP;
     Abstract();
     virtual ~Abstract();
     sf::Sprite Sprite;
