@@ -79,7 +79,7 @@ int main() {
         space.animuj(elapsed, full_time);
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && threshold >= 250 )
         {
-            space.LASERS.push_back(new Laser(&texture_doge, space.getGlobalBounds().left+space.getGlobalBounds().width/2, space.getGlobalBounds().top, space.getRotation()));
+            space.LASERS.push_back(new Laser(&texture_doge, space.getGlobalBounds().left+space.getGlobalBounds().width/2, space.getGlobalBounds().top+space.getGlobalBounds().width/2, space.getRotation()));
             threshold = 0;
         }
         
