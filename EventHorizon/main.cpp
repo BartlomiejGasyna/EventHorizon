@@ -56,6 +56,7 @@ int main() {
         //EVENTS
         sf::Event event;
         static float full_time = 0;
+        static float threshold = 0;
         while (window.pollEvent(event)) {
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
@@ -64,6 +65,7 @@ int main() {
         //LOGIC
         sf::Time elapsed = clock.restart();
         full_time+=elapsed.asSeconds();
+        threshold+=elapsed.asMilliseconds();
         //std::cout << "Elapsed time: " << elapsed.asMicroseconds()<< std::endl;
 
         window.clear(sf::Color::Black);
@@ -75,22 +77,23 @@ int main() {
 
         window.draw(space);
         space.animuj(elapsed, full_time);
-        
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && threshold >= 250 )
         {
-            space.LASERS.push_back(Laser(&texture_doge, space.getGlobalBounds().left, space.getGlobalBounds().top));
+            space.LASERS.push_back(new Laser(&texture_doge, space.getGlobalBounds().left+space.getGlobalBounds().width/2, space.getGlobalBounds().top, space.getRotation()));
+            threshold = 0;
         }
         
         for (unsigned int i = 0; i < space.LASERS.size(); i++)
         {
-            space.LASERS[i].render(window);
+            space.LASERS[i]->render(window);
             //Move
-            space.LASERS[i].move(20.f, 0.f);
+            space.LASERS[i]->move();
 
             //Out of window bounds
-            if (space.LASERS[i].Sprite.getPosition().x > window.getSize().x ||
-                    space.LASERS[i].Sprite.getPosition().y > window.getSize().y)
+            if (space.LASERS[i]->Sprite.getPosition().x > window.getSize().x ||
+                space.LASERS[i]->Sprite.getPosition().y > window.getSize().y)
             {
+                delete *(space.LASERS.begin()+i);
                 space.LASERS.erase(space.LASERS.begin() + i);
                 break;
             }
@@ -98,12 +101,13 @@ int main() {
             //Enemy collision
             for (unsigned int k = 0; k < ASTEROIDY.size(); k++)
             {
-                if (space.LASERS[i].Sprite.getGlobalBounds().intersects(ASTEROIDY[k]->Sprite.getGlobalBounds()))
+                if (space.LASERS[i]->Sprite.getGlobalBounds().intersects(ASTEROIDY[k]->Sprite.getGlobalBounds()))
                 {
                     if (ASTEROIDY[k]->HP <= 0)
                     {
                         //ASTEROIDY[i]->to_center(window.getSize());
                         ASTEROIDY.erase(ASTEROIDY.begin()+i);
+                        std::cout<<"ASTEORIDA PADA KURWAAAAAAAAAAAAAAA"<<std::endl;
 
                     }
                     else ASTEROIDY[k]->HP--;

@@ -6,6 +6,7 @@
 #include <SFML/Audio.hpp>
 #include <SFML/System.hpp>
 #include <iostream>
+#include <math.h>
 class Abstract : public sf::Sprite
 {
 public:
