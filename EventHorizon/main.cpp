@@ -102,12 +102,13 @@ int main() {
                 {
                     if (ASTEROIDY[k]->HP <= 0)
                     {
-                        ASTEROIDY[i]->to_center(window.getSize());
+                        //ASTEROIDY[i]->to_center(window.getSize());
+                        ASTEROIDY.erase(ASTEROIDY.begin()+i);
+
                     }
                     else ASTEROIDY[k]->HP--;
 
                     space.LASERS.erase(space.LASERS.begin() + i);
-                    break;
                 }
             }
         }
