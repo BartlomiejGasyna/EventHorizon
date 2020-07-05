@@ -54,5 +54,6 @@ void Asteroid1::to_center(sf::Vector2u size)
     this->setPosition(size.x/2, size.y/2);
     this->velocity_x_ = (rand() % 20-10)*10;
     this->velocity_y_ = (rand() % 20-10)*10;
+    this->HP=2;
 }
 

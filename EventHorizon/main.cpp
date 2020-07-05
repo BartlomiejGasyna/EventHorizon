@@ -106,7 +106,8 @@ int main() {
                     if (ASTEROIDY[k]->HP <= 0)
                     {
                         //ASTEROIDY[i]->to_center(window.getSize());
-                        ASTEROIDY.erase(ASTEROIDY.begin()+i);
+                       // ASTEROIDY.erase(ASTEROIDY.begin()+i);
+                        ASTEROIDY[k]->to_center(window.getSize());
                         std::cout<<"ASTEORIDA PADA KURWAAAAAAAAAAAAAAA"<<std::endl;
 
                     }
