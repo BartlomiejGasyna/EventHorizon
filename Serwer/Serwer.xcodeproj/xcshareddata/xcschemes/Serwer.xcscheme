@@ -14,16 +14,16 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4C039A24247407AC00AACD3F"
-               BuildableName = "EventHorizon.app"
-               BlueprintName = "EventHorizon"
-               ReferencedContainer = "container:EventHorizon.xcodeproj">
+               BlueprintIdentifier = "4C2724FB24B39FBE002AA293"
+               BuildableName = "Serwer.app"
+               BlueprintName = "Serwer"
+               ReferencedContainer = "container:Serwer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
@@ -35,8 +35,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
-      useCustomWorkingDirectory = "YES"
-      customWorkingDirectory = "/Users/bartlomiejgasyna/Documents/GitHub/SpaceShooters-GasynaGawron/EventHorizon/Resources"
+      useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
@@ -45,10 +44,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4C039A24247407AC00AACD3F"
-            BuildableName = "EventHorizon.app"
-            BlueprintName = "EventHorizon"
-            ReferencedContainer = "container:EventHorizon.xcodeproj">
+            BlueprintIdentifier = "4C2724FB24B39FBE002AA293"
+            BuildableName = "Serwer.app"
+            BlueprintName = "Serwer"
+            ReferencedContainer = "container:Serwer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,10 +61,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4C039A24247407AC00AACD3F"
-            BuildableName = "EventHorizon.app"
-            BlueprintName = "EventHorizon"
-            ReferencedContainer = "container:EventHorizon.xcodeproj">
+            BlueprintIdentifier = "4C2724FB24B39FBE002AA293"
+            BuildableName = "Serwer.app"
+            BlueprintName = "Serwer"
+            ReferencedContainer = "container:Serwer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

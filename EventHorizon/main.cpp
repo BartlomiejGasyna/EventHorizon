@@ -4,14 +4,21 @@
 #include "spaceship_new.hpp"
 #include "laser.h"
 
+
 int main() {
     // create the window
     sf::RenderWindow window(sf::VideoMode(1000, 1000), "My window");
     
     //loading textures, creating objects
-    
+    char data[100];
     sf::Texture texture_spaceship;
     if(!texture_spaceship.loadFromFile("Spaceship2.png")) { std::cout<<"error"; }
+    //TUTAJ SERWER TYMCZASOWO
+    sf::TcpSocket socket;
+    sf::IpAddress ip =sf::IpAddress::getLocalAddress();
+    int port = 16000;
+    std::size_t received;
+    
     
     //tutaj jest nowej klasy spaceship_new
     Spaceship_new space(0, 0, texture_spaceship, 0,0, window);
@@ -51,6 +58,15 @@ int main() {
     
     // run the program as long as the window is open
     while (window.isOpen()) {
+        
+        sf::Socket::Status status = socket.connect(ip, port); if(sf::Socket::Status status = sf::Socket::Done)
+        {
+            std::cout<<"nawiazano polaczenie";
+        
+        //send/receive data
+            socket.receive(&data, 100, received);
+            socket.disconnect();
+        }
         // check all the window's events that were triggered since the last iteration of the loop
         window.setFramerateLimit(60);
         //EVENTS
