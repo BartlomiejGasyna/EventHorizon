@@ -10,7 +10,8 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(1000, 1000), "My window");
     
     //loading textures, creating objects
-    char data[100];
+    //char data[100];
+    std::string data[100];
     sf::Texture texture_spaceship;
     if(!texture_spaceship.loadFromFile("Spaceship2.png")) { std::cout<<"error"; }
     //TUTAJ SERWER TYMCZASOWO
@@ -19,16 +20,21 @@ int main() {
     int port = 2000;
     std::size_t received;
     
-     sf::Socket::Status status = socket.connect("127.0.0.1", port); if(sf::Socket::Status status = sf::Socket::Done)
+     sf::Socket::Status status = socket.connect("127.0.0.1", 2000); if(status == sf::Socket::Done)
             {
                 std::cout<<"nawiazano polaczenie";
             
             //send/receive data
-                //socket.receive(&data, 100, received);
+                socket.receive(&data, 100, received);
+                //
+                for (int i =0; i!=100; i++) {
+//                    while (data[i]) {
+//                        std::cout<<data[i];
+//                    }
+                    std::cout<<data[i];
+                    
+                }
                 //socket.disconnect();
-    //            for (int i =0; i!=100; i++) {
-    //                std::cout<<data[i];
-    //            }
             }
     else
         std::cout<<"cos sie spierdolilo";
@@ -155,7 +161,16 @@ int main() {
                 std::cout<<"collision" << std::endl;
             }
         }
-
+//        if(threshold > 2000)
+//        {
+//            size_t position;
+//        float pos_x = space.getPosition().x;
+//            std::cout << pos_x<<std::endl;
+//        //socket.connect("127.0.0.1", 2000);
+//        socket.send(&pos_x, position);
+//        //socket.disconnect();
+//            threshold = 0 ;
+//        }
         window.display();
     }
     

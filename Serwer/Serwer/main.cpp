@@ -35,9 +35,16 @@ int main(int, char const**)
         std::cout<<"serwer nawiązał połączenie"<<std::endl;
     }
     listener.accept(socket);
-    std::string text = "jestem na serwerze";
+    std::string text = "\njestem na serwerze";
     socket.send(&text, text.size());
-    //socket.receive(<#void *data#>, <#std::size_t size#>, <#std::size_t &received#>)
+    
+//    for(;;)
+//    {
+//        float pos_x;
+//        size_t received;
+//        socket.receive(&pos_x, 10, received);
+//        std::cout<<"pozycja: "<<pos_x<<std::endl;
+//    }
     socket.disconnect();
     int port = 15292;
     
