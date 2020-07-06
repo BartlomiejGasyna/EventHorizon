@@ -16,8 +16,22 @@ int main() {
     //TUTAJ SERWER TYMCZASOWO
     sf::TcpSocket socket;
     sf::IpAddress ip =sf::IpAddress::getLocalAddress();
-    int port = 16000;
+    int port = 2000;
     std::size_t received;
+    
+     sf::Socket::Status status = socket.connect("127.0.0.1", port); if(sf::Socket::Status status = sf::Socket::Done)
+            {
+                std::cout<<"nawiazano polaczenie";
+            
+            //send/receive data
+                //socket.receive(&data, 100, received);
+                //socket.disconnect();
+    //            for (int i =0; i!=100; i++) {
+    //                std::cout<<data[i];
+    //            }
+            }
+    else
+        std::cout<<"cos sie spierdolilo";
     
     
     //tutaj jest nowej klasy spaceship_new
@@ -59,14 +73,7 @@ int main() {
     // run the program as long as the window is open
     while (window.isOpen()) {
         
-        sf::Socket::Status status = socket.connect(ip, port); if(sf::Socket::Status status = sf::Socket::Done)
-        {
-            std::cout<<"nawiazano polaczenie";
-        
-        //send/receive data
-            socket.receive(&data, 100, received);
-            socket.disconnect();
-        }
+       
         // check all the window's events that were triggered since the last iteration of the loop
         window.setFramerateLimit(60);
         //EVENTS

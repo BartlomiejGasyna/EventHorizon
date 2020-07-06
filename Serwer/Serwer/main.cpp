@@ -36,7 +36,7 @@ int main(int, char const**)
     }
     listener.accept(socket);
     std::string text = "jestem na serwerze";
-    //socket.send(&text, text.size());
+    socket.send(&text, text.size());
     //socket.receive(<#void *data#>, <#std::size_t size#>, <#std::size_t &received#>)
     socket.disconnect();
     int port = 15292;
