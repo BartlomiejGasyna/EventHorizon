@@ -161,16 +161,18 @@ int main() {
                 std::cout<<"collision" << std::endl;
             }
         }
-//        if(threshold > 2000)
-//        {
-//            size_t position;
-//        float pos_x = space.getPosition().x;
-//            std::cout << pos_x<<std::endl;
-//        //socket.connect("127.0.0.1", 2000);
-//        socket.send(&pos_x, position);
+        if(threshold > 2000)
+        {
+            float pos_x;
+            size_t position;
+            pos_x = 10.24;
+            std::cout << space.getRotation()<<std::endl;
+//            delete pos_x;
+//        socket.connect("127.0.0.1", 2000);
+        socket.send(&pos_x, position);
 //        //socket.disconnect();
-//            threshold = 0 ;
-//        }
+            threshold = 0 ;
+        }
         window.display();
     }
     

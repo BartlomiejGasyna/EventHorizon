@@ -37,16 +37,23 @@ int main(int, char const**)
     listener.accept(socket);
     std::string text = "\njestem na serwerze";
     socket.send(&text, text.size());
-    
+//    sf::Clock clock;
+//    sf::Time elapsed=clock.getElapsedTime();
 //    for(;;)
 //    {
-//        float pos_x;
-//        size_t received;
-//        socket.receive(&pos_x, 10, received);
-//        std::cout<<"pozycja: "<<pos_x<<std::endl;
+//
+//    if (elapsed.asSeconds()>2) {
+    for(;;)
+    {
+        float pos_x;
+//        std::cout<<elapsed.asMicroseconds()<<std::endl;
+        size_t received;
+        socket.receive(&pos_x, sizeof(float), received);
+        std::cout<<"pozycja: "<<pos_x<<std::endl;
+//        clock.restart();
+    }
 //    }
     socket.disconnect();
-    int port = 15292;
     
     
 
