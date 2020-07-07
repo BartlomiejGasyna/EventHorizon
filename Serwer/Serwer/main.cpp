@@ -45,8 +45,8 @@ int main(int, char const**)
 //    if (elapsed.asSeconds()>2) {
     for(;;)
     {
-        float pos_x;
 //        std::cout<<elapsed.asMicroseconds()<<std::endl;
+        float pos_x;
         size_t received;
         socket.receive(&pos_x, sizeof(float), received);
         std::cout<<"pozycja: "<<pos_x<<std::endl;

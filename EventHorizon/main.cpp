@@ -163,13 +163,12 @@ int main() {
         }
         if(threshold > 2000)
         {
-            float pos_x;
-            size_t position;
-            pos_x = 10.24;
+            float pos_x=space.getRotation();
+           
             std::cout << space.getRotation()<<std::endl;
 //            delete pos_x;
 //        socket.connect("127.0.0.1", 2000);
-        socket.send(&pos_x, position);
+        socket.send(&pos_x, sizeof(pos_x));
 //        //socket.disconnect();
             threshold = 0 ;
         }
