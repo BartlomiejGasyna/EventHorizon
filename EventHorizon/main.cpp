@@ -90,6 +90,7 @@ int main() {
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
                 window.close();
+
             if (event.type == sf::Event::MouseButtonPressed) {
                 if (event.mouseButton.button == sf::Mouse::Left && threshold >= 250 )
                 {
@@ -97,6 +98,29 @@ int main() {
                     threshold = 0;
                 }
             }
+
+            if (event.type == sf::Event::KeyPressed) {
+                if (event.key.code == sf::Keyboard::Left) {
+                    space.select_forward();
+                }
+            }
+
+            if (event.type == sf::Event::KeyPressed) {
+                if (event.key.code == sf::Keyboard::Right) {
+                    space.select_backward();
+                }
+            }
+            if (event.type == sf::Event::KeyReleased) {
+                if (event.key.code == sf::Keyboard::Left) {
+                    space.unselect();
+                }
+            }
+            if (event.type == sf::Event::KeyReleased) {
+                if (event.key.code == sf::Keyboard::Right) {
+                    space.unselect();
+                }
+            }
+
         }
         //LOGIC
         sf::Time elapsed = clock.restart();
@@ -114,7 +138,7 @@ int main() {
         window.draw(space);
         space.animuj(elapsed, full_time);
 
-        
+
         for (unsigned int i = 0; i < space.LASERS.size(); i++)
         {
             space.LASERS[i]->render(window);

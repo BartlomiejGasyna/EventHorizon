@@ -18,10 +18,16 @@
 
 class Spaceship_new :public sf::Sprite
 {
+private:
+    bool is_clicked_forward = false;
+    bool is_clicked_backward = false;
 public:
     //std::vector<Laser> LASERS;
     std::vector<Laser*> LASERS;
     Spaceship_new(float x, float y,  sf::Texture &texture, int velocity_x, int velocity_y, sf::RenderTarget &target);
-    void animuj(const sf::Time &elapsed, float full_time);   
+    void animuj(const sf::Time &elapsed, float full_time);
+    void select_forward();
+    void select_backward();
+    void unselect();
 };
 #endif /* spaceship_new_hpp */
