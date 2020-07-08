@@ -20,22 +20,22 @@ int main() {
     int port = 2000;
     std::size_t received;
     
-     sf::Socket::Status status = socket.connect("127.0.0.1", 2000); if(status == sf::Socket::Done)
-            {
-                std::cout<<"nawiazano polaczenie";
-            
-            //send/receive data
-                socket.receive(&data, 100, received);
-                //
-                for (int i =0; i!=100; i++) {
-//                    while (data[i]) {
-//                        std::cout<<data[i];
-//                    }
-                    std::cout<<data[i];
-                    
-                }
-                //socket.disconnect();
-            }
+    sf::Socket::Status status = socket.connect("127.0.0.1", 2000); if(status == sf::Socket::Done)
+    {
+        std::cout<<"nawiazano polaczenie";
+
+        //send/receive data
+        socket.receive(&data, 100, received);
+        //
+        for (int i =0; i!=100; i++) {
+            //                    while (data[i]) {
+            //                        std::cout<<data[i];
+            //                    }
+            std::cout<<data[i];
+
+        }
+        //socket.disconnect();
+    }
     else
         std::cout<<"cos sie spierdolilo";
     
@@ -79,7 +79,7 @@ int main() {
     // run the program as long as the window is open
     while (window.isOpen()) {
         
-       
+
         // check all the window's events that were triggered since the last iteration of the loop
         window.setFramerateLimit(60);
         //EVENTS
@@ -90,6 +90,13 @@ int main() {
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
                 window.close();
+            if (event.type == sf::Event::MouseButtonPressed) {
+                if (event.mouseButton.button == sf::Mouse::Left && threshold >= 250 )
+                {
+                    space.LASERS.push_back(new Laser(&texture_doge, space.getGlobalBounds().left+space.getGlobalBounds().width/2, space.getGlobalBounds().top+space.getGlobalBounds().width/2, space.getRotation()));
+                    threshold = 0;
+                }
+            }
         }
         //LOGIC
         sf::Time elapsed = clock.restart();
@@ -106,11 +113,7 @@ int main() {
 
         window.draw(space);
         space.animuj(elapsed, full_time);
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && threshold >= 250 )
-        {
-            space.LASERS.push_back(new Laser(&texture_doge, space.getGlobalBounds().left+space.getGlobalBounds().width/2, space.getGlobalBounds().top+space.getGlobalBounds().width/2, space.getRotation()));
-            threshold = 0;
-        }
+
         
         for (unsigned int i = 0; i < space.LASERS.size(); i++)
         {
@@ -120,7 +123,7 @@ int main() {
 
             //Out of window bounds
             if (space.LASERS[i]->Sprite.getPosition().x > window.getSize().x ||
-                space.LASERS[i]->Sprite.getPosition().y > window.getSize().y)
+                    space.LASERS[i]->Sprite.getPosition().y > window.getSize().y)
             {
                 delete *(space.LASERS.begin()+i);
                 space.LASERS.erase(space.LASERS.begin() + i);
@@ -135,7 +138,7 @@ int main() {
                     if (ASTEROIDY[k]->HP <= 0)
                     {
                         //ASTEROIDY[i]->to_center(window.getSize());
-                       // ASTEROIDY.erase(ASTEROIDY.begin()+i);
+                        // ASTEROIDY.erase(ASTEROIDY.begin()+i);
                         ASTEROIDY[k]->to_center(window.getSize());
                         std::cout<<"ASTEORIDA PADA KURWAAAAAAAAAAAAAAA"<<std::endl;
 
@@ -164,12 +167,12 @@ int main() {
         if(threshold > 2000)
         {
             float pos_x=space.getRotation();
-           
+
             std::cout << space.getRotation()<<std::endl;
-//            delete pos_x;
-//        socket.connect("127.0.0.1", 2000);
-        socket.send(&pos_x, sizeof(pos_x));
-//        //socket.disconnect();
+            //            delete pos_x;
+            //        socket.connect("127.0.0.1", 2000);
+            socket.send(&pos_x, sizeof(pos_x));
+            //        //socket.disconnect();
             threshold = 0 ;
         }
         window.display();
