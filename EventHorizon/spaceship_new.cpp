@@ -82,9 +82,13 @@ void Spaceship_new::select_forward()
     is_clicked_backward = false;
 }
 
-void Spaceship_new::unselect()
+void Spaceship_new::unselect_forward()
+{
+    is_clicked_forward = false;
+}
+
+void Spaceship_new::unselect_backward()
 {
     is_clicked_backward = false;
-    is_clicked_forward = false;
 }
 

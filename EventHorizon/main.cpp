@@ -112,12 +112,12 @@ int main() {
             }
             if (event.type == sf::Event::KeyReleased) {
                 if (event.key.code == sf::Keyboard::Left) {
-                    space.unselect();
+                    space.unselect_forward();
                 }
             }
             if (event.type == sf::Event::KeyReleased) {
                 if (event.key.code == sf::Keyboard::Right) {
-                    space.unselect();
+                    space.unselect_backward();
                 }
             }
 

@@ -28,6 +28,7 @@ public:
     void animuj(const sf::Time &elapsed, float full_time);
     void select_forward();
     void select_backward();
-    void unselect();
+    void unselect_forward();
+    void unselect_backward();
 };
 #endif /* spaceship_new_hpp */
