@@ -21,6 +21,7 @@ class Spaceship_new :public sf::Sprite
 private:
     bool is_clicked_forward = false;
     bool is_clicked_backward = false;
+    int points;
 public:
     //std::vector<Laser> LASERS;
     std::vector<Laser*> LASERS;
@@ -30,5 +31,8 @@ public:
     void select_backward();
     void unselect_forward();
     void unselect_backward();
+    void update_points(int x);
+    int getPoints();
+    bool isLaser;
 };
 #endif /* spaceship_new_hpp */

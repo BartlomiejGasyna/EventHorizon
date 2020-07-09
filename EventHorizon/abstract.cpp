@@ -36,3 +36,7 @@ void Abstract::to_center(sf::Vector2u size)
 {
     
 }
+std::pair<int, int> Abstract::getVelocities()
+{
+    
+}

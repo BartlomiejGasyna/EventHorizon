@@ -57,3 +57,8 @@ void Asteroid1::to_center(sf::Vector2u size)
     this->HP=2;
 }
 
+std::pair<int, int> Asteroid1::getVelocities() { 
+    return {velocity_x_, velocity_y_};
+}
+
+

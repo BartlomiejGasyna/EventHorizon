@@ -121,16 +121,16 @@ private:
 public:
     Background(sf::Texture &texture, float x, float y, sf::RenderWindow &window);
 };
-class Game_Representation
-{
-public:
-    double Player1_points;
-    double Player2_points;
-    sf::Vector2f Player1_position;
-    sf::Vector2f Player2_position;
-    
-    sf::Time Elapsed;
-};
+//class Game_Representation
+//{
+//public:
+//    double Player1_points;
+//    double Player2_points;
+//    sf::Vector2f Player1_position;
+//    sf::Vector2f Player2_position;
+//    
+//    sf::Time Elapsed;
+//};
 
 //Nie wiemy jak powinny wyglądać klasy do gry sieciowej
 

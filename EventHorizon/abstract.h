@@ -25,6 +25,17 @@ public:
     virtual bool collision(sf::FloatRect object);
     // kolizje z graczami
     virtual void to_center(sf::Vector2u size);
+    virtual std::pair<int, int>getVelocities();
+};
+
+struct SingleFrame
+{
+    float rotation;
+    bool is_laser;
+    int points;
+    // to trzeba bedzie dodac
+    //std::vector<std::pair<int, int>>asteroids_speed;
+    
 };
 
 #endif // ABSTRACT_H

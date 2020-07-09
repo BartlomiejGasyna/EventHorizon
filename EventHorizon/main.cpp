@@ -3,7 +3,9 @@
 #include "asteroid1.h"
 #include "spaceship_new.hpp"
 #include "laser.h"
+#include "IP_proxy.hpp"
 
+SingleFrame last_response;
 
 int main() {
     // create the window
@@ -86,6 +88,7 @@ int main() {
         sf::Event event;
         static float full_time = 0;
         static float threshold = 0;
+        ///Controler
         while (window.pollEvent(event)) {
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
@@ -96,7 +99,9 @@ int main() {
                 {
                     space.LASERS.push_back(new Laser(&texture_doge, space.getGlobalBounds().left+space.getGlobalBounds().width/2, space.getGlobalBounds().top+space.getGlobalBounds().width/2, space.getRotation()));
                     threshold = 0;
+                    space.isLaser = true;
                 }
+                space.isLaser = false;
             }
 
             if (event.type == sf::Event::KeyPressed) {
@@ -126,7 +131,7 @@ int main() {
         sf::Time elapsed = clock.restart();
         full_time+=elapsed.asSeconds();
         threshold+=elapsed.asMilliseconds();
-        //std::cout << "Elapsed time: " << elapsed.asMicroseconds()<< std::endl;
+     
 
         window.clear(sf::Color::Black);
 
@@ -168,7 +173,7 @@ int main() {
 
                     }
                     else ASTEROIDY[k]->HP--;
-
+                    space.update_points(1);
                     space.LASERS.erase(space.LASERS.begin() + i);
                 }
             }
@@ -180,6 +185,7 @@ int main() {
             ASTEROIDY[i]->render(window);
             ASTEROIDY[i]->animuj(elapsed);
             ASTEROIDY[i]->out_of_screen(window.getSize());
+           // ASTEROIDY[i]->getVelocities();
             //std::cout<<"no collision"<<std::endl;
 
             if(space.getGlobalBounds().intersects(ASTEROIDY[i]->Sprite.getGlobalBounds()))
@@ -188,19 +194,62 @@ int main() {
                 std::cout<<"collision" << std::endl;
             }
         }
+        
+        
+        /// tutaj prosze ostroznie
+        
         if(threshold > 2000)
         {
-            float pos_x=space.getRotation();
-
-            std::cout << space.getRotation()<<std::endl;
-            //            delete pos_x;
-            //        socket.connect("127.0.0.1", 2000);
-            socket.send(&pos_x, sizeof(pos_x));
-            //        //socket.disconnect();
-            threshold = 0 ;
+        //wysył kurwa danych
+        size_t size;
+        std::string ip = "127.0.0.1";
+        int port = 2000;
+        std::vector<std::pair<int, int> > asteroid_speed;
+//        Proxy proxy(size, ip);
+//        proxy.Update_Location(space.getRotation(), true, space.getPoints(), asteroid_speed);
+        SingleFrame request,response;
+        request.rotation = space.getRotation();
+        request.is_laser = space.isLaser;
+        request.points = space.getPoints();
+        //brakuje vectora predkosci asteroid
+        //request.asteroids_speed = space. (asteroidy, predkosc vector<pair<int, int>>)
+        
+        sf::TcpSocket socket;
+        sf::Socket::Status status = socket.connect("127.0.0.1", 2000);
+        
+        if (status == sf::Socket::Done)
+            {
+            if (socket.send(&request, sizeof(request)) != sf::Socket::Done) {
+                std::cout<<"Error while sending current location"<<std::endl;
+            }
+//               else
+//                {
+//                    std::size_t received;
+//                    if (socket.receive(&response, sizeof(response), received) != sf::Socket::Done) {
+//
+//                        last_response = response;
+//
+//                    }
+//                    else
+//                    {std::cout <<"Error while receinving current location" << std::endl;}
+//                }
+            }
+            threshold = 0;
         }
+        
+//        wysyłanie rotacji
+
+//            float pos_x=space.getRotation();
+//
+//            std::cout << space.getRotation()<<std::endl;
+//            //            delete pos_x;
+//            //        socket.connect("127.0.0.1", 2000);
+//            socket.send(&pos_x, sizeof(pos_x));
+//            //        //socket.disconnect();
+//            threshold = 0 ;
+//        }
         window.display();
     }
-    
+    /////////////////////////////////////////////////////////
     return 0;
 }

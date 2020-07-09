@@ -20,7 +20,16 @@
 #include <string>
 #include <iostream>
 
-
+struct SingleFrame
+{
+    float rotation;
+    bool is_laser;
+    int points;
+    // to trzeba bedzie dodac
+    //std::vector<std::pair<int, int>>asteroids_speed;
+    
+};
+SingleFrame client1;
 int main(int, char const**)
 {
     // Create the main window
@@ -46,10 +55,13 @@ int main(int, char const**)
     for(;;)
     {
 //        std::cout<<elapsed.asMicroseconds()<<std::endl;
-        float pos_x;
+        
         size_t received;
-        socket.receive(&pos_x, sizeof(float), received);
-        std::cout<<"pozycja: "<<pos_x<<std::endl;
+        socket.receive(&client1, sizeof(client1), received);
+        std::cout<<"rotacja: "<<client1.rotation<<std::endl;
+        std::cout<< "punkty: "<<client1.points<<std::endl;
+        std::cout<<"czy laser: " <<client1.is_laser<<std::endl;
+        std::cout<<std::endl<<std::endl;
 //        clock.restart();
     }
 //    }

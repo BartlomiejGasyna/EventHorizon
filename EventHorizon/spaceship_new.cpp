@@ -13,7 +13,7 @@ Spaceship_new::Spaceship_new(float x, float y,  sf::Texture &texture, int veloci
 {
     //    alpha = 10;
     //    r = 10;
-
+    points = 0;
     setTexture(texture);
     int size = texture.getSize().y;
     int window_size = target.getSize().y/2;
@@ -21,9 +21,7 @@ Spaceship_new::Spaceship_new(float x, float y,  sf::Texture &texture, int veloci
     setOrigin((texture.getSize().x)/12, size-window_size);
     setPosition(target.getSize().x/2, target.getSize().y/2);
     setTextureRect(sf::IntRect(0,0,70,72));
-    //jak zmieniam skale to wywala statek odrobine dalej
-    //setScale(1.2, 1.2);
-    
+    isLaser = false;
     
 
 }
@@ -92,3 +90,11 @@ void Spaceship_new::unselect_backward()
     is_clicked_backward = false;
 }
 
+void Spaceship_new::update_points(int x)
+{
+    points=+x;
+}
+int Spaceship_new::getPoints()
+{
+    return points;
+}

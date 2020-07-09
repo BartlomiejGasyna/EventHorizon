@@ -15,6 +15,8 @@ public:
     void out_of_screen(sf::Vector2u size);
     bool collision(sf::FloatRect object);
     void to_center(sf::Vector2u size);
+    std::pair<int, int>getVelocities();
+    
 };
 
 #endif // ASTEROID1_H

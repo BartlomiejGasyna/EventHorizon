@@ -11,6 +11,7 @@
 		4C039A41247408BC00AACD3F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C039A3E247408BC00AACD3F /* main.cpp */; };
 		4C039A45247409FD00AACD3F /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 4C039A44247409FD00AACD3F /* Resources */; };
 		4C039A4724740A8700AACD3F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4C039A4624740A8700AACD3F /* README.md */; };
+		4C6D11F424B7358C00172CF8 /* IP_proxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D11F224B7358C00172CF8 /* IP_proxy.cpp */; };
 		4CAFA3C524AE3B26005ADD33 /* asteroid1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CAFA3C024AE3B26005ADD33 /* asteroid1.cpp */; };
 		4CAFA3C624AE3B26005ADD33 /* abstract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CAFA3C224AE3B26005ADD33 /* abstract.cpp */; };
 		4CAFA3CC24AF386F005ADD33 /* spaceship_new.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CAFA3CA24AF386F005ADD33 /* spaceship_new.cpp */; };
@@ -25,6 +26,8 @@
 		4C039A3F247408BC00AACD3F /* EventHorizon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventHorizon.h; sourceTree = "<group>"; };
 		4C039A44247409FD00AACD3F /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		4C039A4624740A8700AACD3F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		4C6D11F224B7358C00172CF8 /* IP_proxy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IP_proxy.cpp; sourceTree = "<group>"; };
+		4C6D11F324B7358C00172CF8 /* IP_proxy.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IP_proxy.hpp; sourceTree = "<group>"; };
 		4CAFA3BF24AE3B26005ADD33 /* asteroid1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asteroid1.h; sourceTree = "<group>"; };
 		4CAFA3C024AE3B26005ADD33 /* asteroid1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = asteroid1.cpp; sourceTree = "<group>"; };
 		4CAFA3C224AE3B26005ADD33 /* abstract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = abstract.cpp; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 			children = (
 				4C039A3E247408BC00AACD3F /* main.cpp */,
 				4C039A3D247408BC00AACD3F /* EventHorizon.cpp */,
+				4C6D11F224B7358C00172CF8 /* IP_proxy.cpp */,
+				4C6D11F324B7358C00172CF8 /* IP_proxy.hpp */,
 				4C039A3F247408BC00AACD3F /* EventHorizon.h */,
 				4CAFA3C224AE3B26005ADD33 /* abstract.cpp */,
 				4CAFA3C324AE3B26005ADD33 /* abstract.h */,
@@ -184,6 +189,7 @@
 				4C039A41247408BC00AACD3F /* main.cpp in Sources */,
 				4CAFA3C624AE3B26005ADD33 /* abstract.cpp in Sources */,
 				4CAFA3CC24AF386F005ADD33 /* spaceship_new.cpp in Sources */,
+				4C6D11F424B7358C00172CF8 /* IP_proxy.cpp in Sources */,
 				4CAFA3C524AE3B26005ADD33 /* asteroid1.cpp in Sources */,
 				4C039A40247408BC00AACD3F /* EventHorizon.cpp in Sources */,
 				4CECA79724B1D8460022DDF2 /* laser.cpp in Sources */,
