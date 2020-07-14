@@ -9,12 +9,17 @@
 #ifndef spaceship_new_hpp
 #define spaceship_new_hpp
 #include "laser.h"
-#include <stdio.h>
-#include <math.h>
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/System.hpp>
+//#include "abstract.h"
+//#include "IP_proxy.hpp"
+//#include <stdio.h>
+//#include <math.h>
+//#include <SFML/Window.hpp>
+//#include <SFML/Graphics.hpp>
+//#include <SFML/Audio.hpp>
+//#include <SFML/System.hpp>
+
+
+
 
 class Spaceship_new :public sf::Sprite
 {
@@ -22,6 +27,8 @@ private:
     bool is_clicked_forward = false;
     bool is_clicked_backward = false;
     int points;
+    SingleFrame state;
+    int ID = 1;
 public:
     //std::vector<Laser> LASERS;
     std::vector<Laser*> LASERS;
@@ -34,5 +41,12 @@ public:
     void update_points(int x);
     int getPoints();
     bool isLaser;
+    SingleFrame getState();
+    int getID();
+    
+    
 };
+
+
+
 #endif /* spaceship_new_hpp */

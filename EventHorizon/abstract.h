@@ -8,6 +8,21 @@
 #include <SFML/Network.hpp>
 #include <iostream>
 #include <math.h>
+
+struct SingleFrame
+{
+    float rotation;
+    bool is_laser;
+    int points;
+//    char client_id;
+    int client_ID;
+    // to trzeba bedzie dodac
+    //std::vector<std::pair<int, int>>asteroids_speed;
+    
+};
+
+
+
 class Abstract : public sf::Sprite
 {
 public:
@@ -26,16 +41,9 @@ public:
     // kolizje z graczami
     virtual void to_center(sf::Vector2u size);
     virtual std::pair<int, int>getVelocities();
-};
-
-struct SingleFrame
-{
-    float rotation;
-    bool is_laser;
-    int points;
-    // to trzeba bedzie dodac
-    //std::vector<std::pair<int, int>>asteroids_speed;
     
 };
+
+
 
 #endif // ABSTRACT_H

@@ -7,12 +7,13 @@
 //
 
 #include "spaceship_new.hpp"
-#include <iostream>
+//#include <iostream>
 
 Spaceship_new::Spaceship_new(float x, float y,  sf::Texture &texture, int velocity_x, int velocity_y, sf::RenderTarget &target)
 {
     //    alpha = 10;
     //    r = 10;
+    //state.ID = 1;
     points = 0;
     setTexture(texture);
     int size = texture.getSize().y;
@@ -21,7 +22,7 @@ Spaceship_new::Spaceship_new(float x, float y,  sf::Texture &texture, int veloci
     setOrigin((texture.getSize().x)/12, size-window_size);
     setPosition(target.getSize().x/2, target.getSize().y/2);
     setTextureRect(sf::IntRect(0,0,70,72));
-    isLaser = false;
+//    isLaser = false;
     
 
 }
@@ -92,9 +93,27 @@ void Spaceship_new::unselect_backward()
 
 void Spaceship_new::update_points(int x)
 {
-    points=+x;
+    points = points + x;
 }
 int Spaceship_new::getPoints()
 {
     return points;
+}
+
+SingleFrame Spaceship_new::getState()
+{
+    
+    state.rotation = this->getRotation();
+    state.is_laser = this->isLaser;
+    state.points = this->points;
+//    state.client_id = '1';
+    state.client_ID = this->ID;
+    std::cout << "ID: " << state.client_ID <<std::endl;
+    return state;
+}
+
+
+int Spaceship_new::getID()
+{
+    return {this -> ID};
 }

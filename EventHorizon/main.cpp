@@ -9,17 +9,17 @@ SingleFrame last_response;
 
 sf::Packet& operator << (sf::Packet& packet, const SingleFrame &frame)
 {
-    return packet << frame.rotation << frame.is_laser << frame.points;
+    return packet << frame.rotation << frame.is_laser << frame.points <<frame.client_ID;
 }
     
-sf::Packet& operator >> (sf::Packet& packet, SingleFrame &frame)
+sf::Packet operator >> (sf::Packet packet, SingleFrame frame)
 {
-    return packet >> frame.rotation >> frame.is_laser >> frame.points;
+    return packet >> frame.rotation >> frame.is_laser >> frame.points >>frame.client_ID;
 }
     
 int main() {
     // create the window
-    sf::RenderWindow window(sf::VideoMode(1000, 1000), "My window");
+    sf::RenderWindow window(sf::VideoMode(1000, 1000), "Client - Event Horizon");
     
     //loading textures, creating objects
     //char data[100];
@@ -110,8 +110,9 @@ int main() {
                     space.LASERS.push_back(new Laser(&texture_doge, space.getGlobalBounds().left+space.getGlobalBounds().width/2, space.getGlobalBounds().top+space.getGlobalBounds().width/2, space.getRotation()));
                     threshold = 0;
                     space.isLaser = true;
+                    
                 }
-                space.isLaser = false;
+//                space.isLaser = false;
             }
 
             if (event.type == sf::Event::KeyPressed) {
@@ -179,7 +180,7 @@ int main() {
                         //ASTEROIDY[i]->to_center(window.getSize());
                         // ASTEROIDY.erase(ASTEROIDY.begin()+i);
                         ASTEROIDY[k]->to_center(window.getSize());
-                        std::cout<<"ASTEORIDA PADA KURWAAAAAAAAAAAAAAA"<<std::endl;
+                        std::cout<<"Asteorida pada"<<std::endl;
 
                     }
                     else ASTEROIDY[k]->HP--;
@@ -208,8 +209,7 @@ int main() {
         
         /// tutaj prosze ostroznie
         
-        if(threshold > 200)
-        {
+        
         //wysył kurwa danych
         size_t size;
         std::string ip = "127.0.0.1";
@@ -218,15 +218,12 @@ int main() {
 //        Proxy proxy(size, ip);
 //        proxy.Update_Location(space.getRotation(), true, space.getPoints(), asteroid_speed);
         SingleFrame request,response;
-        request.rotation = space.getRotation();
-        request.is_laser = space.isLaser;
-        request.points = space.getPoints();
+        request = space.getState();
         //brakuje vectora predkosci asteroid
         //request.asteroids_speed = space. (asteroidy, predkosc vector<pair<int, int>>)
-        
         sf::TcpSocket socket;
         sf::Socket::Status status = socket.connect("127.0.0.1", 2000);
-            sf::Packet request_packet;
+        sf::Packet request_packet, response_packet;
             request_packet << request;
             if(socket.send(request_packet) == sf::Socket::Done)
             {
@@ -234,8 +231,22 @@ int main() {
             }
             else
             {std::cout<<"niepowodzenie w transmisji danych"<<std::endl;}
+            sf::sleep(sf::milliseconds(20));
+        space.isLaser = false;
+            if(socket.receive(response_packet) == sf::Socket::Status::Done)
+            {
+                response_packet << response;
+//                if (response.client_ID != space.getID()) {
+                    std::cout<<"rotacja: "<<response.rotation<<std::endl;
+                    std::cout<< "punkty: "<<response.points<<std::endl;
+                    std::cout<<"czy laser: " <<response.is_laser<<std::endl;
+                    std::cout<<"ID: " <<response.client_ID <<std::endl;
+                    std::cout<<std::endl<<std::endl;
+//                }
+//                else
+//                {std::cout<<"pominięto dane drugiego klienta"<<std::endl;}
+            }
     
-            
 //            if (status == sf::Socket::Done)
 //            {
 //                if (socket.send(&request, sizeof(request)) != sf::Socket::Done) {
@@ -243,8 +254,6 @@ int main() {
 //                }
 //
 //            }
-            threshold = 0;
-        }
         
 //        wysyłanie rotacji
 
@@ -262,3 +271,4 @@ int main() {
     /////////////////////////////////////////////////////////
     return 0;
 }
+

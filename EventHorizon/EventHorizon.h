@@ -9,12 +9,12 @@
 #ifndef EventHorizon_h
 #define EventHorizon_h
 
-#include <stdio.h>
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <iostream>
-#include <cmath>
+#include "abstract.h"
+//#include <SFML/Window.hpp>
+//#include <SFML/Graphics.hpp>
+//#include <SFML/Audio.hpp>
+//#include <iostream>
+//#include <cmath>
 
 struct Bounds
 {
@@ -128,7 +128,7 @@ public:
 //    double Player2_points;
 //    sf::Vector2f Player1_position;
 //    sf::Vector2f Player2_position;
-//    
+//
 //    sf::Time Elapsed;
 //};
 

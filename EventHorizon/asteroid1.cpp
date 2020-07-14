@@ -1,6 +1,8 @@
 #include "asteroid1.h"
 #include <iostream>
 
+
+
 Asteroid1::Asteroid1(float x, float y, sf::Texture *texture)
 {
     this->setTexture(*texture);
@@ -25,10 +27,11 @@ void Asteroid1::out_of_screen(sf::Vector2u size)
     if (Sprite.getPosition().x < 0 || Sprite.getPosition().x > size.x ||
         Sprite.getPosition().y < 0 || Sprite.getPosition().y > size.y)
     {
-        Sprite.setPosition(size.x/2,size.y/2);
-        
-        velocity_x_ = (rand() % 20-10)*10;
-        velocity_y_ = (rand() % 20-10)*10;
+//        Sprite.setPosition(size.x/2,size.y/2);
+//
+//        velocity_x_ = (rand() % 20-10)*10;
+//        velocity_y_ = (rand() % 20-10)*10;
+        this->to_center(size);
         
     }
 }
@@ -57,7 +60,7 @@ void Asteroid1::to_center(sf::Vector2u size)
     this->HP=2;
 }
 
-std::pair<int, int> Asteroid1::getVelocities() { 
+std::pair<int, int> Asteroid1::getVelocities() {
     return {velocity_x_, velocity_y_};
 }
 
