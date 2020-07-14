@@ -28,7 +28,7 @@ private:
     bool is_clicked_backward = false;
     int points;
     SingleFrame state;
-    int IDnum = 2;
+    int ID = 2;
 public:
     //std::vector<Laser> LASERS;
     std::vector<Laser*> LASERS;
@@ -42,6 +42,7 @@ public:
     int getPoints();
     bool isLaser;
     SingleFrame getState();
+    int getID();
     
     
 };

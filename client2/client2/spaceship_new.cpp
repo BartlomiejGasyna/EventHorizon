@@ -106,9 +106,13 @@ SingleFrame Spaceship_new::getState()
     state.rotation = this->getRotation();
     state.is_laser = this->isLaser;
     state.points = this->points;
-//    state.client_ID = this->IDnum;
+    state.client_ID = this->ID;
 //    std::cout<<"ID: "<<state.client_ID<<std::endl;
     return state;
+}
+int Spaceship_new::getID()
+{
+    return this->ID;
 }
 
 

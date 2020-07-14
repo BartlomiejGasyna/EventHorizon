@@ -32,14 +32,14 @@ struct SingleFrame
     
 };
 
-sf::Packet& operator << (sf::Packet& packet, const SingleFrame &frame)
+sf::Packet& operator << (sf::Packet& packet, SingleFrame &frame)
 {
-    return packet << frame.rotation << frame.is_laser << frame.points<<frame.client_ID;
+    return packet << frame.rotation << frame.is_laser << frame.points <<frame.client_ID;
 }
     
 sf::Packet& operator >> (sf::Packet& packet, SingleFrame &frame)
 {
-    return packet >> frame.rotation >> frame.is_laser >> frame.points << frame.client_ID;
+    return packet >> frame.rotation >> frame.is_laser >> frame.points >>frame.client_ID;
 }
     
 
@@ -68,8 +68,8 @@ int main(int, char const**)
 //    socket.disconnect();
     for(;;)
     {
-        sf::Packet packet;
-        SingleFrame client1;
+        sf::Packet packet, response;
+        SingleFrame client;
 //        std::cout<<elapsed.asMicroseconds()<<std::endl;
         listener.accept(socket);
         
@@ -84,22 +84,23 @@ int main(int, char const**)
 //            {
 //                std::cout<<"Gracz 2: "<<std::endl;
 //            }
-            if (packet >> client1 ) {
-                std::cout<<"rotacja: "<<client1.rotation<<std::endl;
-                std::cout<< "punkty: "<<client1.points<<std::endl;
-                std::cout<<"czy laser: " <<client1.is_laser<<std::endl;
-                std::cout<<"ID: " <<client1.client_ID <<std::endl;
+            if (packet >> client ) {
+                std::cout<<"rotacja: "<<client.rotation<<std::endl;
+                std::cout<< "punkty: "<<client.points<<std::endl;
+                std::cout<<"czy laser: " <<client.is_laser<<std::endl;
+                std::cout<<"ID: " <<client.client_ID <<std::endl;
                 std::cout<<std::endl<<std::endl;
             }
         
         else
             std::cout<<"BŁĄD!"<<std::endl;
-        if(socket.send(packet) == sf::Socket::Done)
+            response = packet;
+        if(socket.send(response) == sf::Socket::Done)
         {
-            std::cout<<"przesłano dane"<<std::endl;
+            std::cout<<"przesłano dane gracza nr: "<< client.client_ID<<std::endl<<std::endl;
         }
             
-        sf::sleep(sf::milliseconds(20));
+//        sf::sleep(sf::milliseconds(10));
     }
     }
    
