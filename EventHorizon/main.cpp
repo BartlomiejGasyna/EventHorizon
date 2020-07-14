@@ -7,6 +7,16 @@
 
 SingleFrame last_response;
 
+sf::Packet& operator << (sf::Packet& packet, const SingleFrame &frame)
+{
+    return packet << frame.rotation << frame.is_laser << frame.points;
+}
+    
+sf::Packet& operator >> (sf::Packet& packet, SingleFrame &frame)
+{
+    return packet >> frame.rotation >> frame.is_laser >> frame.points;
+}
+    
 int main() {
     // create the window
     sf::RenderWindow window(sf::VideoMode(1000, 1000), "My window");
@@ -198,7 +208,7 @@ int main() {
         
         /// tutaj prosze ostroznie
         
-        if(threshold > 2000)
+        if(threshold > 200)
         {
         //wysył kurwa danych
         size_t size;
@@ -216,24 +226,23 @@ int main() {
         
         sf::TcpSocket socket;
         sf::Socket::Status status = socket.connect("127.0.0.1", 2000);
-        
-        if (status == sf::Socket::Done)
+            sf::Packet request_packet;
+            request_packet << request;
+            if(socket.send(request_packet) == sf::Socket::Done)
             {
-            if (socket.send(&request, sizeof(request)) != sf::Socket::Done) {
-                std::cout<<"Error while sending current location"<<std::endl;
+                std::cout<<"Pomyślnie przesłano strukturę"<<std::endl;
             }
-//               else
-//                {
-//                    std::size_t received;
-//                    if (socket.receive(&response, sizeof(response), received) != sf::Socket::Done) {
-//
-//                        last_response = response;
-//
-//                    }
-//                    else
-//                    {std::cout <<"Error while receinving current location" << std::endl;}
+            else
+            {std::cout<<"niepowodzenie w transmisji danych"<<std::endl;}
+    
+            
+//            if (status == sf::Socket::Done)
+//            {
+//                if (socket.send(&request, sizeof(request)) != sf::Socket::Done) {
+//                    std::cout<<"Error while sending current location"<<std::endl;
 //                }
-            }
+//
+//            }
             threshold = 0;
         }
         
