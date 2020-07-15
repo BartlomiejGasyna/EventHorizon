@@ -83,12 +83,12 @@ W trybie rzeczywistym gracze widzą wzajemnie swoje statki oraz ich położenie 
 
 ## Podział odpowiedzialności:
 
-#Bartłomiej Gasyna:
+Bartłomiej Gasyna:
 -
 -
 -
 
-#Paweł Gawron:
+Paweł Gawron:
 -
 -
 -
