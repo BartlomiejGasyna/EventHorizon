@@ -15,6 +15,8 @@
 		4CAFA3C524AE3B26005ADD33 /* asteroid1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CAFA3C024AE3B26005ADD33 /* asteroid1.cpp */; };
 		4CAFA3C624AE3B26005ADD33 /* abstract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CAFA3C224AE3B26005ADD33 /* abstract.cpp */; };
 		4CAFA3CC24AF386F005ADD33 /* spaceship_new.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CAFA3CA24AF386F005ADD33 /* spaceship_new.cpp */; };
+		4CCFAD5724BF4EF90074A593 /* background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CCFAD5624BF4EF90074A593 /* background.cpp */; };
+		4CCFAD5A24BFB83C0074A593 /* bonus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CCFAD5824BFB83C0074A593 /* bonus.cpp */; };
 		4CECA79724B1D8460022DDF2 /* laser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CECA79524B1D8460022DDF2 /* laser.cpp */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,10 @@
 		4CAFA3C324AE3B26005ADD33 /* abstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = abstract.h; sourceTree = "<group>"; };
 		4CAFA3CA24AF386F005ADD33 /* spaceship_new.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = spaceship_new.cpp; sourceTree = "<group>"; };
 		4CAFA3CB24AF386F005ADD33 /* spaceship_new.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = spaceship_new.hpp; sourceTree = "<group>"; };
+		4CCFAD5524BF4EF90074A593 /* background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = background.h; sourceTree = "<group>"; };
+		4CCFAD5624BF4EF90074A593 /* background.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = background.cpp; sourceTree = "<group>"; };
+		4CCFAD5824BFB83C0074A593 /* bonus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bonus.cpp; sourceTree = "<group>"; };
+		4CCFAD5924BFB83C0074A593 /* bonus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bonus.h; sourceTree = "<group>"; };
 		4CECA79524B1D8460022DDF2 /* laser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = laser.cpp; sourceTree = "<group>"; };
 		4CECA79624B1D8460022DDF2 /* laser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = laser.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,9 +79,13 @@
 				4C6D11F224B7358C00172CF8 /* IP_proxy.cpp */,
 				4C6D11F324B7358C00172CF8 /* IP_proxy.hpp */,
 				4C039A3F247408BC00AACD3F /* EventHorizon.h */,
+				4CCFAD5824BFB83C0074A593 /* bonus.cpp */,
+				4CCFAD5924BFB83C0074A593 /* bonus.h */,
 				4CAFA3C224AE3B26005ADD33 /* abstract.cpp */,
 				4CAFA3C324AE3B26005ADD33 /* abstract.h */,
 				4CAFA3C024AE3B26005ADD33 /* asteroid1.cpp */,
+				4CCFAD5624BF4EF90074A593 /* background.cpp */,
+				4CCFAD5524BF4EF90074A593 /* background.h */,
 				4CAFA3BF24AE3B26005ADD33 /* asteroid1.h */,
 				4CECA79524B1D8460022DDF2 /* laser.cpp */,
 				4CECA79624B1D8460022DDF2 /* laser.h */,
@@ -188,11 +198,13 @@
 			files = (
 				4C039A41247408BC00AACD3F /* main.cpp in Sources */,
 				4CAFA3C624AE3B26005ADD33 /* abstract.cpp in Sources */,
+				4CCFAD5A24BFB83C0074A593 /* bonus.cpp in Sources */,
 				4CAFA3CC24AF386F005ADD33 /* spaceship_new.cpp in Sources */,
 				4C6D11F424B7358C00172CF8 /* IP_proxy.cpp in Sources */,
 				4CAFA3C524AE3B26005ADD33 /* asteroid1.cpp in Sources */,
 				4C039A40247408BC00AACD3F /* EventHorizon.cpp in Sources */,
 				4CECA79724B1D8460022DDF2 /* laser.cpp in Sources */,
+				4CCFAD5724BF4EF90074A593 /* background.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

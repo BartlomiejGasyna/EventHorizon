@@ -11,11 +11,13 @@
 		4C6D122824BE2AB300172CF8 /* EventHorizon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D121C24BE2AB200172CF8 /* EventHorizon.cpp */; };
 		4C6D122924BE2AB300172CF8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D121D24BE2AB200172CF8 /* main.cpp */; };
 		4C6D122A24BE2AB300172CF8 /* asteroid1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D121E24BE2AB200172CF8 /* asteroid1.cpp */; };
-		4C6D122B24BE2AB300172CF8 /* EventHorizon-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C6D121F24BE2AB200172CF8 /* EventHorizon-Info.plist */; };
 		4C6D122C24BE2AB300172CF8 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 4C6D122124BE2AB200172CF8 /* Resources */; };
 		4C6D122D24BE2AB300172CF8 /* laser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D122224BE2AB200172CF8 /* laser.cpp */; };
 		4C6D122E24BE2AB300172CF8 /* IP_proxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D122324BE2AB200172CF8 /* IP_proxy.cpp */; };
 		4C6D123124BE46F900172CF8 /* spaceship_new.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D123024BE46F900172CF8 /* spaceship_new.cpp */; };
+		4CCFAD5124BF4EA10074A593 /* EventHorizon in Resources */ = {isa = PBXBuildFile; fileRef = 4CCFAD5024BF4EA10074A593 /* EventHorizon */; };
+		4CCFAD5424BF4EB90074A593 /* background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CCFAD5324BF4EB90074A593 /* background.cpp */; };
+		4CCFAD5D24BFB88C0074A593 /* bonus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CCFAD5C24BFB88C0074A593 /* bonus.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +28,6 @@
 		4C6D121C24BE2AB200172CF8 /* EventHorizon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EventHorizon.cpp; path = ../../EventHorizon/EventHorizon.cpp; sourceTree = "<group>"; };
 		4C6D121D24BE2AB200172CF8 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../EventHorizon/main.cpp; sourceTree = "<group>"; };
 		4C6D121E24BE2AB200172CF8 /* asteroid1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = asteroid1.cpp; path = ../../EventHorizon/asteroid1.cpp; sourceTree = "<group>"; };
-		4C6D121F24BE2AB200172CF8 /* EventHorizon-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "EventHorizon-Info.plist"; path = "../../EventHorizon/EventHorizon-Info.plist"; sourceTree = "<group>"; };
 		4C6D122024BE2AB200172CF8 /* EventHorizon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventHorizon.h; path = ../../EventHorizon/EventHorizon.h; sourceTree = "<group>"; };
 		4C6D122124BE2AB200172CF8 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Resources; path = ../../EventHorizon/Resources; sourceTree = "<group>"; };
 		4C6D122224BE2AB200172CF8 /* laser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = laser.cpp; path = ../../EventHorizon/laser.cpp; sourceTree = "<group>"; };
@@ -35,6 +36,11 @@
 		4C6D122524BE2AB300172CF8 /* asteroid1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = asteroid1.h; path = ../../EventHorizon/asteroid1.h; sourceTree = "<group>"; };
 		4C6D122F24BE46F900172CF8 /* spaceship_new.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = spaceship_new.hpp; sourceTree = "<group>"; };
 		4C6D123024BE46F900172CF8 /* spaceship_new.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spaceship_new.cpp; sourceTree = "<group>"; };
+		4CCFAD5024BF4EA10074A593 /* EventHorizon */ = {isa = PBXFileReference; lastKnownFileType = folder; name = EventHorizon; path = ../../EventHorizon; sourceTree = "<group>"; };
+		4CCFAD5224BF4EB90074A593 /* background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = background.h; path = ../../EventHorizon/background.h; sourceTree = "<group>"; };
+		4CCFAD5324BF4EB90074A593 /* background.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = background.cpp; path = ../../EventHorizon/background.cpp; sourceTree = "<group>"; };
+		4CCFAD5B24BFB88C0074A593 /* bonus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bonus.h; path = ../../EventHorizon/bonus.h; sourceTree = "<group>"; };
+		4CCFAD5C24BFB88C0074A593 /* bonus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bonus.cpp; path = ../../EventHorizon/bonus.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,20 +73,24 @@
 		4C6D120124BE2A3300172CF8 /* client2 */ = {
 			isa = PBXGroup;
 			children = (
+				4C6D121D24BE2AB200172CF8 /* main.cpp */,
 				4C6D121924BE2AB200172CF8 /* abstract.cpp */,
 				4C6D122424BE2AB200172CF8 /* abstract.h */,
 				4C6D123024BE46F900172CF8 /* spaceship_new.cpp */,
+				4CCFAD5C24BFB88C0074A593 /* bonus.cpp */,
+				4CCFAD5B24BFB88C0074A593 /* bonus.h */,
 				4C6D122F24BE46F900172CF8 /* spaceship_new.hpp */,
 				4C6D121E24BE2AB200172CF8 /* asteroid1.cpp */,
 				4C6D122524BE2AB300172CF8 /* asteroid1.h */,
-				4C6D121F24BE2AB200172CF8 /* EventHorizon-Info.plist */,
+				4CCFAD5024BF4EA10074A593 /* EventHorizon */,
 				4C6D121C24BE2AB200172CF8 /* EventHorizon.cpp */,
 				4C6D122024BE2AB200172CF8 /* EventHorizon.h */,
+				4CCFAD5324BF4EB90074A593 /* background.cpp */,
+				4CCFAD5224BF4EB90074A593 /* background.h */,
 				4C6D122324BE2AB200172CF8 /* IP_proxy.cpp */,
 				4C6D121824BE2AB200172CF8 /* IP_proxy.hpp */,
 				4C6D122224BE2AB200172CF8 /* laser.cpp */,
 				4C6D121724BE2AB200172CF8 /* laser.h */,
-				4C6D121D24BE2AB200172CF8 /* main.cpp */,
 				4C6D122124BE2AB200172CF8 /* Resources */,
 			);
 			path = client2;
@@ -145,7 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C6D122C24BE2AB300172CF8 /* Resources in Resources */,
-				4C6D122B24BE2AB300172CF8 /* EventHorizon-Info.plist in Resources */,
+				4CCFAD5124BF4EA10074A593 /* EventHorizon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,11 +188,13 @@
 			files = (
 				4C6D122D24BE2AB300172CF8 /* laser.cpp in Sources */,
 				4C6D123124BE46F900172CF8 /* spaceship_new.cpp in Sources */,
+				4CCFAD5D24BFB88C0074A593 /* bonus.cpp in Sources */,
 				4C6D122A24BE2AB300172CF8 /* asteroid1.cpp in Sources */,
 				4C6D122824BE2AB300172CF8 /* EventHorizon.cpp in Sources */,
 				4C6D122924BE2AB300172CF8 /* main.cpp in Sources */,
 				4C6D122624BE2AB300172CF8 /* abstract.cpp in Sources */,
 				4C6D122E24BE2AB300172CF8 /* IP_proxy.cpp in Sources */,
+				4CCFAD5424BF4EB90074A593 /* background.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

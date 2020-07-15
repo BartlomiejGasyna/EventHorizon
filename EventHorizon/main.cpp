@@ -277,62 +277,46 @@ int main() {
         /// tutaj prosze ostroznie
 
 
-        //wysył kurwa danych
-        //        size_t size;
-        //        std::string ip = "127.0.0.1";
-        //        int port = 2000;
-        //        std::vector<std::pair<int, int> > asteroid_speed;
-        ////        Proxy proxy(size, ip);
-        ////        proxy.Update_Location(space.getRotation(), true, space.getPoints(), asteroid_speed);
-        //        SingleFrame request,response;
-        //        request = space.getState();
-        //        //brakuje vectora predkosci asteroid
-        //        //request.asteroids_speed = space. (asteroidy, predkosc vector<pair<int, int>>)
-        //        sf::TcpSocket socket;
-        //        sf::Socket::Status status = socket.connect("127.0.0.1", 2000);
-        //        sf::Packet request_packet, response_packet;
-        //            request_packet << request;
-        //            if(socket.send(request_packet) == sf::Socket::Done)
-        //            {
-        //                std::cout<<"Pomyślnie przesłano strukturę"<<std::endl;
-        //            }
-        //            else
-        //            {std::cout<<"niepowodzenie w transmisji danych"<<std::endl;}
-        //            sf::sleep(sf::milliseconds(20));
-        //        space.isLaser = false;
-        //            if(socket.receive(response_packet) == sf::Socket::Status::Done)
-        //            {
-        //                response_packet << response;
-        ////                if (response.client_ID != space.getID()) {
-        //                    std::cout<<"rotacja: "<<response.rotation<<std::endl;
-        //                    std::cout<< "punkty: "<<response.points<<std::endl;
-        //                    std::cout<<"czy laser: " <<response.is_laser<<std::endl;
-        //                    std::cout<<"ID: " <<response.client_ID <<std::endl;
-        //                    std::cout<<std::endl<<std::endl;
-        ////                }
-        ////                else
-        ////                {std::cout<<"pominięto dane drugiego klienta"<<std::endl;}
-        //            }
-
-        //            if (status == sf::Socket::Done)
-        //            {
-        //                if (socket.send(&request, sizeof(request)) != sf::Socket::Done) {
-        //                    std::cout<<"Error while sending current location"<<std::endl;
+//        wysył danych
+                SingleFrame request,response;
+                request = space.getState();
+                //brakuje vectora predkosci asteroid
+                //request.asteroids_speed = space. (asteroidy, predkosc vector<pair<int, int>>)
+                sf::TcpSocket socket;
+                sf::Socket::Status status = socket.connect("127.0.0.1", 2000);
+                sf::Packet request_packet, response_packet;
+                    request_packet << request;
+                    if(socket.send(request_packet) == sf::Socket::Done)
+                    {
+                        std::cout<<"Pomyślnie przesłano strukturę"<<std::endl;
+                    }
+                    else
+                    {std::cout<<"niepowodzenie w transmisji danych"<<std::endl;}
+                    sf::sleep(sf::milliseconds(20));
+                space.isLaser = false;
+        
+        // odbior
+        
+//        sf::TcpListener listener;
+//        listener.listen(2000);
+//        listener.accept(socket);
+//        socket.receive(response_packet);
+        
+                    if(socket.receive(response_packet) == sf::Socket::Status::Done)
+                    {
+                        response_packet << response;
+        //                if (response.client_ID != space.getID()) {
+                            std::cout<<"rotacja: "<<response.rotation<<std::endl;
+                            std::cout<< "punkty: "<<response.points<<std::endl;
+                            std::cout<<"czy laser: " <<response.is_laser<<std::endl;
+                            std::cout<<"ID: " <<response.client_ID <<std::endl;
+                            std::cout<<std::endl<<std::endl;
         //                }
-        //
-        //            }
-
-        //        wysyłanie rotacji
-
-        //            float pos_x=space.getRotation();
-        //
-        //            std::cout << space.getRotation()<<std::endl;
-        //            //            delete pos_x;
-        //            //        socket.connect("127.0.0.1", 2000);
-        //            socket.send(&pos_x, sizeof(pos_x));
-        //            //        //socket.disconnect();
-        //            threshold = 0 ;
-        //        }
+        //                else
+        //                {std::cout<<"pominięto dane drugiego klienta"<<std::endl;}
+                    }
+        
+                    
         window.display();
     }
     /////////////////////////////////////////////////////////

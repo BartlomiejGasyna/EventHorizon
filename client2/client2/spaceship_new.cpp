@@ -27,8 +27,6 @@ Spaceship_new::Spaceship_new(sf::Texture &texture, sf::RenderTarget &target)
 
 }
 
-
-
 void Spaceship_new::animuj(const sf::Time &elapsed, float full_time)
 {
     //std::cout<<time.asSeconds()<<std::endl;
@@ -96,6 +94,7 @@ void Spaceship_new::unselect_backward()
 void Spaceship_new::update_points(int x)
 {
     points = points + x;
+    std::cout << "POINTS: " << points << std::endl;
 }
 int Spaceship_new::getPoints()
 {
@@ -108,10 +107,13 @@ SingleFrame Spaceship_new::getState()
     state.rotation = this->getRotation();
     state.is_laser = this->isLaser;
     state.points = this->points;
+//    state.client_id = '1';
     state.client_ID = this->ID;
-//    std::cout<<"ID: "<<state.client_ID<<std::endl;
+    std::cout << "ID: " << state.client_ID <<std::endl;
     return state;
 }
+
+
 int Spaceship_new::getID()
 {
     return this->ID;

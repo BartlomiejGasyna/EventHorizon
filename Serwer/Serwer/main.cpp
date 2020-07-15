@@ -50,6 +50,7 @@ int main(int, char const**)
     
     // Create the main window
     sf::TcpSocket socket;
+    socket.connect("127.0.0.1", 2000);
     sf::IpAddress ip = sf::IpAddress::getLocalAddress();
     
    // listener.setBlocking(false);
@@ -90,12 +91,14 @@ int main(int, char const**)
                 std::cout<<"czy laser: " <<client.is_laser<<std::endl;
                 std::cout<<"ID: " <<client.client_ID <<std::endl;
                 std::cout<<std::endl<<std::endl;
+                
                 temp_response.rotation = client.rotation;
                 temp_response.points = client.points;
                 temp_response.is_laser = client.is_laser;
                 temp_response.client_ID = client.client_ID;
                 response << temp_response;
             }
+            
         
         else
             std::cout<<"BŁĄD!"<<std::endl;
