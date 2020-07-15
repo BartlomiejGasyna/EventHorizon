@@ -7,8 +7,10 @@ class Laser : public Abstract
 {
 private:
     float radians;
+    sf::Texture laser_texture_;
+    sf::Sprite laser_sprite_;
 public:
-    Laser(sf::Texture *texture, int pos_x_, int pos_y_, float rotation);
+    Laser(int pos_x_, int pos_y_, float rotation);
     ~Laser();
     void render(sf::RenderTarget& target);
     void animuj(const sf::Time &elapsed);

@@ -40,3 +40,8 @@ std::pair<int, int> Abstract::getVelocities()
 {
     
 }
+
+int Abstract::get_ID()
+{
+
+}

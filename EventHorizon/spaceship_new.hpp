@@ -30,7 +30,8 @@ private:
     SingleFrame state;
     int ID = 1;
 public:
-    //std::vector<Laser> LASERS;
+    sf::Sprite space_ship_sprite_;
+    sf::Texture space_ship_texture_;
     std::vector<Laser*> LASERS;
     Spaceship_new(sf::Texture &texture, sf::RenderTarget &target);
     void animuj(const sf::Time &elapsed, float full_time);
@@ -42,9 +43,7 @@ public:
     int getPoints();
     bool isLaser;
     SingleFrame getState();
-    int getID();
-    void gain_points();
-    
+    int getID(); 
 };
 
 

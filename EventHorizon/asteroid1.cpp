@@ -19,13 +19,13 @@ void Asteroid1::render(sf::RenderTarget &target)
 
 void Asteroid1::animuj(const sf::Time &elapsed)
 {
-    this->Sprite.move(velocity_x_*elapsed.asSeconds()*3, velocity_y_*elapsed.asSeconds()*3);
+    this->Sprite.move(this->velocity_x_*elapsed.asSeconds()*3, this->velocity_y_*elapsed.asSeconds()*3);
 }
 
 void Asteroid1::out_of_screen(sf::Vector2u size)
 {
-    if (Sprite.getPosition().x < 0 || Sprite.getPosition().x > size.x ||
-        Sprite.getPosition().y < 0 || Sprite.getPosition().y > size.y)
+    if (this->Sprite.getPosition().x < 0 || this->Sprite.getPosition().x > size.x ||
+        this->Sprite.getPosition().y < 0 || this->Sprite.getPosition().y > size.y)
     {
 //        Sprite.setPosition(size.x/2,size.y/2);
 //
@@ -54,7 +54,7 @@ bool Asteroid1::collision(sf::FloatRect object) {
 }
 void Asteroid1::to_center(sf::Vector2u size)
 {
-    this->setPosition(size.x/2, size.y/2);
+    this->Sprite.setPosition(size.x/2, size.y/2);
     this->velocity_x_ = (rand() % 20-10)*10;
     this->velocity_y_ = (rand() % 20-10)*10;
     this->HP=2;
@@ -62,6 +62,16 @@ void Asteroid1::to_center(sf::Vector2u size)
 
 std::pair<int, int> Asteroid1::getVelocities() {
     return {velocity_x_, velocity_y_};
+}
+
+void Asteroid1::create_asteroids(sf::RenderTarget &target)
+{
+
+}
+
+int Asteroid1::get_ID()
+{
+    return this->object_ID_;
 }
 
 

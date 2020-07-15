@@ -14,7 +14,7 @@ struct SingleFrame
     float rotation;
     bool is_laser;
     int points;
-//    char client_id;
+    //    char client_id;
     int client_ID;
     // to trzeba bedzie dodac
     //std::vector<std::pair<int, int>>asteroids_speed;
@@ -25,13 +25,13 @@ struct SingleFrame
 
 class Abstract : public sf::Sprite
 {
-protected:
-   // int HP;
+private:
+    // int HP;
 public:
     int HP;
+    sf::Sprite Sprite;
     Abstract();
     virtual ~Abstract();
-    sf::Sprite Sprite;
     virtual void setTexture(sf::Texture& texture);
     virtual void setPosition(const float x, const float y);
     virtual void render(sf::RenderTarget& target) = 0;
@@ -43,6 +43,7 @@ public:
     // kolizje z graczami
     virtual void to_center(sf::Vector2u size);
     virtual std::pair<int, int>getVelocities();
+    virtual int get_ID();
     
 };
 

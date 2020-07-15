@@ -94,6 +94,7 @@ void Spaceship_new::unselect_backward()
 void Spaceship_new::update_points(int x)
 {
     points = points + x;
+    std::cout << "POINTS: " << points << std::endl;
 }
 int Spaceship_new::getPoints()
 {
@@ -118,8 +119,3 @@ int Spaceship_new::getID()
     return this->ID;
 }
 
-void Spaceship_new::gain_points()
-{
-    points += 10;
-    std::cout << "POINTS: " << points << std::endl;
-}
