@@ -8,7 +8,7 @@ class Bonus : public Abstract
     sf::Sprite bonus_sprite_;
     int velocity_x_;
     int velocity_y_;
-    int object_ID_ = 2;
+    int object_ID = 2;
 public:
     Bonus();
     ~Bonus();
@@ -16,7 +16,7 @@ public:
     void animuj(const sf::Time &elapsed);
     void to_center(sf::Vector2u size);
     void out_of_screen(sf::Vector2u size);
-    int get_ID();
+    int get_object_ID();
 };
 
 #endif // BONUS_H

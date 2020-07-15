@@ -123,8 +123,8 @@ int main() {
     std::vector<Abstract*> BONUSES;
     for (unsigned int i = 0; i < 3; i++)
     {
-        BONUSES.push_back(new Bonus());
-        BONUSES[i]->to_center(window.getSize());
+        OBJECTS.push_back(new Bonus());
+        OBJECTS[i+18]->to_center(window.getSize());
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -210,10 +210,16 @@ int main() {
             // ASTEROIDY[i]->getVelocities();
             //std::cout<<"no collision"<<std::endl;
 
-            if(space.getGlobalBounds().intersects(OBJECTS[i]->Sprite.getGlobalBounds()))
+            if(space.getGlobalBounds().intersects(OBJECTS[i]->Sprite.getGlobalBounds()) && OBJECTS[i]->get_object_ID() == 1)
             {
                 OBJECTS[i]->to_center(window.getSize());
                 std::cout<<"collision" << std::endl;
+            }
+
+            if(space.getGlobalBounds().intersects(OBJECTS[i]->Sprite.getGlobalBounds()) && OBJECTS[i]->get_object_ID() == 2)
+            {
+                space.update_points(10);
+                OBJECTS[i]->to_center(window.getSize());
             }
         }
 
@@ -235,7 +241,7 @@ int main() {
             //Enemy collision
             for (unsigned int k = 0; k < OBJECTS.size(); k++)
             {
-                if (space.LASERS[i]->Sprite.getGlobalBounds().intersects(OBJECTS[k]->Sprite.getGlobalBounds()))
+                if (space.LASERS[i]->Sprite.getGlobalBounds().intersects(OBJECTS[k]->Sprite.getGlobalBounds()) && OBJECTS[k]->get_object_ID() == 1)
                 {
                     if (OBJECTS[k]->HP <= 0)
                     {
@@ -252,17 +258,17 @@ int main() {
             }
         }
 
-        for (unsigned int k = 0; k < BONUSES.size(); k++)
-        {
-            BONUSES[k]->render(window);
-            BONUSES[k]->animuj(elapsed);
-            BONUSES[k]->out_of_screen(window.getSize());
-            if(space.getGlobalBounds().intersects(BONUSES[k]->Sprite.getGlobalBounds()))
-            {
-                space.update_points(10);
-                BONUSES[k]->to_center(window.getSize());
-            }
-        }
+//        for (unsigned int k = 0; k < BONUSES.size(); k++)
+//        {
+//            BONUSES[k]->render(window);
+//            BONUSES[k]->animuj(elapsed);
+//            BONUSES[k]->out_of_screen(window.getSize());
+//            if(space.getGlobalBounds().intersects(BONUSES[k]->Sprite.getGlobalBounds()))
+//            {
+//                space.update_points(10);
+//                BONUSES[k]->to_center(window.getSize());
+//            }
+//        }
 
 
         /// tutaj prosze ostroznie

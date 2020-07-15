@@ -27,6 +27,16 @@ void Bonus::to_center(sf::Vector2u size)
     this->Sprite.setPosition(size.x/2, size.y/2);
     this->velocity_x_ = (rand() % 20-10)*10;
     this->velocity_y_ = (rand() % 20-10)*10;
+
+    if(this->velocity_x_ == 0)
+    {
+        this->velocity_x_ = (rand() % 20-10)*10;
+    }
+
+    if(this->velocity_y_ == 0)
+    {
+        this->velocity_y_ = (rand() % 20-10)*10;
+    }
 }
 
 void Bonus::out_of_screen(sf::Vector2u size)
@@ -38,7 +48,7 @@ void Bonus::out_of_screen(sf::Vector2u size)
     }
 }
 
-int Bonus::get_ID()
+int Bonus::get_object_ID()
 {
-    return this->object_ID_;
+    return this->object_ID;
 }

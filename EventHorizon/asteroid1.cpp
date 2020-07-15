@@ -24,12 +24,7 @@ void Asteroid1::out_of_screen(sf::Vector2u size)
     if (this->Sprite.getPosition().x < 0 || this->Sprite.getPosition().x > size.x ||
             this->Sprite.getPosition().y < 0 || this->Sprite.getPosition().y > size.y)
     {
-        //        Sprite.setPosition(size.x/2,size.y/2);
-        //
-        //        velocity_x_ = (rand() % 20-10)*10;
-        //        velocity_y_ = (rand() % 20-10)*10;
         this->to_center(size);
-        
     }
 }
 
@@ -47,7 +42,8 @@ bool Asteroid1::collision(sf::FloatRect object) {
         //if (Sprite.getGlobalBounds().intersects(object))
     {
         return true;
-    };
+    }
+    return false;
 }
 void Asteroid1::to_center(sf::Vector2u size)
 {
@@ -55,23 +51,38 @@ void Asteroid1::to_center(sf::Vector2u size)
     this->velocity_x_ = (rand() % 20-10)*10;
     this->velocity_y_ = (rand() % 20-10)*10;
 
-//    if(this->asteroid_ID_ == 1) this->HP = 1;
-//    if(this->asteroid_ID_ == 2) this->HP = 2;
-//    if(this->asteroid_ID_ == 2) this->HP = 3;
+    if(this->velocity_x_ == 0)
+    {
+        this->velocity_x_ = (rand() % 20-10)*10;
+    }
+
+    if(this->velocity_y_ == 0)
+    {
+        this->velocity_y_ = (rand() % 20-10)*10;
+    }
+    if(this->get_asteroid_ID() == 1) this->HP = 1;
+    if(this->get_asteroid_ID() == 2) this->HP = 2;
+    if(this->get_asteroid_ID() == 3) this->HP = 3;
 }
 
-std::pair<int, int> Asteroid1::getVelocities() {
-    return {velocity_x_, velocity_y_};
-}
-
-int Asteroid1::get_ID()
+std::pair<int, int> Asteroid1::getVelocities()
 {
-    return this->object_ID_;
+    return {velocity_x_, velocity_y_};
 }
 
 void Asteroid1::set_asteroid_ID(int ID)
 {
     this->asteroid_ID_ = ID;
+}
+
+int Asteroid1::get_asteroid_ID()
+{
+    return this->asteroid_ID_;
+}
+
+int Asteroid1::get_object_ID()
+{
+    return this->object_ID;
 }
 
 

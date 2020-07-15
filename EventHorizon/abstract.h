@@ -26,10 +26,13 @@ struct SingleFrame
 class Abstract : public sf::Sprite
 {
 private:
-    //int HP;
+    int object_ID;
 public:
     int HP;
     sf::Sprite Sprite;
+    int velocity_x_;
+    int velocity_y_;
+    int asteroid_ID_;
     Abstract();
     virtual ~Abstract();
     virtual void setTexture(sf::Texture& texture);
@@ -43,8 +46,8 @@ public:
     // kolizje z graczami
     virtual void to_center(sf::Vector2u size);
     virtual std::pair<int, int>getVelocities();
-    virtual int get_ID();
-    virtual void set_asteroid_ID(int ID);
+    virtual void set_asteroid_ID(int asteroid_ID);
+    virtual int get_object_ID();
 };
 
 
