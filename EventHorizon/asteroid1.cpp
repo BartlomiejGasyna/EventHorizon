@@ -3,10 +3,10 @@
 
 
 
-Asteroid1::Asteroid1(float x, float y, sf::Texture *texture)
+Asteroid1::Asteroid1(sf::Texture *texture, int life)
 {
     this->setTexture(*texture);
-    this->HP = 2;
+    this->HP = life;
 //    this->setPosition(x, y);
 //    this->velocity_y_ = velocity_y;
 //    this->velocity_x_ = velocity_x;

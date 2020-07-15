@@ -53,7 +53,7 @@ int main() {
     
     
     //tutaj jest nowej klasy spaceship_new
-    Spaceship_new space(0, 0, texture_spaceship, 0,0, window);
+    Spaceship_new space(texture_spaceship, window);
 
     std::cout<<space.getOrigin().x<<"  "<<space.getOrigin().y<<std::endl;
     std::cout<<space.getPosition().x<<"  "<<space.getPosition().y<<std::endl;
@@ -61,18 +61,37 @@ int main() {
     sf::Texture texture_doge;
     if(!texture_doge.loadFromFile("doge.png")) { std::cout<<"error"; }
     
-    sf::Texture texture_asteroid;
-    if(!texture_asteroid.loadFromFile("owoc.png")) { std::cout<<"error"; }
+    sf::Texture texture_asteroid_small;
+    if(!texture_asteroid_small.loadFromFile("small_asteroid.png")) { std::cout<<"error"; }
+
+    sf::Texture texture_asteroid_medium;
+    if(!texture_asteroid_medium.loadFromFile("medium_asteroid.png")) { std::cout<<"error"; }
+
+    sf::Texture texture_asteroid_large;
+    if(!texture_asteroid_large.loadFromFile("large_asteroid.png")) { std::cout<<"error"; }
 
     std::vector<Abstract*> ASTEROIDY;
 
-    for (int i = 0; i < 25; i++)
+    for (int i = 0; i < 10; i++)
     {
-        ASTEROIDY.push_back(new Asteroid1(0, 0, &texture_asteroid));
+        ASTEROIDY.push_back(new Asteroid1(&texture_asteroid_small, 1));
         ASTEROIDY[i]->to_center(window.getSize());
+        ASTEROIDY[i]->Sprite.setScale(0.15, 0.15);
     }
-    
-    float spaceship_angular_velocity = 50;
+
+    for (int i = 0; i < 5; i++)
+    {
+        ASTEROIDY.push_back(new Asteroid1(&texture_asteroid_medium, 2));
+        ASTEROIDY[i+10]->to_center(window.getSize());
+        ASTEROIDY[i+10]->Sprite.setScale(0.18, 0.18);
+    }
+
+    for (int i = 0; i < 3; i++)
+    {
+        ASTEROIDY.push_back(new Asteroid1(&texture_asteroid_large, 3));
+        ASTEROIDY[i+15]->to_center(window.getSize());
+        ASTEROIDY[i+15]->Sprite.setScale(0.27, 0.27);
+    }
     
     //BACKGROUND
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -159,7 +178,7 @@ int main() {
         {
             space.LASERS[i]->render(window);
             //Move
-            space.LASERS[i]->move();
+            space.LASERS[i]->animuj(elapsed);
 
             //Out of window bounds
             if (space.LASERS[i]->Sprite.getPosition().x > window.getSize().x ||
@@ -211,41 +230,41 @@ int main() {
         
         
         //wysył kurwa danych
-        size_t size;
-        std::string ip = "127.0.0.1";
-        int port = 2000;
-        std::vector<std::pair<int, int> > asteroid_speed;
-//        Proxy proxy(size, ip);
-//        proxy.Update_Location(space.getRotation(), true, space.getPoints(), asteroid_speed);
-        SingleFrame request,response;
-        request = space.getState();
-        //brakuje vectora predkosci asteroid
-        //request.asteroids_speed = space. (asteroidy, predkosc vector<pair<int, int>>)
-        sf::TcpSocket socket;
-        sf::Socket::Status status = socket.connect("127.0.0.1", 2000);
-        sf::Packet request_packet, response_packet;
-            request_packet << request;
-            if(socket.send(request_packet) == sf::Socket::Done)
-            {
-                std::cout<<"Pomyślnie przesłano strukturę"<<std::endl;
-            }
-            else
-            {std::cout<<"niepowodzenie w transmisji danych"<<std::endl;}
-            sf::sleep(sf::milliseconds(20));
-        space.isLaser = false;
-            if(socket.receive(response_packet) == sf::Socket::Status::Done)
-            {
-                response_packet << response;
-//                if (response.client_ID != space.getID()) {
-                    std::cout<<"rotacja: "<<response.rotation<<std::endl;
-                    std::cout<< "punkty: "<<response.points<<std::endl;
-                    std::cout<<"czy laser: " <<response.is_laser<<std::endl;
-                    std::cout<<"ID: " <<response.client_ID <<std::endl;
-                    std::cout<<std::endl<<std::endl;
-//                }
-//                else
-//                {std::cout<<"pominięto dane drugiego klienta"<<std::endl;}
-            }
+//        size_t size;
+//        std::string ip = "127.0.0.1";
+//        int port = 2000;
+//        std::vector<std::pair<int, int> > asteroid_speed;
+////        Proxy proxy(size, ip);
+////        proxy.Update_Location(space.getRotation(), true, space.getPoints(), asteroid_speed);
+//        SingleFrame request,response;
+//        request = space.getState();
+//        //brakuje vectora predkosci asteroid
+//        //request.asteroids_speed = space. (asteroidy, predkosc vector<pair<int, int>>)
+//        sf::TcpSocket socket;
+//        sf::Socket::Status status = socket.connect("127.0.0.1", 2000);
+//        sf::Packet request_packet, response_packet;
+//            request_packet << request;
+//            if(socket.send(request_packet) == sf::Socket::Done)
+//            {
+//                std::cout<<"Pomyślnie przesłano strukturę"<<std::endl;
+//            }
+//            else
+//            {std::cout<<"niepowodzenie w transmisji danych"<<std::endl;}
+//            sf::sleep(sf::milliseconds(20));
+//        space.isLaser = false;
+//            if(socket.receive(response_packet) == sf::Socket::Status::Done)
+//            {
+//                response_packet << response;
+////                if (response.client_ID != space.getID()) {
+//                    std::cout<<"rotacja: "<<response.rotation<<std::endl;
+//                    std::cout<< "punkty: "<<response.points<<std::endl;
+//                    std::cout<<"czy laser: " <<response.is_laser<<std::endl;
+//                    std::cout<<"ID: " <<response.client_ID <<std::endl;
+//                    std::cout<<std::endl<<std::endl;
+////                }
+////                else
+////                {std::cout<<"pominięto dane drugiego klienta"<<std::endl;}
+//            }
     
 //            if (status == sf::Socket::Done)
 //            {

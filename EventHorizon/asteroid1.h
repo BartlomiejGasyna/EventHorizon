@@ -9,7 +9,7 @@ private:
     int velocity_x_;
     int velocity_y_;
 public:
-    Asteroid1(float x, float y, sf::Texture * texture);
+    Asteroid1(sf::Texture * texture, int life);
     void render(sf::RenderTarget& target);
     void animuj(const sf::Time &elapsed);
     void out_of_screen(sf::Vector2u size);

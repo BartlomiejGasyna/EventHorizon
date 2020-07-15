@@ -9,13 +9,13 @@
 #include "spaceship_new.hpp"
 //#include <iostream>
 
-Spaceship_new::Spaceship_new(float x, float y,  sf::Texture &texture, int velocity_x, int velocity_y, sf::RenderTarget &target)
+Spaceship_new::Spaceship_new(sf::Texture &texture, sf::RenderTarget &target)
 {
     //    alpha = 10;
     //    r = 10;
     //state.ID = 1;
-    points = 0;
-    setTexture(texture);
+    this->points = 0;
+    this->setTexture(texture);
     int size = texture.getSize().y;
     int window_size = target.getSize().y/2;
 
@@ -115,5 +115,5 @@ SingleFrame Spaceship_new::getState()
 
 int Spaceship_new::getID()
 {
-    return {this -> ID};
+    return this->ID;
 }

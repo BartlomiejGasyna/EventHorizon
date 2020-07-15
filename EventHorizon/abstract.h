@@ -25,6 +25,8 @@ struct SingleFrame
 
 class Abstract : public sf::Sprite
 {
+protected:
+   // int HP;
 public:
     int HP;
     Abstract();

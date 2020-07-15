@@ -20,7 +20,7 @@ void Laser::render(sf::RenderTarget &target)
 
 void Laser::animuj(const sf::Time &elapsed)
 {
-
+    this->Sprite.move(4*sin(this->radians)*elapsed.asSeconds(),-4*cos(this->radians)*elapsed.asSeconds());
 }
 void Laser::move()
 {
