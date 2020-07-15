@@ -72,12 +72,19 @@ int main() {
     
     //SPACESHIP
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    
     sf::Texture texture_spaceship;
     if(!texture_spaceship.loadFromFile("Spaceship2.png")) { std::cout<<"error"; }
     Spaceship_new space(texture_spaceship, window);
+    
+    sf::Texture texture_second_spaceship;
+    if(!texture_second_spaceship.loadFromFile("Spaceship1.png")) { std::cout<<"error"; }
+    Spaceship_new opponent(texture_second_spaceship, window);
 
-    std::cout<<space.getOrigin().x<<"  "<<space.getOrigin().y<<std::endl;
-    std::cout<<space.getPosition().x<<"  "<<space.getPosition().y<<std::endl;
+    
+//    std::cout<<space.getOrigin().x<<"  "<<space.getOrigin().y<<std::endl;
+//    std::cout<<space.getPosition().x<<"  "<<space.getPosition().y<<std::endl;
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -202,7 +209,9 @@ int main() {
         background2.animuj(elapsed); //animacja tla
 
         window.draw(space); //tworzenie gracza
+        window.draw(opponent);
         space.animuj(elapsed, full_time); //animacja gracza
+        opponent.animuj(elapsed, full_time);
 
         //TA PĘTLA OBSŁUGUJE KOLIZJE POMIEDZY GRACZEM A OBIEKTAMI
         for (unsigned int i = 0; i < OBJECTS.size(); i++)
@@ -304,19 +313,30 @@ int main() {
         
                     if(socket.receive(response_packet) == sf::Socket::Status::Done)
                     {
-                        response_packet << response;
+                        
+//                        if (command == "connected") {
+//                            std::string id;
+//                            sf::Vector2f pos;
+//                            packet >> id >> pos.x >> pos.y;
+//                            this->player = new Player(id, pos, this->audio);
+//                            std::cout << "succesfully connected\n";
+//                        }
+                        response_packet >> response.rotation >> response.points >> response.is_laser >> response.client_ID;
+//                        response_packet << response;
         //                if (response.client_ID != space.getID()) {
                             std::cout<<"rotacja: "<<response.rotation<<std::endl;
                             std::cout<< "punkty: "<<response.points<<std::endl;
                             std::cout<<"czy laser: " <<response.is_laser<<std::endl;
                             std::cout<<"ID: " <<response.client_ID <<std::endl;
                             std::cout<<std::endl<<std::endl;
+//                        if (response.client_ID == 1mys ) {
+                            std::cout<<"zmiana rotacji essa"<<std::endl;
+                            opponent.setRotation(response.rotation);
+//                        }
         //                }
         //                else
         //                {std::cout<<"pominięto dane drugiego klienta"<<std::endl;}
                     }
-        
-                    
         window.display();
     }
     /////////////////////////////////////////////////////////
