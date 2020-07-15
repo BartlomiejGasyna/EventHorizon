@@ -3,6 +3,7 @@
 #include "asteroid1.h"
 #include "spaceship_new.hpp"
 #include "laser.h"
+#include "background.h"
 #include "IP_proxy.hpp"
 
 SingleFrame last_response;
@@ -95,14 +96,7 @@ int main() {
     
     //BACKGROUND
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    sf::Texture texture_background;
-    if(!texture_background.loadFromFile("background base.png")) { std::cout<<"error";
-    }
-    sf::Texture texture_background2;
-    if(!texture_background2.loadFromFile("background base2.png")) { std::cout<<"error";
-    }
-    Background background1(texture_background, 0.0, 0.0, window);
-    Background background2(texture_background2, 0.0, 0.0, window);
+    Background background2(0.0, 0.0, window);
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     sf::Clock clock;
@@ -165,10 +159,8 @@ int main() {
 
         window.clear(sf::Color::Black);
 
-        background1.rotate(-0.05);
-        background2.rotate(0.05);
-        window.draw(background1);
-        window.draw(background2);
+        background2.render(window);
+        background2.animuj(elapsed);
 
         window.draw(space);
         space.animuj(elapsed, full_time);
@@ -178,7 +170,7 @@ int main() {
         {
             space.LASERS[i]->render(window);
             //Move
-            space.LASERS[i]->animuj(elapsed);
+            space.LASERS[i]->move();
 
             //Out of window bounds
             if (space.LASERS[i]->Sprite.getPosition().x > window.getSize().x ||

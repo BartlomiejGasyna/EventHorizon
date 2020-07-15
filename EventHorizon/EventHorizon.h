@@ -115,12 +115,16 @@ public:
 //    Background(); // domyślnie wyświetli czarne tło
 //    Background(sf::Texture texture, sf::Vector2f background_position, float bg_angular_speed);
 //};
-class Background :public sf::Sprite
-{
-private:
-public:
-    Background(sf::Texture &texture, float x, float y, sf::RenderWindow &window);
-};
+
+
+//class Background :public sf::Sprite
+//{
+//private:
+//public:
+//    Background(sf::Texture &texture, float x, float y, sf::RenderWindow &window);
+//};
+
+
 //class Game_Representation
 //{
 //public:
