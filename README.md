@@ -74,7 +74,7 @@ złapanie “bonusu” graficznie reprezentowanego jako prezent skutkuje dodanie
 
 W trybie rzeczywistym gracze widzą wzajemnie swoje statki oraz ich położenie na planszy, na obu ekranach wyświetla się jednocześnie to samo. każdy gracz ma 3 życia, odejmowanie przy zderzeniu z asteroidą. Każdy bonus może być zebrany tylko przez jednego gracza - kto pierwszy ten lepszy.
 
- 
+
 
 >Podczas gry widoczne statki obydwu graczy między którymi istnieje możliwość kolizji jak i zestrzelenie siebie nawzajem w przypadku gdy jeden z graczy znajduje się na okręgu bliższym centrum. 
 
@@ -82,7 +82,6 @@ W trybie rzeczywistym gracze widzą wzajemnie swoje statki oraz ich położenie 
 
 
 ## Podział odpowiedzialności:
-
 Bartłomiej Gasyna:
 -
 -
