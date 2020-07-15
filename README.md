@@ -77,3 +77,18 @@ W trybie rzeczywistym gracze widzą wzajemnie swoje statki oraz ich położenie 
  
 
 >Podczas gry widoczne statki obydwu graczy między którymi istnieje możliwość kolizji jak i zestrzelenie siebie nawzajem w przypadku gdy jeden z graczy znajduje się na okręgu bliższym centrum. 
+
+## Instrukcja obsługi:
+
+
+## Podział odpowiedzialności:
+
+#Bartłomiej Gasyna:
+-
+-
+-
+
+#Paweł Gawron:
+-
+-
+-
