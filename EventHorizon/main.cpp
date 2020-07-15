@@ -7,6 +7,23 @@
 #include "bonus.h"
 #include "IP_proxy.hpp"
 
+//class Controller
+//{
+//    sf::RenderWindow window;
+//    Spaceship_new player_;
+//    std::unique_ptr<Abstract> game_engine_;
+
+//public:
+//    Controller(int width = 800, int height = 600)
+//            : window(sf::VideoMode(width, height), "Event Horizon Client"), player_(texture_spaceship, window),
+//              game_engine_()
+//    {
+
+//    }
+
+//};
+
+
 SingleFrame last_response;
 
 sf::Packet& operator << (sf::Packet& packet, const SingleFrame &frame)
@@ -80,6 +97,7 @@ int main() {
         OBJECTS.push_back(new Asteroid1(&texture_asteroid_small, 1));
         OBJECTS[i]->to_center(window.getSize());
         OBJECTS[i]->Sprite.setScale(0.15, 0.15);
+        OBJECTS[i]->set_asteroid_ID(1);
     }
 
     for (int i = 0; i < 5; i++)
@@ -87,6 +105,7 @@ int main() {
         OBJECTS.push_back(new Asteroid1(&texture_asteroid_medium, 2));
         OBJECTS[i+10]->to_center(window.getSize());
         OBJECTS[i+10]->Sprite.setScale(0.18, 0.18);
+        OBJECTS[i+10]->set_asteroid_ID(2);
     }
 
     for (int i = 0; i < 3; i++)
@@ -94,18 +113,18 @@ int main() {
         OBJECTS.push_back(new Asteroid1(&texture_asteroid_large, 3));
         OBJECTS[i+15]->to_center(window.getSize());
         OBJECTS[i+15]->Sprite.setScale(0.27, 0.27);
+        OBJECTS[i+15]->set_asteroid_ID(3);
     }
-
-
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
 
     //BONUSES
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    std::vector<Abstract*> BONUSES;
     for (unsigned int i = 0; i < 3; i++)
     {
-        OBJECTS.push_back(new Bonus());
-        OBJECTS[i+18]->to_center(window.getSize());
+        BONUSES.push_back(new Bonus());
+        BONUSES[i]->to_center(window.getSize());
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -182,6 +201,21 @@ int main() {
         window.draw(space);
         space.animuj(elapsed, full_time);
 
+        //TA PĘTLA OBSŁUGUJE KOLIZJE
+        for (unsigned int i = 0; i < OBJECTS.size(); i++)
+        {
+            OBJECTS[i]->render(window);
+            OBJECTS[i]->animuj(elapsed);
+            OBJECTS[i]->out_of_screen(window.getSize());
+            // ASTEROIDY[i]->getVelocities();
+            //std::cout<<"no collision"<<std::endl;
+
+            if(space.getGlobalBounds().intersects(OBJECTS[i]->Sprite.getGlobalBounds()))
+            {
+                OBJECTS[i]->to_center(window.getSize());
+                std::cout<<"collision" << std::endl;
+            }
+        }
 
         for (unsigned int i = 0; i < space.LASERS.size(); i++)
         {
@@ -201,7 +235,7 @@ int main() {
             //Enemy collision
             for (unsigned int k = 0; k < OBJECTS.size(); k++)
             {
-                if (space.LASERS[i]->Sprite.getGlobalBounds().intersects(OBJECTS[k]->Sprite.getGlobalBounds()) && OBJECTS[k]->get_ID() == 1)
+                if (space.LASERS[i]->Sprite.getGlobalBounds().intersects(OBJECTS[k]->Sprite.getGlobalBounds()))
                 {
                     if (OBJECTS[k]->HP <= 0)
                     {
@@ -218,41 +252,22 @@ int main() {
             }
         }
 
-        //TA PĘTLA OBSŁUGUJE KOLIZJE
-        for (unsigned int i = 0; i < OBJECTS.size(); i++)
+        for (unsigned int k = 0; k < BONUSES.size(); k++)
         {
-            OBJECTS[i]->render(window);
-            OBJECTS[i]->animuj(elapsed);
-            OBJECTS[i]->out_of_screen(window.getSize());
-            // ASTEROIDY[i]->getVelocities();
-            //std::cout<<"no collision"<<std::endl;
-
-            if(space.getGlobalBounds().intersects(OBJECTS[i]->Sprite.getGlobalBounds())&& OBJECTS[i]->get_ID() == 1)
-            {
-                OBJECTS[i]->to_center(window.getSize());
-                std::cout<<"collision" << std::endl;
-            }
-
-            if(space.getGlobalBounds().intersects(OBJECTS[i]->Sprite.getGlobalBounds()) && OBJECTS[i]->get_ID() == 2)
+            BONUSES[k]->render(window);
+            BONUSES[k]->animuj(elapsed);
+            BONUSES[k]->out_of_screen(window.getSize());
+            if(space.getGlobalBounds().intersects(BONUSES[k]->Sprite.getGlobalBounds()))
             {
                 space.update_points(10);
-                OBJECTS[i]->to_center(window.getSize());
+                BONUSES[k]->to_center(window.getSize());
             }
         }
 
 
-//        for (unsigned int i = 0; i < BONUSES.size(); i++)
-//        {
-//            OBJECTS[i]->render(window);
-//            OBJECTS[i]->animuj(elapsed);
-//            OBJECTS[i]->out_of_screen(window.getSize());
-
-
-//        }
-        
         /// tutaj prosze ostroznie
-        
-        
+
+
         //wysył kurwa danych
         //        size_t size;
         //        std::string ip = "127.0.0.1";
@@ -297,7 +312,7 @@ int main() {
         //                }
         //
         //            }
-        
+
         //        wysyłanie rotacji
 
         //            float pos_x=space.getRotation();

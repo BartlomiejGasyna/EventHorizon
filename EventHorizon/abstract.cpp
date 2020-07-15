@@ -45,3 +45,9 @@ int Abstract::get_ID()
 {
 
 }
+
+void Abstract::set_asteroid_ID(int ID)
+{
+
+}
+

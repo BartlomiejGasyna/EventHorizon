@@ -9,6 +9,8 @@ private:
     int velocity_x_;
     int velocity_y_;
     int object_ID_ = 1;
+    int asteroid_ID_;
+    //int HP;
 public:
     Asteroid1(sf::Texture * texture, int life);
     void render(sf::RenderTarget& target);
@@ -17,8 +19,8 @@ public:
     bool collision(sf::FloatRect object);
     void to_center(sf::Vector2u size);
     std::pair<int, int>getVelocities();
-    void create_asteroids(sf::RenderTarget &target);
     int get_ID();
+    void set_asteroid_ID(int ID);
 };
 
 #endif // ASTEROID1_H

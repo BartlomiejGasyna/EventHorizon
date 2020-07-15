@@ -26,7 +26,7 @@ struct SingleFrame
 class Abstract : public sf::Sprite
 {
 private:
-    // int HP;
+    //int HP;
 public:
     int HP;
     sf::Sprite Sprite;
@@ -44,7 +44,7 @@ public:
     virtual void to_center(sf::Vector2u size);
     virtual std::pair<int, int>getVelocities();
     virtual int get_ID();
-    
+    virtual void set_asteroid_ID(int ID);
 };
 
 
