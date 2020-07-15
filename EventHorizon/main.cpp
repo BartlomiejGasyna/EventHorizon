@@ -164,6 +164,8 @@ int main() {
                 //                space.isLaser = false;
             }
 
+            //CONTROLLER
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             if (event.type == sf::Event::KeyPressed) {
                 if (event.key.code == sf::Keyboard::Left) {
                     space.select_forward();
@@ -185,6 +187,7 @@ int main() {
                     space.unselect_backward();
                 }
             }
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         }
         //LOGIC
@@ -195,13 +198,13 @@ int main() {
 
         window.clear(sf::Color::Black);
 
-        background2.render(window);
-        background2.animuj(elapsed);
+        background2.render(window); //tworzenie tla
+        background2.animuj(elapsed); //animacja tla
 
-        window.draw(space);
-        space.animuj(elapsed, full_time);
+        window.draw(space); //tworzenie gracza
+        space.animuj(elapsed, full_time); //animacja gracza
 
-        //TA PĘTLA OBSŁUGUJE KOLIZJE
+        //TA PĘTLA OBSŁUGUJE KOLIZJE POMIEDZY GRACZEM A OBIEKTAMI
         for (unsigned int i = 0; i < OBJECTS.size(); i++)
         {
             OBJECTS[i]->render(window);
@@ -223,13 +226,13 @@ int main() {
             }
         }
 
+        //TA PETLA OBSLUGUJE KOLIZJE POMIEDZY LASEREM A OBIEKTAMI
         for (unsigned int i = 0; i < space.LASERS.size(); i++)
         {
-            space.LASERS[i]->render(window);
-            //Move
-            space.LASERS[i]->move();
+            space.LASERS[i]->render(window); //tworzenie lasera
+            space.LASERS[i]->move(); //animacja lasera
 
-            //Out of window bounds
+            //laser poza oknem
             if (space.LASERS[i]->Sprite.getPosition().x > window.getSize().x ||
                     space.LASERS[i]->Sprite.getPosition().y > window.getSize().y)
             {
@@ -238,7 +241,7 @@ int main() {
                 break;
             }
 
-            //Enemy collision
+            //kolizja z obiektami
             for (unsigned int k = 0; k < OBJECTS.size(); k++)
             {
                 if (space.LASERS[i]->Sprite.getGlobalBounds().intersects(OBJECTS[k]->Sprite.getGlobalBounds()) && OBJECTS[k]->get_object_ID() == 1)

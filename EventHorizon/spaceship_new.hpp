@@ -30,17 +30,15 @@ private:
     SingleFrame state;
     int ID = 1;
 public:
-    sf::Sprite space_ship_sprite_;
-    sf::Texture space_ship_texture_;
     std::vector<Laser*> LASERS;
     Spaceship_new(sf::Texture &texture, sf::RenderTarget &target);
     void animuj(const sf::Time &elapsed, float full_time);
-    void select_forward();
-    void select_backward();
-    void unselect_forward();
-    void unselect_backward();
-    void update_points(int x);
-    int getPoints();
+    void select_forward(); //zmiana wartości logicznej kontrolera
+    void select_backward(); //zmiana wartości logicznej kontrolera
+    void unselect_forward(); //zmiana wartości logicznej kontrolera
+    void unselect_backward(); //zmiana wartości logicznej kontrolera
+    void update_points(int x); //aktualizacja punktacji gracza
+    int getPoints(); //pobieranie punktacji gracza
     bool isLaser;
     SingleFrame getState();
     int getID(); 
