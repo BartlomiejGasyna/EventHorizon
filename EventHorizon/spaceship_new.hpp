@@ -43,7 +43,7 @@ public:
     bool isLaser;
     SingleFrame getState();
     int getID();
-    
+    void gain_points();
     
 };
 

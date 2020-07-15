@@ -5,7 +5,7 @@
 
 Asteroid1::Asteroid1(sf::Texture *texture, int life)
 {
-    this->setTexture(*texture);
+    this->Sprite.setTexture(*texture);
     this->HP = life;
 //    this->setPosition(x, y);
 //    this->velocity_y_ = velocity_y;
@@ -19,7 +19,7 @@ void Asteroid1::render(sf::RenderTarget &target)
 
 void Asteroid1::animuj(const sf::Time &elapsed)
 {
-    this->move(velocity_x_*elapsed.asSeconds()*3, velocity_y_*elapsed.asSeconds()*3);
+    this->Sprite.move(velocity_x_*elapsed.asSeconds()*3, velocity_y_*elapsed.asSeconds()*3);
 }
 
 void Asteroid1::out_of_screen(sf::Vector2u size)

@@ -117,3 +117,9 @@ int Spaceship_new::getID()
 {
     return this->ID;
 }
+
+void Spaceship_new::gain_points()
+{
+    points += 10;
+    std::cout << "POINTS: " << points << std::endl;
+}
