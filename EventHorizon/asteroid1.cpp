@@ -6,7 +6,7 @@
 Asteroid1::Asteroid1(sf::Texture *texture, int life)
 {
     this->Sprite.setTexture(*texture);
-    this->HP = life;
+    this->HP_ = life;
 }
 
 void Asteroid1::render(sf::RenderTarget &target)
@@ -60,9 +60,9 @@ void Asteroid1::to_center(sf::Vector2u size)
     {
         this->velocity_y_ = (rand() % 20-10)*10;
     }
-    if(this->get_asteroid_ID() == 1) this->HP = 1;
-    if(this->get_asteroid_ID() == 2) this->HP = 2;
-    if(this->get_asteroid_ID() == 3) this->HP = 3;
+    if(this->get_asteroid_ID() == 1) this->HP_ = 0;
+    if(this->get_asteroid_ID() == 2) this->HP_ = 1;
+    if(this->get_asteroid_ID() == 3) this->HP_ = 2;
 }
 
 std::pair<int, int> Asteroid1::getVelocities()
@@ -82,7 +82,12 @@ int Asteroid1::get_asteroid_ID()
 
 int Asteroid1::get_object_ID()
 {
-    return this->object_ID;
+    return this->object_ID_;
+}
+
+void Asteroid1::reduce_HP(int damage)
+{
+    this->HP_ = HP_ - damage;
 }
 
 

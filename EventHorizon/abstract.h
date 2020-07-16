@@ -26,13 +26,14 @@ struct SingleFrame
 class Abstract : public sf::Sprite
 {
 private:
-    int object_ID;
+
 public:
-    int HP;
+    int HP_;
     sf::Sprite Sprite;
     int velocity_x_;
     int velocity_y_;
     int asteroid_ID_;
+    int object_ID_;
     Abstract();
     virtual ~Abstract();
     virtual void setTexture(sf::Texture& texture); //ustawianie tekstury
@@ -47,6 +48,7 @@ public:
     virtual void set_asteroid_ID(int asteroid_ID); //nadawanie numeru identyfikacyjnego asteroidy
     virtual int get_asteroid_ID(); //pobieranie numeru identyfikacyjnego asteroidy
     virtual int get_object_ID(); //pobieranie numeru identyfikacyjnego obiektu
+    virtual void reduce_HP(int damage);
 };
 
 

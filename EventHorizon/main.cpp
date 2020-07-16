@@ -87,7 +87,7 @@ int main() {
 
     for (int i = 0; i < 10; i++)
     {
-        OBJECTS.push_back(new Asteroid1(&texture_asteroid_small, 1));
+        OBJECTS.push_back(new Asteroid1(&texture_asteroid_small, 0));
         OBJECTS[i]->to_center(window.getSize());
         OBJECTS[i]->Sprite.setScale(0.15, 0.15);
         OBJECTS[i]->set_asteroid_ID(1);
@@ -95,7 +95,7 @@ int main() {
 
     for (int i = 0; i < 5; i++)
     {
-        OBJECTS.push_back(new Asteroid1(&texture_asteroid_medium, 2));
+        OBJECTS.push_back(new Asteroid1(&texture_asteroid_medium, 1));
         OBJECTS[i+10]->to_center(window.getSize());
         OBJECTS[i+10]->Sprite.setScale(0.18, 0.18);
         OBJECTS[i+10]->set_asteroid_ID(2);
@@ -103,7 +103,7 @@ int main() {
 
     for (int i = 0; i < 3; i++)
     {
-        OBJECTS.push_back(new Asteroid1(&texture_asteroid_large, 3));
+        OBJECTS.push_back(new Asteroid1(&texture_asteroid_large, 2));
         OBJECTS[i+15]->to_center(window.getSize());
         OBJECTS[i+15]->Sprite.setScale(0.27, 0.27);
         OBJECTS[i+15]->set_asteroid_ID(3);
@@ -242,7 +242,7 @@ int main() {
             {
                 if (space.LASERS[i]->Sprite.getGlobalBounds().intersects(OBJECTS[k]->Sprite.getGlobalBounds()) && OBJECTS[k]->get_object_ID() == 1)
                 {
-                    if (OBJECTS[k]->HP <= 0)
+                    if (OBJECTS[k]->HP_ <= 0)
                     {
                         //ASTEROIDY[i]->to_center(window.getSize());
                         // ASTEROIDY.erase(ASTEROIDY.begin()+i);
@@ -250,7 +250,7 @@ int main() {
                         std::cout<<"Asteorida pada"<<std::endl;
 
                     }
-                    else OBJECTS[k]->HP--;
+                    else OBJECTS[k]->reduce_HP(1);
                     space.update_points(1);
                     space.LASERS.erase(space.LASERS.begin() + i);
                 }
@@ -274,67 +274,67 @@ int main() {
 
 
 //        wysył danych
-        SingleFrame request,response;
-                request = space.getState();
-                //brakuje vectora predkosci asteroid
-                //request.asteroids_speed = space. (asteroidy, predkosc vector<pair<int, int>>)
-                sf::TcpSocket socket;
-                sf::Socket::Status status = socket.connect("127.0.0.1", 2000);
-                sf::Packet request_packet, response_packet;
-                    request_packet << request;
-                    if(socket.send(request_packet) == sf::Socket::Done)
-                    {
-                        std::cout<<"Pomyślnie przesłano strukturę"<<std::endl;
-                    }
-                    else
-                    {std::cout<<"niepowodzenie w transmisji danych"<<std::endl;}
-                    sf::sleep(sf::milliseconds(20));
-                space.isLaser = false;
+//        SingleFrame request,response;
+//                request = space.getState();
+//                //brakuje vectora predkosci asteroid
+//                //request.asteroids_speed = space. (asteroidy, predkosc vector<pair<int, int>>)
+//                sf::TcpSocket socket;
+//                sf::Socket::Status status = socket.connect("127.0.0.1", 2000);
+//                sf::Packet request_packet, response_packet;
+//                    request_packet << request;
+//                    if(socket.send(request_packet) == sf::Socket::Done)
+//                    {
+//                        std::cout<<"Pomyślnie przesłano strukturę"<<std::endl;
+//                    }
+//                    else
+//                    {std::cout<<"niepowodzenie w transmisji danych"<<std::endl;}
+//                    sf::sleep(sf::milliseconds(20));
+//                space.isLaser = false;
         
-        // odbior
-             if(socket.receive(response_packet) == sf::Socket::Status::Done)
-                    {
-                        response_packet >> response.rotation >> response.points >> response.is_laser >> response.client_ID;
-//                        response_packet << response;
-        //                if (response.client_ID != space.getID()) {
-                            std::cout<<"rotacja: "<<response.rotation<<std::endl;
-                            std::cout<< "punkty: "<<response.points<<std::endl;
-                            std::cout<<"czy laser: " <<response.is_laser<<std::endl;
-                            std::cout<<"ID: " <<response.client_ID <<std::endl;
-                            std::cout<<std::endl<<std::endl;
-//                        if (response.client_ID == 1mys ) {
-                            std::cout<<"zmiana rotacji essa"<<std::endl;
-                            opponent.setRotation(response.rotation);
-                        if (response.is_laser)
-                        {
-                            std::cout<<"LASER PRZECIWNIKA *****"<<std::endl;
-                            std::cout<<"************************"<<std::endl;
-                        opponent.LASERS.push_back(new Laser(opponent.getGlobalBounds().left+space.getGlobalBounds().width/2, opponent.getGlobalBounds().top+opponent.getGlobalBounds().width/2, opponent.getRotation()));
+//        // odbior
+//             if(socket.receive(response_packet) == sf::Socket::Status::Done)
+//                    {
+//                        response_packet >> response.rotation >> response.points >> response.is_laser >> response.client_ID;
+////                        response_packet << response;
+//        //                if (response.client_ID != space.getID()) {
+//                            std::cout<<"rotacja: "<<response.rotation<<std::endl;
+//                            std::cout<< "punkty: "<<response.points<<std::endl;
+//                            std::cout<<"czy laser: " <<response.is_laser<<std::endl;
+//                            std::cout<<"ID: " <<response.client_ID <<std::endl;
+//                            std::cout<<std::endl<<std::endl;
+////                        if (response.client_ID == 1mys ) {
+//                            std::cout<<"zmiana rotacji essa"<<std::endl;
+//                            opponent.setRotation(response.rotation);
+//                        if (response.is_laser)
+//                        {
+//                            std::cout<<"LASER PRZECIWNIKA *****"<<std::endl;
+//                            std::cout<<"************************"<<std::endl;
+//                        opponent.LASERS.push_back(new Laser(opponent.getGlobalBounds().left+space.getGlobalBounds().width/2, opponent.getGlobalBounds().top+opponent.getGlobalBounds().width/2, opponent.getRotation()));
                             
                             
-                    }
+//                    }
                         
                         
                         
-//                        }
-        //                }
-        //                else
-        //                {std::cout<<"pominięto dane drugiego klienta"<<std::endl;}
-                    }
-        for (unsigned int i = 0; i < opponent.LASERS.size(); i++)
-        {
-            opponent.LASERS[i]->render(window); //tworzenie lasera
-            opponent.LASERS[i]->move(); //animacja lasera
+////                        }
+//        //                }
+//        //                else
+//        //                {std::cout<<"pominięto dane drugiego klienta"<<std::endl;}
+//                    }
+//        for (unsigned int i = 0; i < opponent.LASERS.size(); i++)
+//        {
+//            opponent.LASERS[i]->render(window); //tworzenie lasera
+//            opponent.LASERS[i]->move(); //animacja lasera
 
-            //laser poza oknem
-            if (opponent.LASERS[i]->Sprite.getPosition().x > window.getSize().x ||
-                    opponent.LASERS[i]->Sprite.getPosition().y > window.getSize().y)
-            {
-                delete *(opponent.LASERS.begin()+i);
-                opponent.LASERS.erase(space.LASERS.begin() + i);
-                break;
-            }
-        }
+//            //laser poza oknem
+//            if (opponent.LASERS[i]->Sprite.getPosition().x > window.getSize().x ||
+//                    opponent.LASERS[i]->Sprite.getPosition().y > window.getSize().y)
+//            {
+//                delete *(opponent.LASERS.begin()+i);
+//                opponent.LASERS.erase(space.LASERS.begin() + i);
+//                break;
+//            }
+//        }
         window.display();
     }
     /////////////////////////////////////////////////////////

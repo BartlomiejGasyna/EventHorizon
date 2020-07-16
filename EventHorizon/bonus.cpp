@@ -50,5 +50,5 @@ void Bonus::out_of_screen(sf::Vector2u size)
 
 int Bonus::get_object_ID()
 {
-    return this->object_ID;
+    return this->object_ID_;
 }

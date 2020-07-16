@@ -8,7 +8,7 @@ class Bonus : public Abstract
     sf::Sprite bonus_sprite_;
     int velocity_x_;
     int velocity_y_;
-    int object_ID = 2;
+    int object_ID_ = 2;
 public:
     Bonus();
     ~Bonus();

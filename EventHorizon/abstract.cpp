@@ -77,6 +77,11 @@ int Abstract::get_asteroid_ID()
 
 int Abstract::get_object_ID()
 {
-    return this->object_ID;
+    return this->object_ID_;
+}
+
+void Abstract::reduce_HP(int damage)
+{
+    this->HP_ = HP_ - damage;
 }
 

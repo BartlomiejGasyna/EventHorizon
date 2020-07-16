@@ -6,7 +6,7 @@
 class Laser : public Abstract
 {
 private:
-    float radians;
+    float radians_;
     sf::Texture laser_texture_;
     sf::Sprite laser_sprite_;
 public:
