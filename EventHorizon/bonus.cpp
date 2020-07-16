@@ -2,9 +2,10 @@
 
 Bonus::Bonus()
 {
-    if(!bonus_texture_.loadFromFile("owoc.png")) { std::cout<<"error";
+    if(!bonus_texture_.loadFromFile("bonus.png")) { std::cout<<"error";
     }
     this->Sprite.setTexture(bonus_texture_);
+    this->Sprite.setScale(0.2f, 0.2f);
 }
 
 Bonus::~Bonus()

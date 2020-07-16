@@ -132,7 +132,7 @@ int main() {
             if (event.type == sf::Event::MouseButtonPressed) {
                 if (event.mouseButton.button == sf::Mouse::Left && threshold >= 250 )
                 {
-                    space.LASERS.push_back(new Laser(space.getGlobalBounds().left+space.getGlobalBounds().width/2, space.getGlobalBounds().top+space.getGlobalBounds().width/2, space.getRotation()));
+                    space.LASERS.push_back(new Laser(space.getGlobalBounds().left+space.getGlobalBounds().width/8, space.getGlobalBounds().top+space.getGlobalBounds().height/8, space.getRotation()));
                     threshold = 0;
                     space.isLaser = true;
                     
