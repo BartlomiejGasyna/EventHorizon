@@ -22,6 +22,8 @@ Spaceship_new::Spaceship_new(sf::Texture &texture, sf::RenderTarget &target)
     setOrigin((texture.getSize().x)/12, size-window_size);
     setPosition(target.getSize().x/2, target.getSize().y/2);
     setTextureRect(sf::IntRect(0,0,70,72));
+    this->time = 0;
+    this->threshold = 0;
 //    isLaser = false;
     
 
@@ -153,3 +155,30 @@ sf::Text Spaceship_new::showPoints(sf::Font font, int x, int points_, int ID_)
     return text;
 }
     
+float Spaceship_new::getTime()
+{
+    return this->time;
+}
+void Spaceship_new::elapsedTime()
+{
+    this->elapsed = this->clock.restart();
+    this->time += this -> elapsed.asSeconds();
+}
+sf::Time Spaceship_new::getElapsedTime()
+{
+    return this->elapsed;
+}
+void Spaceship_new::updateThreshold(bool reset)
+{
+    if (!reset) {
+        this->threshold = 0;
+    }
+    else
+    {
+    this->threshold += this->elapsed.asMilliseconds();
+    }
+}
+float Spaceship_new::getThreshold()
+{
+    return this->threshold;
+}

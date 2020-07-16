@@ -20,6 +20,7 @@ sf::Packet operator >> (sf::Packet packet, SingleFrame frame)
     return packet >> frame.rotation >> frame.is_laser >> frame.points >>frame.client_ID;
 }
 
+
 int main() {
     // create the window
     sf::RenderWindow window(sf::VideoMode(1000, 1000), "Client - Event Horizon");
@@ -116,7 +117,7 @@ int main() {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
 
-    sf::Clock clock;
+//    sf::Clock clock;
     
     // run the program as long as the window is open
     while (window.isOpen()) {
@@ -128,8 +129,7 @@ int main() {
         //EVENTS
         sf::Event event;
         
-        static float full_time = 0;
-        static float threshold = 0;
+
         ///Controler
         while (window.pollEvent(event)) {
             // "close requested" event: we close the window
@@ -137,10 +137,10 @@ int main() {
                 window.close();
 
             if (event.type == sf::Event::MouseButtonPressed) {
-                if (event.mouseButton.button == sf::Mouse::Left && threshold >= 250 )
+                if (event.mouseButton.button == sf::Mouse::Left && space.getThreshold() >= 250 )
                 {
                     space.LASERS.push_back(new Laser(space.getGlobalBounds().left+space.getGlobalBounds().width/8, space.getGlobalBounds().top+space.getGlobalBounds().height/8, space.getRotation()));
-                    threshold = 0;
+                    space.updateThreshold(0);
                     space.isLaser = true;
                     
                 }
@@ -152,27 +152,26 @@ int main() {
 
         }
         //LOGIC
-        sf::Time elapsed = clock.restart();
-        full_time+=elapsed.asSeconds();
-        threshold+=elapsed.asMilliseconds();
+        space.elapsedTime();
+        space.updateThreshold(1);
 
 
         window.clear(sf::Color::Black);
 
         background2.render(window); //tworzenie tla
-        background2.animuj(elapsed); //animacja tla
+        background2.animuj(space.getElapsedTime()); //animacja tla
         window.draw(space.showPoints(font, 0, space.getPoints(), space.getID()));
         window.draw(opponent.showPoints(font, window.getSize().x-400, response.points, response.client_ID ));
         window.draw(space); //tworzenie gracza
         window.draw(opponent);
-        space.animuj(elapsed, full_time); //animacja gracza
-        opponent.animuj(elapsed, full_time);
+        space.animuj(space.getElapsedTime(), space.getTime()); //animacja gracza
+        opponent.animuj(space.getElapsedTime(), space.getTime());
 
         //TA PĘTLA OBSŁUGUJE KOLIZJE POMIEDZY GRACZEM A OBIEKTAMI
         for (unsigned int i = 0; i < OBJECTS.size(); i++)
         {
             OBJECTS[i]->render(window);
-            OBJECTS[i]->animuj(elapsed);
+            OBJECTS[i]->animuj(space.getElapsedTime());
             OBJECTS[i]->out_of_screen(window.getSize());
             // ASTEROIDY[i]->getVelocities();
             //std::cout<<"no collision"<<std::endl;
@@ -194,7 +193,7 @@ int main() {
         for (unsigned int i = 0; i < space.LASERS.size(); i++)
         {
             space.LASERS[i]->render(window); //tworzenie lasera
-            space.LASERS[i]->animuj(elapsed); //animacja lasera
+            space.LASERS[i]->animuj(space.getElapsedTime()); //animacja lasera
 
             //laser poza oknem
             if (space.LASERS[i]->Sprite.getPosition().x > window.getSize().x ||
