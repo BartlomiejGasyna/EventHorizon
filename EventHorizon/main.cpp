@@ -7,22 +7,6 @@
 #include "bonus.h"
 #include "IP_proxy.hpp"
 
-//class Controller
-//{
-//    sf::RenderWindow window;
-//    Spaceship_new player_;
-//    std::unique_ptr<Abstract> game_engine_;
-
-//public:
-//    Controller(int width = 800, int height = 600)
-//            : window(sf::VideoMode(width, height), "Event Horizon Client"), player_(texture_spaceship, window),
-//              game_engine_()
-//    {
-
-//    }
-
-//};
-
 
 SingleFrame last_response;
 
@@ -56,7 +40,6 @@ int main() {
     }
     else
         std::cout<<"cos sie spierdolilo";
-    
     
     //SPACESHIP
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -92,7 +75,7 @@ int main() {
 
     for (int i = 0; i < 10; i++)
     {
-        OBJECTS.push_back(new Asteroid1(&texture_asteroid_small, 1));
+        OBJECTS.push_back(new Asteroid1(&texture_asteroid_small, 0));
         OBJECTS[i]->to_center(window.getSize());
         OBJECTS[i]->Sprite.setScale(0.15, 0.15);
         OBJECTS[i]->set_asteroid_ID(1);
@@ -100,7 +83,7 @@ int main() {
 
     for (int i = 0; i < 5; i++)
     {
-        OBJECTS.push_back(new Asteroid1(&texture_asteroid_medium, 2));
+        OBJECTS.push_back(new Asteroid1(&texture_asteroid_medium, 1));
         OBJECTS[i+10]->to_center(window.getSize());
         OBJECTS[i+10]->Sprite.setScale(0.18, 0.18);
         OBJECTS[i+10]->set_asteroid_ID(2);
@@ -108,7 +91,7 @@ int main() {
 
     for (int i = 0; i < 3; i++)
     {
-        OBJECTS.push_back(new Asteroid1(&texture_asteroid_large, 3));
+        OBJECTS.push_back(new Asteroid1(&texture_asteroid_large, 2));
         OBJECTS[i+15]->to_center(window.getSize());
         OBJECTS[i+15]->Sprite.setScale(0.27, 0.27);
         OBJECTS[i+15]->set_asteroid_ID(3);
@@ -141,7 +124,7 @@ int main() {
         SingleFrame request,response;
         
         // check all the window's events that were triggered since the last iteration of the loop
-        window.setFramerateLimit(60);
+       // window.setFramerateLimit(60);
         //EVENTS
         sf::Event event;
         
@@ -156,7 +139,7 @@ int main() {
             if (event.type == sf::Event::MouseButtonPressed) {
                 if (event.mouseButton.button == sf::Mouse::Left && threshold >= 250 )
                 {
-                    space.LASERS.push_back(new Laser(space.getGlobalBounds().left+space.getGlobalBounds().width/2, space.getGlobalBounds().top+space.getGlobalBounds().width/2, space.getRotation()));
+                    space.LASERS.push_back(new Laser(space.getGlobalBounds().left+space.getGlobalBounds().width/8, space.getGlobalBounds().top+space.getGlobalBounds().height/8, space.getRotation()));
                     threshold = 0;
                     space.isLaser = true;
                     
@@ -178,7 +161,6 @@ int main() {
 
         background2.render(window); //tworzenie tla
         background2.animuj(elapsed); //animacja tla
-//        space.showPoints(font, window);
         window.draw(space.showPoints(font, 0, space.getPoints(), space.getID()));
         window.draw(opponent.showPoints(font, window.getSize().x-400, response.points, response.client_ID ));
         window.draw(space); //tworzenie gracza
@@ -212,7 +194,7 @@ int main() {
         for (unsigned int i = 0; i < space.LASERS.size(); i++)
         {
             space.LASERS[i]->render(window); //tworzenie lasera
-            space.LASERS[i]->move(); //animacja lasera
+            space.LASERS[i]->animuj(elapsed); //animacja lasera
 
             //laser poza oknem
             if (space.LASERS[i]->Sprite.getPosition().x > window.getSize().x ||
@@ -228,7 +210,7 @@ int main() {
             {
                 if (space.LASERS[i]->Sprite.getGlobalBounds().intersects(OBJECTS[k]->Sprite.getGlobalBounds()) && OBJECTS[k]->get_object_ID() == 1)
                 {
-                    if (OBJECTS[k]->HP <= 0)
+                    if (OBJECTS[k]->HP_ <= 0)
                     {
                         //ASTEROIDY[i]->to_center(window.getSize());
                         // ASTEROIDY.erase(ASTEROIDY.begin()+i);
@@ -236,7 +218,7 @@ int main() {
                         std::cout<<"Asteorida pada"<<std::endl;
 
                     }
-                    else OBJECTS[k]->HP--;
+                    else OBJECTS[k]->reduce_HP(1);
                     space.update_points(1);
                     space.LASERS.erase(space.LASERS.begin() + i);
                 }
@@ -271,8 +253,7 @@ int main() {
                             std::cout<<"ID: " <<response.client_ID <<std::endl;
                             std::cout<<std::endl<<std::endl;
                     }
-                            opponent.setRotation(response.rotation);
-
+        opponent.setRotation(response.rotation);
         window.display();
     }
     /////////////////////////////////////////////////////////

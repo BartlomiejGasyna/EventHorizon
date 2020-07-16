@@ -13,7 +13,9 @@
 
 
 
-
+/*!
+ * \brief The Proxy class
+ */
 class Proxy :public Abstract
 {
 private:

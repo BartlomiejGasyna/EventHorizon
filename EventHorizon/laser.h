@@ -2,11 +2,13 @@
 #define LASER_H
 #include "abstract.h"
 
-
+/*!
+ * \brief The Laser class
+ */
 class Laser : public Abstract
 {
 private:
-    float radians;
+    float radians_;
     sf::Texture laser_texture_;
     sf::Sprite laser_sprite_;
 public:
@@ -14,7 +16,6 @@ public:
     ~Laser();
     void render(sf::RenderTarget& target);
     void animuj(const sf::Time &elapsed);
-    void move();
 };
 
 #endif // LASER_H

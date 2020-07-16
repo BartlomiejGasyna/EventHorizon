@@ -20,10 +20,6 @@ void Abstract::setPosition(const float x, const float y)
     this->Sprite.setPosition(x, y);
 }
 
-void Abstract::move(const float x, const float y)
-{
-    this->Sprite.move({ x, y });
-}
 void Abstract::out_of_screen(sf::Vector2u size)
 {
     if (this->Sprite.getPosition().x < 0 || this->Sprite.getPosition().x > size.x ||
@@ -77,6 +73,11 @@ int Abstract::get_asteroid_ID()
 
 int Abstract::get_object_ID()
 {
-    return this->object_ID;
+    return this->object_ID_;
+}
+
+void Abstract::reduce_HP(int damage)
+{
+    this->HP_ = HP_ - damage;
 }
 
