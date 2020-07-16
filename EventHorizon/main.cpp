@@ -72,7 +72,12 @@ int main() {
 //    std::cout<<space.getOrigin().x<<"  "<<space.getOrigin().y<<std::endl;
 //    std::cout<<space.getPosition().x<<"  "<<space.getPosition().y<<std::endl;
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+///FONT
+    sf::Font font;
+    if (!font.loadFromFile("Linebeam.ttf")) {
+        std::cout<<"Error while loading font"<<std::endl;
+    }
+    
 
     //ASTEROIDS
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -133,11 +138,13 @@ int main() {
     // run the program as long as the window is open
     while (window.isOpen()) {
         
-
+        SingleFrame request,response;
+        
         // check all the window's events that were triggered since the last iteration of the loop
         window.setFramerateLimit(60);
         //EVENTS
         sf::Event event;
+        
         static float full_time = 0;
         static float threshold = 0;
         ///Controler
@@ -154,34 +161,11 @@ int main() {
                     space.isLaser = true;
                     
                 }
-                //                space.isLaser = false;
             }
 
             //CONTROLLER
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             space.controler(event);
-//            if (event.type == sf::Event::KeyPressed) {
-//                if (event.key.code == sf::Keyboard::Left) {
-//                    space.select_forward();
-//                }
-//            }
-//
-//            if (event.type == sf::Event::KeyPressed) {
-//                if (event.key.code == sf::Keyboard::Right) {
-//                    space.select_backward();
-//                }
-//            }
-//            if (event.type == sf::Event::KeyReleased) {
-//                if (event.key.code == sf::Keyboard::Left) {
-//                    space.unselect_forward();
-//                }
-//            }
-//            if (event.type == sf::Event::KeyReleased) {
-//                if (event.key.code == sf::Keyboard::Right) {
-//                    space.unselect_backward();
-//                }
-//            }
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         }
         //LOGIC
@@ -194,7 +178,9 @@ int main() {
 
         background2.render(window); //tworzenie tla
         background2.animuj(elapsed); //animacja tla
-
+//        space.showPoints(font, window);
+        window.draw(space.showPoints(font, 0, space.getPoints(), space.getID()));
+        window.draw(opponent.showPoints(font, window.getSize().x-400, response.points, response.client_ID ));
         window.draw(space); //tworzenie gracza
         window.draw(opponent);
         space.animuj(elapsed, full_time); //animacja gracza
@@ -256,28 +242,7 @@ int main() {
                 }
             }
         }
-
-//        for (unsigned int k = 0; k < BONUSES.size(); k++)
-//        {
-//            BONUSES[k]->render(window);
-//            BONUSES[k]->animuj(elapsed);
-//            BONUSES[k]->out_of_screen(window.getSize());
-//            if(space.getGlobalBounds().intersects(BONUSES[k]->Sprite.getGlobalBounds()))
-//            {
-//                space.update_points(10);
-//                BONUSES[k]->to_center(window.getSize());
-//            }
-//        }
-
-
-        /// tutaj prosze ostroznie
-
-
-//        wysył danych
-        SingleFrame request,response;
                 request = space.getState();
-                //brakuje vectora predkosci asteroid
-                //request.asteroids_speed = space. (asteroidy, predkosc vector<pair<int, int>>)
                 sf::TcpSocket socket;
                 sf::Socket::Status status = socket.connect("127.0.0.1", 2000);
                 sf::Packet request_packet, response_packet;
@@ -287,54 +252,27 @@ int main() {
                         std::cout<<"Pomyślnie przesłano strukturę"<<std::endl;
                     }
                     else
-                    {std::cout<<"niepowodzenie w transmisji danych"<<std::endl;}
+                    {
+                        std::cout<<"Niepowodzenie w transmisji danych"<<std::endl;
+                    }
                     sf::sleep(sf::milliseconds(20));
                 space.isLaser = false;
         
-        // odbior
+        // odbior danych
              if(socket.receive(response_packet) == sf::Socket::Status::Done)
                     {
-                        response_packet >> response.rotation >> response.points >> response.is_laser >> response.client_ID;
+                        response_packet >> response.rotation >> response.is_laser >>response.points >>  response.client_ID;
 //                        response_packet << response;
         //                if (response.client_ID != space.getID()) {
+                        std::cout<<"Odebrane dane: "<<std::endl;
                             std::cout<<"rotacja: "<<response.rotation<<std::endl;
                             std::cout<< "punkty: "<<response.points<<std::endl;
                             std::cout<<"czy laser: " <<response.is_laser<<std::endl;
                             std::cout<<"ID: " <<response.client_ID <<std::endl;
                             std::cout<<std::endl<<std::endl;
-//                        if (response.client_ID == 1mys ) {
-                            std::cout<<"zmiana rotacji essa"<<std::endl;
+                    }
                             opponent.setRotation(response.rotation);
-                        if (response.is_laser)
-                        {
-                            std::cout<<"LASER PRZECIWNIKA *****"<<std::endl;
-                            std::cout<<"************************"<<std::endl;
-                        opponent.LASERS.push_back(new Laser(opponent.getGlobalBounds().left+space.getGlobalBounds().width/2, opponent.getGlobalBounds().top+opponent.getGlobalBounds().width/2, opponent.getRotation()));
-                            
-                            
-                    }
-                        
-                        
-                        
-//                        }
-        //                }
-        //                else
-        //                {std::cout<<"pominięto dane drugiego klienta"<<std::endl;}
-                    }
-        for (unsigned int i = 0; i < opponent.LASERS.size(); i++)
-        {
-            opponent.LASERS[i]->render(window); //tworzenie lasera
-            opponent.LASERS[i]->move(); //animacja lasera
 
-            //laser poza oknem
-            if (opponent.LASERS[i]->Sprite.getPosition().x > window.getSize().x ||
-                    opponent.LASERS[i]->Sprite.getPosition().y > window.getSize().y)
-            {
-                delete *(opponent.LASERS.begin()+i);
-                opponent.LASERS.erase(space.LASERS.begin() + i);
-                break;
-            }
-        }
         window.display();
     }
     /////////////////////////////////////////////////////////

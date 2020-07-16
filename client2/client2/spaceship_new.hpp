@@ -43,6 +43,7 @@ public:
     SingleFrame getState();
     int getID();
     void controler(sf::Event event);
+    sf::Text showPoints(sf::Font font, int x, int points_, int ID_);
 };
 
 

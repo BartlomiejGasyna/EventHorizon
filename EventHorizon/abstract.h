@@ -14,10 +14,7 @@ struct SingleFrame
     float rotation;
     bool is_laser;
     int points;
-    //    char client_id;
     int client_ID;
-    // to trzeba bedzie dodac
-    //std::vector<std::pair<int, int>>asteroids_speed;
     
 };
 

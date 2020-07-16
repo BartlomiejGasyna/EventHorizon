@@ -144,3 +144,11 @@ void Spaceship_new::controler(sf::Event event)
         }
     }
 }
+sf::Text Spaceship_new::showPoints(sf::Font font, int x, int points_, int ID_)
+{
+//    std::string pl1_points = "Player 1 :" + std::to_string(points);
+    sf::Text text("Player " + std::to_string(ID_) +": " + std::to_string(points_), font, 60);
+    text.setFillColor(sf::Color::White);
+    text.setPosition(x, 0);
+    return text;
+}
