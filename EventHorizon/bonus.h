@@ -2,6 +2,10 @@
 #define BONUS_H
 #include "abstract.h"
 
+
+/*!
+ * \brief The Bonus class
+ */
 class Bonus : public Abstract
 {
     sf::Texture bonus_texture_;

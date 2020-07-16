@@ -2,7 +2,9 @@
 #define ASTEROID1_H
 #include "abstract.h"
 
-
+/*!
+ * \brief The Asteroid1 class
+ */
 class Asteroid1 : public Abstract
 {
 private:

@@ -2,7 +2,9 @@
 #define LASER_H
 #include "abstract.h"
 
-
+/*!
+ * \brief The Laser class
+ */
 class Laser : public Abstract
 {
 private:

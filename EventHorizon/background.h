@@ -2,6 +2,10 @@
 #define BACKGROUND_H
 #include "abstract.h"
 
+
+/*!
+ * \brief The Background class
+ */
 class Background : public Abstract
 {
 private:

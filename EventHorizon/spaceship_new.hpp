@@ -20,7 +20,9 @@
 
 
 
-
+/*!
+ * \brief The Spaceship_new class
+ */
 class Spaceship_new :public sf::Sprite
 {
 private:

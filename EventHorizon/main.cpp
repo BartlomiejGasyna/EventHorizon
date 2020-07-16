@@ -7,22 +7,6 @@
 #include "bonus.h"
 #include "IP_proxy.hpp"
 
-//class Controller
-//{
-//    sf::RenderWindow window;
-//    Spaceship_new player_;
-//    std::unique_ptr<Abstract> game_engine_;
-
-//public:
-//    Controller(int width = 800, int height = 600)
-//            : window(sf::VideoMode(width, height), "Event Horizon Client"), player_(texture_spaceship, window),
-//              game_engine_()
-//    {
-
-//    }
-
-//};
-
 
 SingleFrame last_response;
 
