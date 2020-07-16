@@ -160,8 +160,12 @@ int main() {
 
         background2.render(window); //tworzenie tla
         background2.animuj(space.getElapsedTime()); //animacja tla
+        
+        //DISPLAYING POINTS
         window.draw(space.showPoints(font, 0, space.getPoints(), space.getID()));
         window.draw(opponent.showPoints(font, window.getSize().x-400, response.points, response.client_ID ));
+        
+        
         window.draw(space); //tworzenie gracza
         window.draw(opponent);
         space.animuj(space.getElapsedTime(), space.getTime()); //animacja gracza
@@ -223,6 +227,8 @@ int main() {
                 }
             }
         }
+        
+        
                 request = space.getState();
                 sf::TcpSocket socket;
                 sf::Socket::Status status = socket.connect("127.0.0.1", 2000);
