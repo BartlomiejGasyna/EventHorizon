@@ -163,7 +163,7 @@ int main() {
         
         //DISPLAYING POINTS
         window.draw(space.showPoints(font, 0, space.getPoints(), space.getID()));
-        window.draw(opponent.showPoints(font, window.getSize().x-400, response.points, response.client_ID ));
+        window.draw(opponent.showPoints(font, window.getSize().x-425, response.points, response.client_ID ));
         
         
         window.draw(space); //tworzenie gracza

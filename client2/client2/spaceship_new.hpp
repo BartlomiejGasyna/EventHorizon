@@ -29,6 +29,10 @@ private:
     int points;
     SingleFrame state;
     int ID = 2;
+    float time;
+    sf::Time elapsed;
+    sf::Clock clock;
+    float threshold;
 public:
     std::vector<Laser*> LASERS;
     Spaceship_new(sf::Texture &texture, sf::RenderTarget &target);
@@ -44,6 +48,16 @@ public:
     int getID();
     void controler(sf::Event event);
     sf::Text showPoints(sf::Font font, int x, int points_, int ID_);
+    void elapsedTime();
+    // updates current full time of the game
+    float getTime();
+       // returns current full time of the game
+    sf::Time getElapsedTime();
+    //returns elapsed time as sf::Time
+    void updateThreshold(bool reset);
+    // if false, resets threshold, if not adds elapsed time
+    float getThreshold();
+    //return current threshold value
 };
 
 

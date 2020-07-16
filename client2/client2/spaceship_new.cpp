@@ -152,3 +152,31 @@ sf::Text Spaceship_new::showPoints(sf::Font font, int x, int points_, int ID_)
     text.setPosition(x, 0);
     return text;
 }
+    
+float Spaceship_new::getTime()
+{
+    return this->time;
+}
+void Spaceship_new::elapsedTime()
+{
+    this->elapsed = this->clock.restart();
+    this->time += this -> elapsed.asSeconds();
+}
+sf::Time Spaceship_new::getElapsedTime()
+{
+    return this->elapsed;
+}
+void Spaceship_new::updateThreshold(bool reset)
+{
+    if (!reset) {
+        this->threshold = 0;
+    }
+    else
+    {
+    this->threshold += this->elapsed.asMilliseconds();
+    }
+}
+float Spaceship_new::getThreshold()
+{
+    return this->threshold;
+}
