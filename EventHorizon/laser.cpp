@@ -22,9 +22,5 @@ void Laser::render(sf::RenderTarget &target)
 
 void Laser::animuj(const sf::Time &elapsed)
 {
-    this->Sprite.move(4*sin(this->radians_)*elapsed.asSeconds(),-4*cos(this->radians_)*elapsed.asSeconds());
-}
-void Laser::move()
-{
-    this->Sprite.move(4*sin(this->radians_),-4*cos(this->radians_));
+    this->Sprite.move(300*sin(this->radians_)*elapsed.asSeconds(),-300*cos(this->radians_)*elapsed.asSeconds());
 }

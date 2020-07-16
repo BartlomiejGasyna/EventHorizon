@@ -20,10 +20,6 @@ void Abstract::setPosition(const float x, const float y)
     this->Sprite.setPosition(x, y);
 }
 
-void Abstract::move(const float x, const float y)
-{
-    this->Sprite.move({ x, y });
-}
 void Abstract::out_of_screen(sf::Vector2u size)
 {
     if (this->Sprite.getPosition().x < 0 || this->Sprite.getPosition().x > size.x ||

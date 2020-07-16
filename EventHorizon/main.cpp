@@ -57,7 +57,6 @@ int main() {
     else
         std::cout<<"cos sie spierdolilo";
     
-    
     //SPACESHIP
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
@@ -135,7 +134,7 @@ int main() {
         
 
         // check all the window's events that were triggered since the last iteration of the loop
-        window.setFramerateLimit(60);
+       // window.setFramerateLimit(60);
         //EVENTS
         sf::Event event;
         static float full_time = 0;
@@ -226,7 +225,7 @@ int main() {
         for (unsigned int i = 0; i < space.LASERS.size(); i++)
         {
             space.LASERS[i]->render(window); //tworzenie lasera
-            space.LASERS[i]->move(); //animacja lasera
+            space.LASERS[i]->animuj(elapsed); //animacja lasera
 
             //laser poza oknem
             if (space.LASERS[i]->Sprite.getPosition().x > window.getSize().x ||

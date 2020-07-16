@@ -33,15 +33,60 @@ public:
     std::vector<Laser*> LASERS;
     Spaceship_new(sf::Texture &texture, sf::RenderTarget &target);
     void animuj(const sf::Time &elapsed, float full_time);
-    void select_forward(); //zmiana wartości logicznej kontrolera
-    void select_backward(); //zmiana wartości logicznej kontrolera
-    void unselect_forward(); //zmiana wartości logicznej kontrolera
-    void unselect_backward(); //zmiana wartości logicznej kontrolera
-    void update_points(int x); //aktualizacja punktacji gracza
-    int getPoints(); //pobieranie punktacji gracza
+
+    /*!
+     * \brief select_forward changes change of controller logical value
+     */
+    void select_forward();
+
+    /*!
+     * \brief select_backward change of controller logical value
+     */
+    void select_backward();
+
+    /*!
+     * \brief unselect_forward change of controller logical value
+     */
+    void unselect_forward();
+
+    /*!
+     * \brief unselect_backward change of controller logical value
+     */
+    void unselect_backward();
+
+    /*!
+     * \brief update_points player scoring update
+     * \param x
+     */
+    void update_points(int x);
+
+    /*!
+     * \brief getPoints gets player's points
+     * \return
+     */
+    int getPoints();
+
+    /*!
+     * \brief isLaser
+     */
     bool isLaser;
+
+    /*!
+     * \brief getState
+     * \return
+     */
     SingleFrame getState();
+
+    /*!
+     * \brief getID
+     * \return
+     */
     int getID();
+
+    /*!
+     * \brief controler
+     * \param event
+     */
     void controler(sf::Event event);
 };
 

@@ -14,7 +14,6 @@ public:
     ~Laser();
     void render(sf::RenderTarget& target);
     void animuj(const sf::Time &elapsed);
-    void move();
 };
 
 #endif // LASER_H
