@@ -42,6 +42,7 @@ public:
     bool isLaser;
     SingleFrame getState();
     int getID();
+    void controler(sf::Event event);
 };
 
 

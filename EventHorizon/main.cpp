@@ -69,8 +69,6 @@ int main() {
     sf::Texture texture_second_spaceship;
     if(!texture_second_spaceship.loadFromFile("Spaceship1.png")) { std::cout<<"error"; }
     Spaceship_new opponent(texture_second_spaceship, window);
-
-    
 //    std::cout<<space.getOrigin().x<<"  "<<space.getOrigin().y<<std::endl;
 //    std::cout<<space.getPosition().x<<"  "<<space.getPosition().y<<std::endl;
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -161,27 +159,28 @@ int main() {
 
             //CONTROLLER
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            if (event.type == sf::Event::KeyPressed) {
-                if (event.key.code == sf::Keyboard::Left) {
-                    space.select_forward();
-                }
-            }
-
-            if (event.type == sf::Event::KeyPressed) {
-                if (event.key.code == sf::Keyboard::Right) {
-                    space.select_backward();
-                }
-            }
-            if (event.type == sf::Event::KeyReleased) {
-                if (event.key.code == sf::Keyboard::Left) {
-                    space.unselect_forward();
-                }
-            }
-            if (event.type == sf::Event::KeyReleased) {
-                if (event.key.code == sf::Keyboard::Right) {
-                    space.unselect_backward();
-                }
-            }
+            space.controler(event);
+//            if (event.type == sf::Event::KeyPressed) {
+//                if (event.key.code == sf::Keyboard::Left) {
+//                    space.select_forward();
+//                }
+//            }
+//
+//            if (event.type == sf::Event::KeyPressed) {
+//                if (event.key.code == sf::Keyboard::Right) {
+//                    space.select_backward();
+//                }
+//            }
+//            if (event.type == sf::Event::KeyReleased) {
+//                if (event.key.code == sf::Keyboard::Left) {
+//                    space.unselect_forward();
+//                }
+//            }
+//            if (event.type == sf::Event::KeyReleased) {
+//                if (event.key.code == sf::Keyboard::Right) {
+//                    space.unselect_backward();
+//                }
+//            }
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         }
@@ -306,12 +305,36 @@ int main() {
 //                        if (response.client_ID == 1mys ) {
                             std::cout<<"zmiana rotacji essa"<<std::endl;
                             opponent.setRotation(response.rotation);
+                        if (response.is_laser)
+                        {
+                            std::cout<<"LASER PRZECIWNIKA *****"<<std::endl;
+                            std::cout<<"************************"<<std::endl;
+                        opponent.LASERS.push_back(new Laser(opponent.getGlobalBounds().left+space.getGlobalBounds().width/2, opponent.getGlobalBounds().top+opponent.getGlobalBounds().width/2, opponent.getRotation()));
+                            
+                            
+                    }
+                        
+                        
                         
 //                        }
         //                }
         //                else
         //                {std::cout<<"pominięto dane drugiego klienta"<<std::endl;}
                     }
+        for (unsigned int i = 0; i < opponent.LASERS.size(); i++)
+        {
+            opponent.LASERS[i]->render(window); //tworzenie lasera
+            opponent.LASERS[i]->move(); //animacja lasera
+
+            //laser poza oknem
+            if (opponent.LASERS[i]->Sprite.getPosition().x > window.getSize().x ||
+                    opponent.LASERS[i]->Sprite.getPosition().y > window.getSize().y)
+            {
+                delete *(opponent.LASERS.begin()+i);
+                opponent.LASERS.erase(space.LASERS.begin() + i);
+                break;
+            }
+        }
         window.display();
     }
     /////////////////////////////////////////////////////////

@@ -119,3 +119,27 @@ int Spaceship_new::getID()
     return this->ID;
 }
 
+void Spaceship_new::controler(sf::Event event)
+{
+    if (event.type == sf::Event::KeyPressed) {
+        if (event.key.code == sf::Keyboard::Left) {
+            this->select_forward();
+        }
+    }
+
+    if (event.type == sf::Event::KeyPressed) {
+        if (event.key.code == sf::Keyboard::Right) {
+            this->select_backward();
+        }
+    }
+    if (event.type == sf::Event::KeyReleased) {
+        if (event.key.code == sf::Keyboard::Left) {
+            this->unselect_forward();
+        }
+    }
+    if (event.type == sf::Event::KeyReleased) {
+        if (event.key.code == sf::Keyboard::Right) {
+            this->unselect_backward();
+        }
+    }
+}

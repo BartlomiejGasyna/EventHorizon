@@ -41,7 +41,8 @@ public:
     int getPoints(); //pobieranie punktacji gracza
     bool isLaser;
     SingleFrame getState();
-    int getID(); 
+    int getID();
+    void controler(sf::Event event);
 };
 
 
