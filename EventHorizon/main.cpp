@@ -53,18 +53,6 @@ int main() {
     sf::Socket::Status status = socket.connect("127.0.0.1", 2000); if(status == sf::Socket::Done)
     {
         std::cout<<"nawiazano polaczenie";
-
-        //send/receive data
-        socket.receive(&data, 100, received);
-        //
-        for (int i =0; i!=100; i++) {
-            //                    while (data[i]) {
-            //                        std::cout<<data[i];
-            //                    }
-            std::cout<<data[i];
-
-        }
-        //socket.disconnect();
     }
     else
         std::cout<<"cos sie spierdolilo";
@@ -287,7 +275,7 @@ int main() {
 
 
 //        wysył danych
-                SingleFrame request,response;
+        SingleFrame request,response;
                 request = space.getState();
                 //brakuje vectora predkosci asteroid
                 //request.asteroids_speed = space. (asteroidy, predkosc vector<pair<int, int>>)
@@ -305,22 +293,8 @@ int main() {
                 space.isLaser = false;
         
         // odbior
-        
-//        sf::TcpListener listener;
-//        listener.listen(2000);
-//        listener.accept(socket);
-//        socket.receive(response_packet);
-        
-                    if(socket.receive(response_packet) == sf::Socket::Status::Done)
+             if(socket.receive(response_packet) == sf::Socket::Status::Done)
                     {
-                        
-//                        if (command == "connected") {
-//                            std::string id;
-//                            sf::Vector2f pos;
-//                            packet >> id >> pos.x >> pos.y;
-//                            this->player = new Player(id, pos, this->audio);
-//                            std::cout << "succesfully connected\n";
-//                        }
                         response_packet >> response.rotation >> response.points >> response.is_laser >> response.client_ID;
 //                        response_packet << response;
         //                if (response.client_ID != space.getID()) {
@@ -332,6 +306,7 @@ int main() {
 //                        if (response.client_ID == 1mys ) {
                             std::cout<<"zmiana rotacji essa"<<std::endl;
                             opponent.setRotation(response.rotation);
+                        
 //                        }
         //                }
         //                else

@@ -20,12 +20,12 @@
 #include <string>
 #include <iostream>
 
+
 struct SingleFrame
 {
     float rotation;
     bool is_laser;
     int points;
-//    char client_id;
     int client_ID;
     // to trzeba bedzie dodac
     //std::vector<std::pair<int, int>>asteroids_speed;
@@ -53,11 +53,6 @@ int main(int, char const**)
     socket.connect("127.0.0.1", 2000);
     sf::IpAddress ip = sf::IpAddress::getLocalAddress();
     
-   // listener.setBlocking(false);
-    std::string text = "\njestem na serwerze";
-    socket.send(&text, text.size());
-//    socket.disconnect();
-    
     
     sf::TcpListener listener;
     listener.listen(2000);
@@ -66,25 +61,18 @@ int main(int, char const**)
         std::cout<<"serwer nawiązał połączenie"<<std::endl;
     }
     
-//    socket.disconnect();
+
     for(;;)
     {
-        sf::Packet packet, response;
-        SingleFrame client, temp_response;
-//        std::cout<<elapsed.asMicroseconds()<<std::endl;
-        listener.accept(socket);
+
         
-        //socket.receive(&client1, sizeof(client1), received);
+        sf::Packet packet, response;
+        SingleFrame client, temp_response, Frame_client1, Frame_client2;
+
+        listener.accept(socket);
+
         if (socket.receive(packet) == sf::Socket::Status::Done) {
             std::cout<<"udalo sie odebrac strukture"<<std::endl;
-//            if (client1.client_ID == 1)
-//            {
-//                std::cout<<"Gracz 1: "<<std::endl;
-//            }
-//            else if (client1.client_ID == 2)
-//            {
-//                std::cout<<"Gracz 2: "<<std::endl;
-//            }
             if (packet >> client ) {
                 std::cout<<"rotacja: "<<client.rotation<<std::endl;
                 std::cout<< "punkty: "<<client.points<<std::endl;
@@ -96,7 +84,24 @@ int main(int, char const**)
                 temp_response.points = client.points;
                 temp_response.is_laser = client.is_laser;
                 temp_response.client_ID = client.client_ID;
-                response << temp_response;
+                if (client.client_ID == 1) {
+                    Frame_client1 = temp_response;
+                    response << Frame_client2;
+                    if(socket.send(response) == sf::Socket::Done)
+                    {
+                        std::cout<<"przesłano dane gracza nr: "<< client.client_ID<<std::endl<<std::endl;
+                    }
+                }
+                else if (client.client_ID == 2)
+                {
+                    Frame_client2 = temp_response;
+                    response << Frame_client1;
+                    if(socket.send(response) == sf::Socket::Done)
+                    {
+                        std::cout<<"przesłano dane gracza nr: "<< client.client_ID<<std::endl<<std::endl;
+                    }
+                }
+                
             }
             
         
@@ -104,10 +109,10 @@ int main(int, char const**)
             std::cout<<"BŁĄD!"<<std::endl;
             //response = packet;
             
-        if(socket.send(response) == sf::Socket::Done)
-        {
-            std::cout<<"przesłano dane gracza nr: "<< client.client_ID<<std::endl<<std::endl;
-        }
+//        if(socket.send(response) == sf::Socket::Done)
+//        {
+//            std::cout<<"przesłano dane gracza nr: "<< client.client_ID<<std::endl<<std::endl;
+//        }
             
 //        sf::sleep(sf::milliseconds(10));
     }
