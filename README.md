@@ -87,6 +87,13 @@ W trybie rzeczywistym gracze widzą wzajemnie swoje statki oraz ich położenie 
 1. Statkiem poruszamy lewą oraz prawą strzałką odpowiednio zgodnie z ruchem wskazówek zegara oraz przeciwnie,
 2. Aby zniszczyś asteroidy strzelamy lewym przyciskiem myszy.
 
+## Mechanika:
+- gracz ma trzy życia,
+- za każdorazowe wlecenie statkiem na asteroide gracz traci jedno życie,
+- gdy gracz straci trzy życia przegrywa,
+- gracz dostaje jeden punkt za każde trafienie asteroidy,
+- zebranie bonusu w postaci gwiazdki to dodatkowe dziesięć punktów,
+
 ## Wideo prezentujące działanie projektu: 
 https://www.youtube.com/watch?v=5oRpJkVI2Qs&feature=youtu.be&fbclid=IwAR3WHzFLmJMRYo2swAmkN7rsKRBhnwa11QAQpJF0Oo27iuv7Jfs7AoG-GMo
 
