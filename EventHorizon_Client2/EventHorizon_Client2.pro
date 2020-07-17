@@ -6,12 +6,12 @@ CONFIG -= qt
 INCLUDEPATH += "C:/SFML-2.5.1/include"
 
 SOURCES += \
-        abstract.cpp \
-        asteroid1.cpp \
-        background.cpp \
-        bonus.cpp \
-        laser.cpp \
-        main.cpp \
+        ../EventHorizon_Client1/abstract.cpp \
+        ../EventHorizon_Client1/asteroid1.cpp \
+        ../EventHorizon_Client1/background.cpp \
+        ../EventHorizon_Client1/bonus.cpp \
+        ../EventHorizon_Client1/laser.cpp \
+        ../EventHorizon_Client1/main.cpp \
         spaceship_new.cpp
 
 LIBS += -L"C:/SFML-2.5.1/lib"
@@ -23,9 +23,9 @@ CONFIG(debug, debug|release){
 }
 
 HEADERS += \
-    abstract.h \
-    asteroid1.h \
-    background.h \
-    bonus.h \
-    laser.h \
+    ../EventHorizon_Client1/abstract.h \
+    ../EventHorizon_Client1/asteroid1.h \
+    ../EventHorizon_Client1/background.h \
+    ../EventHorizon_Client1/bonus.h \
+    ../EventHorizon_Client1/laser.h \
     spaceship_new.hpp
