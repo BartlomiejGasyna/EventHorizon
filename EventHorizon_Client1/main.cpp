@@ -43,7 +43,6 @@ int main() {
     //SPACESHIP
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
     sf::Texture texture_spaceship;
     if(!texture_spaceship.loadFromFile("Spaceship2.png")) { std::cout<<"error"; }
     Spaceship_new space(texture_spaceship, window);
@@ -54,11 +53,15 @@ int main() {
 //    std::cout<<space.getOrigin().x<<"  "<<space.getOrigin().y<<std::endl;
 //    std::cout<<space.getPosition().x<<"  "<<space.getPosition().y<<std::endl;
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///FONT
+
+    //FONT
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     sf::Font font;
     if (!font.loadFromFile("Linebeam.ttf")) {
         std::cout<<"Error while loading font"<<std::endl;
     }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     //ASTEROIDS
@@ -100,7 +103,7 @@ int main() {
 
     //BONUSES
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    std::vector<Abstract*> BONUSES;
+
     for (unsigned int i = 0; i < 3; i++)
     {
         OBJECTS.push_back(new Bonus());
@@ -134,19 +137,10 @@ int main() {
             if (event.type == sf::Event::Closed)
                 window.close();
 
-            if (event.type == sf::Event::MouseButtonPressed) {
-                if (event.mouseButton.button == sf::Mouse::Left && space.getThreshold() >= 250 )
-                {
-                    space.LASERS.push_back(new Laser(space.getGlobalBounds().left+space.getGlobalBounds().width/8, space.getGlobalBounds().top+space.getGlobalBounds().height/8, space.getRotation()));
-                    space.updateThreshold(0);
-                    space.isLaser = true;
-
-                }
-            }
-
             //CONTROLLER
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             space.controler(event);
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         }
         //LOGIC

@@ -15,6 +15,7 @@ private:
     //int HP;
 public:
     Asteroid1(sf::Texture * texture, int life);
+    ~Asteroid1();
     void render(sf::RenderTarget& target);
     void animuj(const sf::Time &elapsed);
     void out_of_screen(sf::Vector2u size);

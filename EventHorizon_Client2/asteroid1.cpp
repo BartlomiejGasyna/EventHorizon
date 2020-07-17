@@ -9,6 +9,11 @@ Asteroid1::Asteroid1(sf::Texture *texture, int life)
     this->HP_ = life;
 }
 
+Asteroid1::~Asteroid1()
+{
+
+}
+
 void Asteroid1::render(sf::RenderTarget &target)
 {
     target.draw(this->Sprite);

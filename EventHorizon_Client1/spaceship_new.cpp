@@ -134,6 +134,16 @@ int Spaceship_new::getID()
 
 void Spaceship_new::controler(sf::Event event)
 {
+    if (event.type == sf::Event::MouseButtonPressed) {
+        if (event.mouseButton.button == sf::Mouse::Left && getThreshold() >= 250 )
+        {
+            LASERS.push_back(new Laser(getGlobalBounds().left+getGlobalBounds().width/8, getGlobalBounds().top+getGlobalBounds().height/8, getRotation()));
+            updateThreshold(0);
+            isLaser = true;
+
+        }
+    }
+
     if (event.type == sf::Event::KeyPressed) {
         if (event.key.code == sf::Keyboard::Left) {
             this->select_forward();
