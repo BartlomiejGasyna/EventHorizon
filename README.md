@@ -88,13 +88,13 @@ W trybie rzeczywistym gracze widzą wzajemnie swoje statki oraz ich położenie 
 1. Statkiem poruszamy lewą oraz prawą strzałką odpowiednio zgodnie z ruchem wskazówek zegara oraz przeciwnie,
 2. Aby zniszczyś asteroidy strzelamy lewym przyciskiem myszy.
 
-## Podział odpowiedzialności:
-Bartłomiej Gasyna:
+# Podział odpowiedzialności:
+## Bartłomiej Gasyna:
 -
 -
 -
 
-Paweł Gawron:
+## Paweł Gawron:
 -
 -
 -
