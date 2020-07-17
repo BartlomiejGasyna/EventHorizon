@@ -78,16 +78,34 @@ W trybie rzeczywistym gracze widzą wzajemnie swoje statki oraz ich położenie 
 
 >Podczas gry widoczne statki obydwu graczy między którymi istnieje możliwość kolizji jak i zestrzelenie siebie nawzajem w przypadku gdy jeden z graczy znajduje się na okręgu bliższym centrum. 
 
-## Instrukcja obsługi:
+# Instrukcja obsługi:
 
+## Odpalenie gry w trybie dwuosobowym:
+1. Uruchomienie programów EventHorizon_Client1 oraz EventHorizon_Client2 w dowolnej kolejności,
+2. Uruchomienie programu EventHorizon_Serwer.
 
-## Podział odpowiedzialności:
-Bartłomiej Gasyna:
--
--
+## Klawiszologia:
+1. Statkiem poruszamy lewą oraz prawą strzałką odpowiednio zgodnie z ruchem wskazówek zegara oraz przeciwnie,
+2. Aby zniszczyś asteroidy strzelamy lewym przyciskiem myszy.
+
+# Podział odpowiedzialności:
+## Bartłomiej Gasyna:
+- tryb sieciowy,
+- ruch obiektów,
 -
 
-Paweł Gawron:
--
--
--
+## Paweł Gawron:
+- interakcje między obiektami,
+- dokumentacja doxygen,
+- kontroler
+
+# Źródła tekstur:
+- backgroundbase.png - https://pl.pinterest.com/pin/400750066824198708/
+- backgroundbase2.png - 
+- bonus.png - https://pl.pinterest.com/pin/692921092646381596/
+- large_asteroid.png - http://pixelartmaker.com/art/6dab6ecf5720fdf
+- medium_asteroid.png - http://pixelartmaker.com/art/b02b88d8461a4fb
+- small_asteroid.png - https://opengameart.org/content/a-layered-asteroid-rock
+- laser.png - http://pixelartmaker.com/art/c15aa99396c3429
+- Spaceship1.png - Bartłomiej Gasyna
+- Spaceship2.png - Bartłomiej Gasyna
