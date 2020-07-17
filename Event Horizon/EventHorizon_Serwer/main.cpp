@@ -34,7 +34,7 @@ sf::Packet& operator << (sf::Packet& packet, SingleFrame &frame)
     socket.connect("127.0.0.1", 2000);
     sf::TcpListener listener;
     if (listener.listen(2000) == sf::Socket::Done) {
-    std::cout<<"serwer nawiązał połączenie"<<std::endl;
+    std::cout<<"serwer nawiazal polaczenie"<<std::endl;
     }
     
     
@@ -62,11 +62,11 @@ sf::Packet& operator << (sf::Packet& packet, SingleFrame &frame)
                 response << Frame_client2;
                 if(socket.send(response) == sf::Socket::Done)
                 {
-                    std::cout<<"przesłano dane gracza nr: "<< client.client_ID<<std::endl<<std::endl<<std::endl;
+                    std::cout<<"przeslano dane gracza nr: "<< client.client_ID<<std::endl<<std::endl<<std::endl;
                 }
                 else
                 {
-                    std::cout<<"błąd w przysle danych gracza : "<< client.client_ID<<std::endl<<std::endl<<std::endl;
+                    std::cout<<"blad w przysle danych gracza : "<< client.client_ID<<std::endl<<std::endl<<std::endl;
                 }
                 if(client.HP <=0 )
     {
@@ -80,7 +80,7 @@ sf::Packet& operator << (sf::Packet& packet, SingleFrame &frame)
             response << Frame_client1;
             if(socket.send(response) == sf::Socket::Done)
             {
-            std::cout<<"przesłano dane gracza nr: "<< client.client_ID<<std::endl<<std::endl;
+            std::cout<<"przeslano dane gracza nr: "<< client.client_ID<<std::endl<<std::endl;
     if(client.HP <=0 )
     {
     std::cout << "Player 1 has won!"<<std::endl;
@@ -90,7 +90,7 @@ sf::Packet& operator << (sf::Packet& packet, SingleFrame &frame)
         
     }
     else
-    std::cout<<"BŁĄD!"<<std::endl;
+    std::cout<<"BLAD!"<<std::endl;
     }
     }
     
