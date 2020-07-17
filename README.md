@@ -79,7 +79,13 @@ W trybie rzeczywistym gracze widzą wzajemnie swoje statki oraz ich położenie 
 >Podczas gry widoczne statki obydwu graczy między którymi istnieje możliwość kolizji jak i zestrzelenie siebie nawzajem w przypadku gdy jeden z graczy znajduje się na okręgu bliższym centrum. 
 
 ## Instrukcja obsługi:
+#Odpalenie gry w trybie dwuosobowym:
+1. Uruchomienie programów EventHorizon_Client1 oraz EventHorizon_Client2 w dowolnej kolejności,
+2. Uruchomienie programu EventHorizon_Serwer.
 
+#Klawiszologia:
+1. Statkiem poruszamy lewą oraz prawą strzałką odpowiednio zgodnie z ruchem wskazówek zegara oraz przeciwnie,
+2. Aby zniszczyś asteroidy strzelamy lewym przyciskiem myszy.
 
 ## Podział odpowiedzialności:
 Bartłomiej Gasyna:
