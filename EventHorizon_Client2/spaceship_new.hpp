@@ -22,7 +22,7 @@ private:
     int HP_;
     
     SingleFrame state;
-    int ID = 1;
+    int ID = 2;
     
     float time;
     sf::Time elapsed;
