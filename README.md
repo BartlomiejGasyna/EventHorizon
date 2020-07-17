@@ -90,6 +90,7 @@ W trybie rzeczywistym gracze widzą wzajemnie swoje statki oraz ich położenie 
 
 # Podział odpowiedzialności:
 ## Bartłomiej Gasyna:
+- tworzenie i handling statków
 - tryb sieciowy,
 - ruch obiektów,
 - grafiki, animacje,
