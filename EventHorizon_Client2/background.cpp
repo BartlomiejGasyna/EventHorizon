@@ -4,10 +4,10 @@ Background::Background(float x, float y, sf::RenderWindow &window)
 {
 
 
-    if(!background1_texture_.loadFromFile("background base.png")) { std::cout<<"error";
+    if(!background1_texture_.loadFromFile("../Resources/background base.png")) { std::cout<<"error";
     }
 
-    if(!background2_texture_.loadFromFile("background base2.png")) { std::cout<<"error";
+    if(!background2_texture_.loadFromFile("../Resources/background base2.png")) { std::cout<<"error";
     }
 
     background1_texture_.setRepeated(true);

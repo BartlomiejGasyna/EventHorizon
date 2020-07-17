@@ -12,7 +12,6 @@ private:
     int velocity_y_;
     int asteroid_ID_;
     int object_ID_ = 1;
-    //int HP;
 public:
     Asteroid1(sf::Texture * texture, int life);
     ~Asteroid1();
