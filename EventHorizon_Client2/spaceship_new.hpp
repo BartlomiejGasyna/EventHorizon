@@ -20,10 +20,10 @@ private:
     bool is_clicked_backward = false;
     int points;
     int HP_;
-
+    
     SingleFrame state;
-    int ID = 2;
-
+    int ID = 1;
+    
     float time;
     sf::Time elapsed;
     sf::Clock clock;
@@ -77,7 +77,6 @@ public:
      */
     void reduceHP(int damage);
 
-
     /*!
      * \brief isLaser
      */
@@ -100,7 +99,7 @@ public:
      * \param event
      */
     void controler(sf::Event event);
-
+    
     /*!
      * \brief showPoints
      * \param font

@@ -15,6 +15,7 @@ struct SingleFrame
     bool is_laser;
     int points;
     int client_ID;
+    int HP;
     
 };
 

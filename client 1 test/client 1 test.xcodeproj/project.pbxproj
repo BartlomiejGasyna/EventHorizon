@@ -7,16 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4CCFAD8124C1E90B0074A593 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CCFAD8024C1E90A0074A593 /* main.cpp */; };
+		4CCFAE4524C1F8300074A593 /* abstract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CCFAE3924C1F8300074A593 /* abstract.cpp */; };
+		4CCFAE4624C1F8300074A593 /* spaceship_new.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CCFAE3A24C1F8300074A593 /* spaceship_new.cpp */; };
+		4CCFAE4724C1F8300074A593 /* EventHorizon_Client1.pro in Resources */ = {isa = PBXBuildFile; fileRef = 4CCFAE3C24C1F8300074A593 /* EventHorizon_Client1.pro */; };
+		4CCFAE4824C1F8300074A593 /* bonus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CCFAE3D24C1F8300074A593 /* bonus.cpp */; };
+		4CCFAE4924C1F8300074A593 /* background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CCFAE3E24C1F8300074A593 /* background.cpp */; };
+		4CCFAE4A24C1F8300074A593 /* asteroid1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CCFAE3F24C1F8300074A593 /* asteroid1.cpp */; };
+		4CCFAE4B24C1F8300074A593 /* laser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CCFAE4024C1F8300074A593 /* laser.cpp */; };
+		4CCFAE4C24C1F8300074A593 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CCFAE4224C1F8300074A593 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4C2724FC24B39FBE002AA293 /* Serwer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Serwer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CCFAD8024C1E90A0074A593 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../EventHorizon_Serwer/main.cpp; sourceTree = "<group>"; };
+		4CCFAE1F24C1F81F0074A593 /* client 1 test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "client 1 test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CCFAE3724C1F8300074A593 /* abstract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = abstract.h; path = ../../EventHorizon_Client1/abstract.h; sourceTree = "<group>"; };
+		4CCFAE3824C1F8300074A593 /* background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = background.h; path = ../../EventHorizon_Client1/background.h; sourceTree = "<group>"; };
+		4CCFAE3924C1F8300074A593 /* abstract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = abstract.cpp; path = ../../EventHorizon_Client1/abstract.cpp; sourceTree = "<group>"; };
+		4CCFAE3A24C1F8300074A593 /* spaceship_new.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = spaceship_new.cpp; path = ../../EventHorizon_Client1/spaceship_new.cpp; sourceTree = "<group>"; };
+		4CCFAE3B24C1F8300074A593 /* spaceship_new.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = spaceship_new.hpp; path = ../../EventHorizon_Client1/spaceship_new.hpp; sourceTree = "<group>"; };
+		4CCFAE3C24C1F8300074A593 /* EventHorizon_Client1.pro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = EventHorizon_Client1.pro; path = ../../EventHorizon_Client1/EventHorizon_Client1.pro; sourceTree = "<group>"; };
+		4CCFAE3D24C1F8300074A593 /* bonus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bonus.cpp; path = ../../EventHorizon_Client1/bonus.cpp; sourceTree = "<group>"; };
+		4CCFAE3E24C1F8300074A593 /* background.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = background.cpp; path = ../../EventHorizon_Client1/background.cpp; sourceTree = "<group>"; };
+		4CCFAE3F24C1F8300074A593 /* asteroid1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = asteroid1.cpp; path = ../../EventHorizon_Client1/asteroid1.cpp; sourceTree = "<group>"; };
+		4CCFAE4024C1F8300074A593 /* laser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = laser.cpp; path = ../../EventHorizon_Client1/laser.cpp; sourceTree = "<group>"; };
+		4CCFAE4124C1F8300074A593 /* bonus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bonus.h; path = ../../EventHorizon_Client1/bonus.h; sourceTree = "<group>"; };
+		4CCFAE4224C1F8300074A593 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../EventHorizon_Client1/main.cpp; sourceTree = "<group>"; };
+		4CCFAE4324C1F8300074A593 /* laser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = laser.h; path = ../../EventHorizon_Client1/laser.h; sourceTree = "<group>"; };
+		4CCFAE4424C1F8300074A593 /* asteroid1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = asteroid1.h; path = ../../EventHorizon_Client1/asteroid1.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4C2724F824B39FBE002AA293 /* Frameworks */ = {
+		4CCFAE1B24C1F81F0074A593 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -26,66 +46,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4C2724F224B39FBE002AA293 = {
+		4CCFAE1524C1F81F0074A593 = {
 			isa = PBXGroup;
 			children = (
-				4C2724FE24B39FBE002AA293 /* Serwer */,
-				4C2724FD24B39FBE002AA293 /* Products */,
+				4CCFAE2124C1F81F0074A593 /* client 1 test */,
+				4CCFAE2024C1F81F0074A593 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		4C2724FD24B39FBE002AA293 /* Products */ = {
+		4CCFAE2024C1F81F0074A593 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4C2724FC24B39FBE002AA293 /* Serwer.app */,
+				4CCFAE1F24C1F81F0074A593 /* client 1 test.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4C2724FE24B39FBE002AA293 /* Serwer */ = {
+		4CCFAE2124C1F81F0074A593 /* client 1 test */ = {
 			isa = PBXGroup;
 			children = (
-				4CCFAD8024C1E90A0074A593 /* main.cpp */,
+				4CCFAE3924C1F8300074A593 /* abstract.cpp */,
+				4CCFAE3724C1F8300074A593 /* abstract.h */,
+				4CCFAE3F24C1F8300074A593 /* asteroid1.cpp */,
+				4CCFAE4424C1F8300074A593 /* asteroid1.h */,
+				4CCFAE3E24C1F8300074A593 /* background.cpp */,
+				4CCFAE3824C1F8300074A593 /* background.h */,
+				4CCFAE3D24C1F8300074A593 /* bonus.cpp */,
+				4CCFAE4124C1F8300074A593 /* bonus.h */,
+				4CCFAE3C24C1F8300074A593 /* EventHorizon_Client1.pro */,
+				4CCFAE4024C1F8300074A593 /* laser.cpp */,
+				4CCFAE4324C1F8300074A593 /* laser.h */,
+				4CCFAE4224C1F8300074A593 /* main.cpp */,
+				4CCFAE3A24C1F8300074A593 /* spaceship_new.cpp */,
+				4CCFAE3B24C1F8300074A593 /* spaceship_new.hpp */,
 			);
-			path = Serwer;
+			path = "client 1 test";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4C2724FB24B39FBE002AA293 /* Serwer */ = {
+		4CCFAE1E24C1F81F0074A593 /* client 1 test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4C27251124B39FBE002AA293 /* Build configuration list for PBXNativeTarget "Serwer" */;
+			buildConfigurationList = 4CCFAE3424C1F81F0074A593 /* Build configuration list for PBXNativeTarget "client 1 test" */;
 			buildPhases = (
-				4C2724F724B39FBE002AA293 /* Sources */,
-				4C2724F824B39FBE002AA293 /* Frameworks */,
-				4C2724F924B39FBE002AA293 /* Resources */,
-				4C2724FA24B39FBE002AA293 /* ShellScript */,
+				4CCFAE1A24C1F81F0074A593 /* Sources */,
+				4CCFAE1B24C1F81F0074A593 /* Frameworks */,
+				4CCFAE1C24C1F81F0074A593 /* Resources */,
+				4CCFAE1D24C1F81F0074A593 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Serwer;
-			productName = Serwer;
-			productReference = 4C2724FC24B39FBE002AA293 /* Serwer.app */;
+			name = "client 1 test";
+			productName = "client 1 test";
+			productReference = 4CCFAE1F24C1F81F0074A593 /* client 1 test.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		4C2724F324B39FBE002AA293 /* Project object */ = {
+		4CCFAE1624C1F81F0074A593 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Bartłomiej Gasyna";
 				TargetAttributes = {
-					4C2724FB24B39FBE002AA293 = {
+					4CCFAE1E24C1F81F0074A593 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 4C2724F624B39FBE002AA293 /* Build configuration list for PBXProject "Serwer" */;
+			buildConfigurationList = 4CCFAE1924C1F81F0074A593 /* Build configuration list for PBXProject "client 1 test" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -93,28 +126,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 4C2724F224B39FBE002AA293;
-			productRefGroup = 4C2724FD24B39FBE002AA293 /* Products */;
+			mainGroup = 4CCFAE1524C1F81F0074A593;
+			productRefGroup = 4CCFAE2024C1F81F0074A593 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4C2724FB24B39FBE002AA293 /* Serwer */,
+				4CCFAE1E24C1F81F0074A593 /* client 1 test */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4C2724F924B39FBE002AA293 /* Resources */ = {
+		4CCFAE1C24C1F81F0074A593 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CCFAE4724C1F8300074A593 /* EventHorizon_Client1.pro in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4C2724FA24B39FBE002AA293 /* ShellScript */ = {
+		4CCFAE1D24C1F81F0074A593 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 8;
 			files = (
@@ -134,18 +168,24 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4C2724F724B39FBE002AA293 /* Sources */ = {
+		4CCFAE1A24C1F81F0074A593 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CCFAD8124C1E90B0074A593 /* main.cpp in Sources */,
+				4CCFAE4524C1F8300074A593 /* abstract.cpp in Sources */,
+				4CCFAE4624C1F8300074A593 /* spaceship_new.cpp in Sources */,
+				4CCFAE4824C1F8300074A593 /* bonus.cpp in Sources */,
+				4CCFAE4924C1F8300074A593 /* background.cpp in Sources */,
+				4CCFAE4C24C1F8300074A593 /* main.cpp in Sources */,
+				4CCFAE4A24C1F8300074A593 /* asteroid1.cpp in Sources */,
+				4CCFAE4B24C1F8300074A593 /* laser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		4C27250F24B39FBE002AA293 /* Debug */ = {
+		4CCFAE3224C1F81F0074A593 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
@@ -173,7 +213,7 @@
 					"$(SFML_AUDIO)",
 					"$(SFML_NETWORK)",
 				);
-				SFML_AUDIO = "$(SFML_LINK_PREFIX) sfml-audio$(SFML_LINK_SUFFIX)";
+				SFML_AUDIO = "";
 				SFML_BINARY_TYPE = FRAMEWORKS;
 				SFML_GRAPHICS = "$(SFML_LINK_PREFIX) sfml-graphics$(SFML_LINK_SUFFIX)";
 				SFML_LINK_DYLIBS_PREFIX = "-l";
@@ -189,7 +229,7 @@
 			};
 			name = Debug;
 		};
-		4C27251024B39FBE002AA293 /* Release */ = {
+		4CCFAE3324C1F81F0074A593 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
@@ -217,7 +257,7 @@
 					"$(SFML_AUDIO)",
 					"$(SFML_NETWORK)",
 				);
-				SFML_AUDIO = "$(SFML_LINK_PREFIX) sfml-audio$(SFML_LINK_SUFFIX)";
+				SFML_AUDIO = "";
 				SFML_BINARY_TYPE = FRAMEWORKS;
 				SFML_GRAPHICS = "$(SFML_LINK_PREFIX) sfml-graphics$(SFML_LINK_SUFFIX)";
 				SFML_LINK_DYLIBS_PREFIX = "-l";
@@ -233,21 +273,21 @@
 			};
 			name = Release;
 		};
-		4C27251224B39FBE002AA293 /* Debug */ = {
+		4CCFAE3524C1F81F0074A593 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Serwer/Serwer-Info.plist";
+				INFOPLIST_FILE = "client 1 test/client 1 test-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		4C27251324B39FBE002AA293 /* Release */ = {
+		4CCFAE3624C1F81F0074A593 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Serwer/Serwer-Info.plist";
+				INFOPLIST_FILE = "client 1 test/client 1 test-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -256,25 +296,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4C2724F624B39FBE002AA293 /* Build configuration list for PBXProject "Serwer" */ = {
+		4CCFAE1924C1F81F0074A593 /* Build configuration list for PBXProject "client 1 test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4C27250F24B39FBE002AA293 /* Debug */,
-				4C27251024B39FBE002AA293 /* Release */,
+				4CCFAE3224C1F81F0074A593 /* Debug */,
+				4CCFAE3324C1F81F0074A593 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4C27251124B39FBE002AA293 /* Build configuration list for PBXNativeTarget "Serwer" */ = {
+		4CCFAE3424C1F81F0074A593 /* Build configuration list for PBXNativeTarget "client 1 test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4C27251224B39FBE002AA293 /* Debug */,
-				4C27251324B39FBE002AA293 /* Release */,
+				4CCFAE3524C1F81F0074A593 /* Debug */,
+				4CCFAE3624C1F81F0074A593 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 4C2724F324B39FBE002AA293 /* Project object */;
+	rootObject = 4CCFAE1624C1F81F0074A593 /* Project object */;
 }

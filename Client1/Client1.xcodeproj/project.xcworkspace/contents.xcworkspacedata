@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:../../EventHorizon_Client1/abstract.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:../../EventHorizon_Client1/abstract.h">
+   </FileRef>
+   <FileRef
+      location = "group:../../EventHorizon_Client1/asteroid1.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:../../EventHorizon_Client1/asteroid1.h">
+   </FileRef>
+   <FileRef
+      location = "group:../../EventHorizon_Client1/background.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:../../EventHorizon_Client1/background.h">
+   </FileRef>
+   <FileRef
+      location = "group:../../EventHorizon_Client1/bonus.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:../../EventHorizon_Client1/bonus.h">
+   </FileRef>
+   <FileRef
+      location = "group:../../EventHorizon_Client1/laser.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:../../EventHorizon_Client1/laser.h">
+   </FileRef>
+   <FileRef
+      location = "group:../../EventHorizon_Client1/main.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:../../EventHorizon_Client1/spaceship_new.cpp">
+   </FileRef>
+   <FileRef
+      location = "group:../../EventHorizon_Client1/spaceship_new.hpp">
+   </FileRef>
+   <FileRef
+      location = "self:Client1.xcodeproj">
+   </FileRef>
+</Workspace>

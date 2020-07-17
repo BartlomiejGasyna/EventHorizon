@@ -6,17 +6,12 @@
 	objectVersion = 50;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		4CCFAD8124C1E90B0074A593 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CCFAD8024C1E90A0074A593 /* main.cpp */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
-		4C2724FC24B39FBE002AA293 /* Serwer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Serwer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CCFAD8024C1E90A0074A593 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../EventHorizon_Serwer/main.cpp; sourceTree = "<group>"; };
+		4CCFADB824C1F4370074A593 /* Client1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Client1.app; path = "/Users/bartlomiejgasyna/Documents/GitHub/SpaceShooters-GasynaGawron/Client1/build/Debug/Client1.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4C2724F824B39FBE002AA293 /* Frameworks */ = {
+		4CCFADB424C1F4370074A593 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -26,66 +21,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4C2724F224B39FBE002AA293 = {
+		4CCFADAE24C1F4370074A593 = {
 			isa = PBXGroup;
 			children = (
-				4C2724FE24B39FBE002AA293 /* Serwer */,
-				4C2724FD24B39FBE002AA293 /* Products */,
+				4CCFADBA24C1F4370074A593 /* Client1 */,
 			);
 			sourceTree = "<group>";
 		};
-		4C2724FD24B39FBE002AA293 /* Products */ = {
+		4CCFADBA24C1F4370074A593 /* Client1 */ = {
 			isa = PBXGroup;
 			children = (
-				4C2724FC24B39FBE002AA293 /* Serwer.app */,
 			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		4C2724FE24B39FBE002AA293 /* Serwer */ = {
-			isa = PBXGroup;
-			children = (
-				4CCFAD8024C1E90A0074A593 /* main.cpp */,
-			);
-			path = Serwer;
+			path = Client1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4C2724FB24B39FBE002AA293 /* Serwer */ = {
+		4CCFADB724C1F4370074A593 /* Client1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4C27251124B39FBE002AA293 /* Build configuration list for PBXNativeTarget "Serwer" */;
+			buildConfigurationList = 4CCFADCD24C1F4370074A593 /* Build configuration list for PBXNativeTarget "Client1" */;
 			buildPhases = (
-				4C2724F724B39FBE002AA293 /* Sources */,
-				4C2724F824B39FBE002AA293 /* Frameworks */,
-				4C2724F924B39FBE002AA293 /* Resources */,
-				4C2724FA24B39FBE002AA293 /* ShellScript */,
+				4CCFADB324C1F4370074A593 /* Sources */,
+				4CCFADB424C1F4370074A593 /* Frameworks */,
+				4CCFADB524C1F4370074A593 /* Resources */,
+				4CCFADB624C1F4370074A593 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Serwer;
-			productName = Serwer;
-			productReference = 4C2724FC24B39FBE002AA293 /* Serwer.app */;
+			name = Client1;
+			productName = Client1;
+			productReference = 4CCFADB824C1F4370074A593 /* Client1.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		4C2724F324B39FBE002AA293 /* Project object */ = {
+		4CCFADAF24C1F4370074A593 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Bartłomiej Gasyna";
 				TargetAttributes = {
-					4C2724FB24B39FBE002AA293 = {
+					4CCFADB724C1F4370074A593 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 4C2724F624B39FBE002AA293 /* Build configuration list for PBXProject "Serwer" */;
+			buildConfigurationList = 4CCFADB224C1F4370074A593 /* Build configuration list for PBXProject "Client1" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -93,18 +78,18 @@
 				en,
 				Base,
 			);
-			mainGroup = 4C2724F224B39FBE002AA293;
-			productRefGroup = 4C2724FD24B39FBE002AA293 /* Products */;
+			mainGroup = 4CCFADAE24C1F4370074A593;
+			productRefGroup = 4CCFADAE24C1F4370074A593;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4C2724FB24B39FBE002AA293 /* Serwer */,
+				4CCFADB724C1F4370074A593 /* Client1 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4C2724F924B39FBE002AA293 /* Resources */ = {
+		4CCFADB524C1F4370074A593 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -114,7 +99,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4C2724FA24B39FBE002AA293 /* ShellScript */ = {
+		4CCFADB624C1F4370074A593 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 8;
 			files = (
@@ -134,18 +119,17 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4C2724F724B39FBE002AA293 /* Sources */ = {
+		4CCFADB324C1F4370074A593 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CCFAD8124C1E90B0074A593 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		4C27250F24B39FBE002AA293 /* Debug */ = {
+		4CCFADCB24C1F4370074A593 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
@@ -173,7 +157,7 @@
 					"$(SFML_AUDIO)",
 					"$(SFML_NETWORK)",
 				);
-				SFML_AUDIO = "$(SFML_LINK_PREFIX) sfml-audio$(SFML_LINK_SUFFIX)";
+				SFML_AUDIO = "";
 				SFML_BINARY_TYPE = FRAMEWORKS;
 				SFML_GRAPHICS = "$(SFML_LINK_PREFIX) sfml-graphics$(SFML_LINK_SUFFIX)";
 				SFML_LINK_DYLIBS_PREFIX = "-l";
@@ -189,7 +173,7 @@
 			};
 			name = Debug;
 		};
-		4C27251024B39FBE002AA293 /* Release */ = {
+		4CCFADCC24C1F4370074A593 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
@@ -217,7 +201,7 @@
 					"$(SFML_AUDIO)",
 					"$(SFML_NETWORK)",
 				);
-				SFML_AUDIO = "$(SFML_LINK_PREFIX) sfml-audio$(SFML_LINK_SUFFIX)";
+				SFML_AUDIO = "";
 				SFML_BINARY_TYPE = FRAMEWORKS;
 				SFML_GRAPHICS = "$(SFML_LINK_PREFIX) sfml-graphics$(SFML_LINK_SUFFIX)";
 				SFML_LINK_DYLIBS_PREFIX = "-l";
@@ -233,21 +217,21 @@
 			};
 			name = Release;
 		};
-		4C27251224B39FBE002AA293 /* Debug */ = {
+		4CCFADCE24C1F4370074A593 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Serwer/Serwer-Info.plist";
+				INFOPLIST_FILE = "Client1/Client1-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		4C27251324B39FBE002AA293 /* Release */ = {
+		4CCFADCF24C1F4370074A593 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Serwer/Serwer-Info.plist";
+				INFOPLIST_FILE = "Client1/Client1-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -256,25 +240,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4C2724F624B39FBE002AA293 /* Build configuration list for PBXProject "Serwer" */ = {
+		4CCFADB224C1F4370074A593 /* Build configuration list for PBXProject "Client1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4C27250F24B39FBE002AA293 /* Debug */,
-				4C27251024B39FBE002AA293 /* Release */,
+				4CCFADCB24C1F4370074A593 /* Debug */,
+				4CCFADCC24C1F4370074A593 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4C27251124B39FBE002AA293 /* Build configuration list for PBXNativeTarget "Serwer" */ = {
+		4CCFADCD24C1F4370074A593 /* Build configuration list for PBXNativeTarget "Client1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4C27251224B39FBE002AA293 /* Debug */,
-				4C27251324B39FBE002AA293 /* Release */,
+				4CCFADCE24C1F4370074A593 /* Debug */,
+				4CCFADCF24C1F4370074A593 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 4C2724F324B39FBE002AA293 /* Project object */;
+	rootObject = 4CCFADAF24C1F4370074A593 /* Project object */;
 }

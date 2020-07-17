@@ -10,12 +10,12 @@ SingleFrame last_response;
 
 sf::Packet& operator << (sf::Packet& packet, const SingleFrame &frame)
 {
-    return packet << frame.rotation << frame.is_laser << frame.points <<frame.client_ID;
+    return packet << frame.rotation << frame.is_laser << frame.points <<frame.client_ID << frame.HP;
 }
 
 sf::Packet operator >> (sf::Packet packet, SingleFrame frame)
 {
-    return packet >> frame.rotation >> frame.is_laser >> frame.points >>frame.client_ID;
+    return packet >> frame.rotation >> frame.is_laser >> frame.points >>frame.client_ID >> frame.HP;
 }
 
 
@@ -223,7 +223,8 @@ int main() {
 
         if(space.getHP() <= 0)
         {
-            window.close();
+            std::cout<<"You lost!"<<std::endl;
+//            window.close();
         }
 
 
@@ -246,7 +247,7 @@ int main() {
         // odbior danych
              if(socket.receive(response_packet) == sf::Socket::Status::Done)
                     {
-                        response_packet >> response.rotation >> response.is_laser >>response.points >>  response.client_ID;
+                        response_packet >> response.rotation >> response.is_laser >>response.points >>  response.client_ID >> response.HP;
 //                        response_packet << response;
         //                if (response.client_ID != space.getID()) {
                         std::cout<<"Odebrane dane: "<<std::endl;
@@ -254,6 +255,7 @@ int main() {
                             std::cout<< "punkty: "<<response.points<<std::endl;
                             std::cout<<"czy laser: " <<response.is_laser<<std::endl;
                             std::cout<<"ID: " <<response.client_ID <<std::endl;
+                            std::cout<<"HP: " <<response.HP <<std::endl;
                             std::cout<<std::endl<<std::endl;
                     }
         opponent.setRotation(response.rotation);
@@ -262,4 +264,3 @@ int main() {
     /////////////////////////////////////////////////////////
     return 0;
 }
-
