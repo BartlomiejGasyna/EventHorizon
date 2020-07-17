@@ -80,8 +80,9 @@ W trybie rzeczywistym gracze widzą wzajemnie swoje statki oraz ich położenie 
 
 # Instrukcja obsługi:
 ## Odpalenie gry w trybie dwuosobowym:
-1. Uruchomienie programów EventHorizon_Client1 oraz EventHorizon_Client2 w dowolnej kolejności,
-2. Uruchomienie programu EventHorizon_Serwer.
+1. Wszystkie programy znajdują się w folderze Event Horizon,
+2. Uruchomienie programów EventHorizon_Client1 oraz EventHorizon_Client2 w dowolnej kolejności,
+3. Uruchomienie programu EventHorizon_Serwer.
 
 ## Klawiszologia:
 1. Statkiem poruszamy lewą oraz prawą strzałką odpowiednio zgodnie z ruchem wskazówek zegara oraz przeciwnie,
@@ -92,7 +93,7 @@ W trybie rzeczywistym gracze widzą wzajemnie swoje statki oraz ich położenie 
 - za każdorazowe wlecenie statkiem na asteroide gracz traci jedno życie,
 - gdy gracz straci trzy życia przegrywa,
 - gracz dostaje jeden punkt za każde trafienie asteroidy,
-- zebranie bonusu w postaci gwiazdki to dodatkowe dziesięć punktów,
+- zebranie bonusu w postaci gwiazdki to dodatkowe dziesięć punktów.
 
 ## Wideo prezentujące działanie projektu: 
 https://www.youtube.com/watch?v=5oRpJkVI2Qs&feature=youtu.be&fbclid=IwAR3WHzFLmJMRYo2swAmkN7rsKRBhnwa11QAQpJF0Oo27iuv7Jfs7AoG-GMo
