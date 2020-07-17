@@ -2,7 +2,7 @@
 
 Laser::Laser(int pos_x_, int pos_y_, float rotation)
 {
-    if(!laser_texture_.loadFromFile("laser.png")) { std::cout<<"error"; }
+    if(!laser_texture_.loadFromFile("../Resources/laser.png")) { std::cout<<"error"; }
 
     this->Sprite.setTexture(laser_texture_);
     this->Sprite.setScale(0.25f, 0.25f);

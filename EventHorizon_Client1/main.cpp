@@ -35,20 +35,20 @@ int main() {
 
     sf::Socket::Status status = socket.connect("127.0.0.1", 2000); if(status == sf::Socket::Done)
     {
-        std::cout<<"nawiazano polaczenie";
+        std::cout<<"SERWER CONNECTION";
     }
     else
-        std::cout<<"cos sie spierdolilo";
+        std::cout<<"NO SERWER CONNECTION";
 
     //SPACESHIP
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     sf::Texture texture_spaceship;
-    if(!texture_spaceship.loadFromFile("Spaceship2.png")) { std::cout<<"error"; }
+    if(!texture_spaceship.loadFromFile("../Resources/Spaceship2.png")) { std::cout<<"error"; }
     Spaceship_new space(texture_spaceship, window);
 
     sf::Texture texture_second_spaceship;
-    if(!texture_second_spaceship.loadFromFile("Spaceship1.png")) { std::cout<<"error"; }
+    if(!texture_second_spaceship.loadFromFile("../Resources/Spaceship1.png")) { std::cout<<"error"; }
     Spaceship_new opponent(texture_second_spaceship, window);
 //    std::cout<<space.getOrigin().x<<"  "<<space.getOrigin().y<<std::endl;
 //    std::cout<<space.getPosition().x<<"  "<<space.getPosition().y<<std::endl;
@@ -58,7 +58,7 @@ int main() {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     sf::Font font;
-    if (!font.loadFromFile("Linebeam.ttf")) {
+    if (!font.loadFromFile("../Resources/Linebeam.ttf")) {
         std::cout<<"Error while loading font"<<std::endl;
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -71,9 +71,9 @@ int main() {
     sf::Texture texture_asteroid_medium;
     sf::Texture texture_asteroid_small;
 
-    if(!texture_asteroid_small.loadFromFile("small_asteroid.png")) { std::cout<<"error"; }
-    if(!texture_asteroid_medium.loadFromFile("medium_asteroid.png")) { std::cout<<"error"; }
-    if(!texture_asteroid_large.loadFromFile("large_asteroid.png")) { std::cout<<"error"; }
+    if(!texture_asteroid_small.loadFromFile("../Resources/small_asteroid.png")) { std::cout<<"error"; }
+    if(!texture_asteroid_medium.loadFromFile("../Resources/medium_asteroid.png")) { std::cout<<"error"; }
+    if(!texture_asteroid_large.loadFromFile("../Resources/large_asteroid.png")) { std::cout<<"error"; }
 
     for (int i = 0; i < 10; i++)
     {
@@ -126,7 +126,7 @@ int main() {
         SingleFrame request,response;
 
         // check all the window's events that were triggered since the last iteration of the loop
-       // window.setFramerateLimit(60);
+
         //EVENTS
         sf::Event event;
 

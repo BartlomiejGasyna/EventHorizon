@@ -11,9 +11,7 @@
 
 Spaceship_new::Spaceship_new(sf::Texture &texture, sf::RenderTarget &target)
 {
-    //    alpha = 10;
-    //    r = 10;
-    //state.ID = 1;
+
     this->points = 0;
     this->HP_ = 3;
     this->setTexture(texture);
