@@ -92,16 +92,19 @@ W trybie rzeczywistym gracze widzą wzajemnie swoje statki oraz ich położenie 
 ## Bartłomiej Gasyna:
 - tryb sieciowy,
 - ruch obiektów,
--
+- grafiki, animacje,
+- refaktoryzacja
 
 ## Paweł Gawron:
+- tworzenie i handling asteroid, laserów oraz bonusów
 - interakcje między obiektami,
 - dokumentacja doxygen,
 - kontroler
+- refaktoryzacja
 
 # Źródła tekstur:
 - backgroundbase.png - https://pl.pinterest.com/pin/400750066824198708/
-- backgroundbase2.png - 
+- backgroundbase2.png - https://pl.pinterest.com/pin/400750066824198708/
 - bonus.png - https://pl.pinterest.com/pin/692921092646381596/
 - large_asteroid.png - http://pixelartmaker.com/art/6dab6ecf5720fdf
 - medium_asteroid.png - http://pixelartmaker.com/art/b02b88d8461a4fb
