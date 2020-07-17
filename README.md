@@ -90,11 +90,22 @@ W trybie rzeczywistym gracze widzą wzajemnie swoje statki oraz ich położenie 
 
 # Podział odpowiedzialności:
 ## Bartłomiej Gasyna:
--
--
+- tryb sieciowy,
+- ruch obiektów,
 -
 
 ## Paweł Gawron:
--
--
--
+- interakcje między obiektami,
+- dokumentacja doxygen,
+- kontroler
+
+# Źródła tekstur:
+- backgroundbase.png - https://pl.pinterest.com/pin/400750066824198708/
+- backgroundbase2.png - 
+- bonus.png - https://pl.pinterest.com/pin/692921092646381596/
+- large_asteroid.png - http://pixelartmaker.com/art/6dab6ecf5720fdf
+- medium_asteroid.png - http://pixelartmaker.com/art/b02b88d8461a4fb
+- small_asteroid.png - https://opengameart.org/content/a-layered-asteroid-rock
+- laser.png - http://pixelartmaker.com/art/c15aa99396c3429
+- Spaceship1.png - Bartłomiej Gasyna
+- Spaceship2.png - Bartłomiej Gasyna
