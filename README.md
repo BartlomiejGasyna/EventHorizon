@@ -57,11 +57,11 @@ złapanie “bonusu” graficznie reprezentowanego jako prezent skutkuje dodanie
 
 >Spaceship 1
 
-![](https://github.com/BartlomiejGasyna/EventHorizon/tree/master/Event%20Horizon/Resources/Spaceship1.png)
+![](https://github.com/BartlomiejGasyna/EventHorizon/blob/master/Event%20Horizon/Resources/Spaceship1.png)
 
 >Spaceship 2
 
-![](https://github.com/BartlomiejGasyna/EventHorizon/tree/master/Event%20Horizon/Resources/Spaceship2.png)
+![](https://github.com/BartlomiejGasyna/EventHorizon/blob/master/Event%20Horizon/Resources/Spaceship2.png)
 * poruszanie się po rzędach okręgów strzałki góra/dół
 
 * ruchy prawo/lewo na każdym z okręgów ( pełne 360 stopni, całkowita swoboda)
@@ -79,7 +79,6 @@ W trybie rzeczywistym gracze widzą wzajemnie swoje statki oraz ich położenie 
 >Podczas gry widoczne statki obydwu graczy między którymi istnieje możliwość kolizji jak i zestrzelenie siebie nawzajem w przypadku gdy jeden z graczy znajduje się na okręgu bliższym centrum. 
 
 # Instrukcja obsługi:
-
 ## Odpalenie gry w trybie dwuosobowym:
 1. Uruchomienie programów EventHorizon_Client1 oraz EventHorizon_Client2 w dowolnej kolejności,
 2. Uruchomienie programu EventHorizon_Serwer.
@@ -87,6 +86,8 @@ W trybie rzeczywistym gracze widzą wzajemnie swoje statki oraz ich położenie 
 ## Klawiszologia:
 1. Statkiem poruszamy lewą oraz prawą strzałką odpowiednio zgodnie z ruchem wskazówek zegara oraz przeciwnie,
 2. Aby zniszczyś asteroidy strzelamy lewym przyciskiem myszy.
+
+## Wideo prezentujące działanie projektu: https://www.youtube.com/watch?v=5oRpJkVI2Qs&feature=youtu.be&fbclid=IwAR3WHzFLmJMRYo2swAmkN7rsKRBhnwa11QAQpJF0Oo27iuv7Jfs7AoG-GMo
 
 # Podział odpowiedzialności:
 ## Bartłomiej Gasyna:
